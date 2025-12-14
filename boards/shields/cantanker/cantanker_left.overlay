@@ -1,70 +1,51 @@
 #include "cantanker.dtsi"
 
-// Define helper macros for SuperMini extra pins
+// Helper macros for SuperMini / Nice!Nano extra pins
 #define P101 &gpio1 1
 #define P102 &gpio1 2
 #define P107 &gpio1 7
 
-&kscan0 {
-    col-gpios
-        = <&pro_micro 21 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 20 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 19 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 18 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 15 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 14 GPIO_ACTIVE_HIGH>
-        ;
-    
-    row-gpios
-        = <&pro_micro 1 GPIO_ACTIVE_HIGH> 
-        , <&pro_micro 0 GPIO_ACTIVE_HIGH> 
-        , <&pro_micro 2 GPIO_ACTIVE_HIGH> 
-        , <&pro_micro 3 GPIO_ACTIVE_HIGH> 
-        , <&pro_micro 4 GPIO_ACTIVE_HIGH> 
-        , <&pro_micro 9 GPIO_ACTIVE_HIGH>
-        ;
-};
-
-&left_encoder {
-    status = "okay";
-    // Pin A: D6 (P1.00) -> &pro_micro 6 is correct
-    a-gpios = <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-    // Pin B: Extra Pin (P1.01) -> &gpio1 1 is correct
-    b-gpios = <&gpio1 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-};
-
-// ---------------------------------------------------------
-// DISPLAY CONFIGURATION
-// ---------------------------------------------------------
-
-// 1. Enable the SPI bus
-&pro_micro_spi {
-    status = "okay";
-    // Point to our custom pin routing defined below
-    pinctrl-0 = <&spi0_default>;
-    pinctrl-1 = <&spi0_sleep>;
-    // Chip Select (CS) is on D0 (P0.08)
-    cs-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>; 
-};
-
-// 2. Remap the SPI pins to match your Ergogen Layout
-// SCK  was moved to D16 (P0.10)
-// MOSI was moved to D10 (P0.09)
-&pinctrl {
-    spi0_default: spi0_default {
-        group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 10)>,  // Port 0, Pin 10
-                    <NRF_PSEL(SPIM_MOSI, 0, 9)>,  // Port 0, Pin 9
-                    <NRF_PSEL(SPIM_MISO, 0, 25)>; // Unused, set to dummy
-        };
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix_transform = &default_transform;
     };
 
-    spi0_sleep: spi0_sleep {
-        group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 10)>,
-                    <NRF_PSEL(SPIM_MOSI, 0, 9)>,
-                    <NRF_PSEL(SPIM_MISO, 0, 25)>;
-            low-power-enable;
-        };
+    default_transform: keymap_transform_0 {
+        compatible = "zmk,matrix-transform";
+        columns = <7>;
+        rows = <5>;
+
+        map = <
+            RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5)
+            RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5)
+            RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)
+            RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)
+                                    RC(4,2) RC(4,3) RC(4,4) RC(4,5)
+        >;
+    };
+
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        label = "KSCAN";
+        diode-direction = "col2row";
+
+        col-gpios
+            = <&pro_micro 21 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 20 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 19 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 18 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 15 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 14 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 9  GPIO_ACTIVE_HIGH>
+            ;
+
+        row-gpios
+            = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
     };
 };
