@@ -1,11 +1,14 @@
+file_format: "1"
 id: cantanker
 name: Cantanker
 type: shield
-url: https://github.com/yourusername/cantanker-shield # Placeholder, please update
-images:
-  - https://user-images.githubusercontent.com/yourusername/cantanker-shield/image.jpg # Placeholder, please update
+url: https://github.com/your-username/your-repo # Please update this URL
+requires: [nice_nano]
+exposes: [i2c_oled]
 features:
   - keys
+  - display
   - encoder
 siblings:
+  - cantanker_left
   - cantanker_right

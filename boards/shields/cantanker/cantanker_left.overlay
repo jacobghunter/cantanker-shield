@@ -1,31 +1,46 @@
-#include "my_board.dtsi"
+#include "cantanker.dtsi"
 
 &kscan0 {
     col-gpios
-        = <&gpio0 21 GPIO_ACTIVE_HIGH> // P21 (Outer)
-        , <&gpio0 20 GPIO_ACTIVE_HIGH> // P20 (Pinky)
-        , <&gpio0 19 GPIO_ACTIVE_HIGH> // P19 (Ring)
-        , <&gpio0 18 GPIO_ACTIVE_HIGH> // P18 (Middle)
-        , <&gpio0 15 GPIO_ACTIVE_HIGH> // P15 (Index)
-        , <&gpio0 14 GPIO_ACTIVE_HIGH> // P14 (Inner)
-        , <&gpio0 9  GPIO_ACTIVE_HIGH> // P9  (Thumb)
+        = <&gpio0 21 GPIO_ACTIVE_HIGH>
+        , <&gpio0 20 GPIO_ACTIVE_HIGH>
+        , <&gpio0 19 GPIO_ACTIVE_HIGH>
+        , <&gpio0 18 GPIO_ACTIVE_HIGH>
+        , <&gpio0 15 GPIO_ACTIVE_HIGH>
+        , <&gpio0 14 GPIO_ACTIVE_HIGH>
+        , <&gpio0 9 GPIO_ACTIVE_HIGH>
         ;
-    
     row-gpios
-        = <&gpio0 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // P1 (Num)
-        , <&gpio0 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // P0 (Top)
-        , <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // P2 (Home)
-        , <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // P3 (Bottom)
-        , <&gpio0 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // P4 (Thumb Row)
+        = <&gpio0 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio0 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         ;
 };
 
 &left_encoder {
     status = "okay";
-    a-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // P6
-    b-gpios = <&gpio1 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // P101
+    a-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    b-gpios = <&gpio1 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 };
 
-&nice_view_spi {
-    cs-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>; // P8
+&i2c0 {
+    status = "okay";
+
+    oled: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
+        reg = <0x3c>;
+        width = <128>;
+        height = <32>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <31>;
+        segment-remap;
+        com-invdir;
+        com-sequential;
+        inversion-on;
+        prechargep = <0x22>;
+    };
 };

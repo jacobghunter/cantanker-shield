@@ -1,3 +1,6 @@
+# Copyright (c) 2020 Ryan Cross
+# SPDX-License-Identifier: MIT
+
 config SHIELD_CANTANKER_LEFT
     def_bool $(shields_list_contains,cantanker_left)
 
