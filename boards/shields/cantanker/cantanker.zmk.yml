@@ -3,7 +3,7 @@ id: cantanker
 name: Cantanker
 type: shield
 url: https://github.com/your-username/your-repo # Please update this URL
-requires: [nrf52840dk_nrf52840]
+requires: [nice_nano_v2]
 exposes: [i2c_oled]
 features:
   - keys
