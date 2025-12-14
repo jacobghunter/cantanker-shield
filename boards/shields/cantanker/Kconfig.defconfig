@@ -1,17 +1,14 @@
-if SHIELD_CANTANKER_LEFT
+if SHIELD_CANTANKER_LEFT || SHIELD_CANTANKER_RIGHT
 
 # Name must be less than 16 characters long!
-config ZMK_CANTANKER
+config ZMK_KEYBOARD_NAME
     default "Cantanker"
-
-config ZMK_SPLIT_ROLE_CENTRAL
-    default y
-
-endif
-
-if SHIELD_CANTANKER_LEFT || SHIELD_CANTANKER_RIGHT
 
 config ZMK_SPLIT
     default y
+
+# For the left side to be the central side.
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y if SHIELD_CANTANKER_LEFT
 
 endif

@@ -1,0 +1,11 @@
+id: cantanker
+name: Cantanker
+type: shield
+url: https://github.com/yourusername/cantanker-shield # Placeholder, please update
+images:
+  - https://user-images.githubusercontent.com/yourusername/cantanker-shield/image.jpg # Placeholder, please update
+features:
+  - keys
+  - encoder
+siblings:
+  - cantanker_right
