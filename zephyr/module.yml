@@ -1,4 +1,4 @@
+name: cantanker-shield
 build:
   settings:
     board_root: .
-    name: zmk-keyboard-cantanker
