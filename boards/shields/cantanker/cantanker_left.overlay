@@ -1,0 +1,70 @@
+#include "cantanker.dtsi"
+
+// Define helper macros for SuperMini extra pins
+#define P101 &gpio1 1
+#define P102 &gpio1 2
+#define P107 &gpio1 7
+
+&kscan0 {
+    col-gpios
+        = <&pro_micro 21 GPIO_ACTIVE_HIGH>
+        , <&pro_micro 20 GPIO_ACTIVE_HIGH>
+        , <&pro_micro 19 GPIO_ACTIVE_HIGH>
+        , <&pro_micro 18 GPIO_ACTIVE_HIGH>
+        , <&pro_micro 15 GPIO_ACTIVE_HIGH>
+        , <&pro_micro 14 GPIO_ACTIVE_HIGH>
+        ;
+    
+    row-gpios
+        = <&pro_micro 1 GPIO_ACTIVE_HIGH> 
+        , <&pro_micro 0 GPIO_ACTIVE_HIGH> 
+        , <&pro_micro 2 GPIO_ACTIVE_HIGH> 
+        , <&pro_micro 3 GPIO_ACTIVE_HIGH> 
+        , <&pro_micro 4 GPIO_ACTIVE_HIGH> 
+        , <&pro_micro 9 GPIO_ACTIVE_HIGH>
+        ;
+};
+
+&left_encoder {
+    status = "okay";
+    // Pin A: D6 (P1.00) -> &pro_micro 6 is correct
+    a-gpios = <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    // Pin B: Extra Pin (P1.01) -> &gpio1 1 is correct
+    b-gpios = <&gpio1 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+};
+
+// ---------------------------------------------------------
+// DISPLAY CONFIGURATION
+// ---------------------------------------------------------
+
+// 1. Enable the SPI bus
+&pro_micro_spi {
+    status = "okay";
+    // Point to our custom pin routing defined below
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    // Chip Select (CS) is on D0 (P0.08)
+    cs-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>; 
+};
+
+// 2. Remap the SPI pins to match your Ergogen Layout
+// SCK  was moved to D16 (P0.10)
+// MOSI was moved to D10 (P0.09)
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 10)>,  // Port 0, Pin 10
+                    <NRF_PSEL(SPIM_MOSI, 0, 9)>,  // Port 0, Pin 9
+                    <NRF_PSEL(SPIM_MISO, 0, 25)>; // Unused, set to dummy
+        };
+    };
+
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 10)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 9)>,
+                    <NRF_PSEL(SPIM_MISO, 0, 25)>;
+            low-power-enable;
+        };
+    };
+};

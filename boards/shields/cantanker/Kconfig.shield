@@ -1,0 +1,5 @@
+config SHIELD_CANTANKER_LEFT
+    def_bool $(shields_list_contains,cantanker_left)
+
+config SHIELD_CANTANKER_RIGHT
+    def_bool $(shields_list_contains,cantanker_right)

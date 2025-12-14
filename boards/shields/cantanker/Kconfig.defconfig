@@ -1,0 +1,17 @@
+if SHIELD_CANTANKER_LEFT
+
+# Name must be less than 16 characters long!
+config ZMK_CANTANKER
+    default "Cantanker"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_CANTANKER_LEFT || SHIELD_CANTANKER_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
