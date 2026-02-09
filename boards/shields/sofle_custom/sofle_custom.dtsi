@@ -53,6 +53,12 @@ RC(4,13) RC(4,12) RC(4,9) RC(4,8) RC(4,7)
         sensors = <&left_encoder &right_encoder>;
         triggers-per-rotation = <20>;
     };
+
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        wakeup-source;
+        diode-direction = "col2row";
+    };
 };
 
 &pro_micro_spi {
