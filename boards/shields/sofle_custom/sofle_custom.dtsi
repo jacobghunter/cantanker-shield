@@ -60,16 +60,3 @@ RC(4,13) RC(4,12) RC(4,9) RC(4,8) RC(4,7)
         diode-direction = "col2row";
     };
 };
-
-&pro_micro_spi {
-    status = "okay";
-    cs-gpios = <&pro_micro 8 GPIO_ACTIVE_HIGH>;
-
-    nice_view: ls0xx@0 {
-        compatible = "sharp,ls0xx";
-        spi-max-frequency = <1000000>;
-        reg = <0>;
-        width = <160>;
-        height = <68>;
-    };
-};

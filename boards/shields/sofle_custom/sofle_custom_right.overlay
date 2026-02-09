@@ -11,10 +11,6 @@
 };
 
 &kscan0 {
-    compatible = "zmk,kscan-gpio-matrix";
-    wakeup-source;
-    diode-direction = "col2row";
-
     row-gpios
         = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         , <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
@@ -40,7 +36,6 @@
     b-gpios = <&gpio1 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 };
 
-// Disable display on right side
-&nice_view {
+&pro_micro_spi {
     status = "disabled";
 };
