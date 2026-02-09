@@ -1,0 +1,616 @@
+# This is a split wireless corne-like keyboard with an Azoteq TPS43 mounted on the right
+
+units:
+  kx: cx
+  ky: cy
+  px: kx + 4
+  py: ky + 4
+points:
+  mirror: &mirror
+    ref: matrix_inner_num
+    distance: 6kx
+  zones:
+    matrix:
+      anchor: {shift: [40, -150]}
+      key:
+        padding: 1ky
+        spread: 1kx + 0.5
+        draw:
+          - what: rectangle
+            size: 18
+            fillet: 3
+      columns:
+        outer:
+          rows.num.asym: source
+          key:
+            column_net: col_outer
+            tags: [switch]
+        pinky:
+          key:
+            stagger: 6
+            splay: -5
+            column_net: col_pinky
+            tags: [switch]
+        ring:
+          key:
+            splay: -3
+            stagger: 7
+            column_net: col_ring
+            tags: [switch]
+        middle:
+          key:
+            stagger: 2.5
+            column_net: col_middle
+            tags: [switch]
+        index: 
+          key:
+            stagger: -2.5
+            column_net: col_index
+            tags: [switch] 
+        inner:
+          key:
+            stagger: -2.5
+            column_net: col_inner
+            tags: [switch] 
+      rows:
+        bottom.row_net: row_bottom
+        home.row_net: row_home
+        top.row_net: row_top
+        num.row_net: row_num
+    
+    thumbs:
+      key:
+        padding: 1ky
+        spread: 1kx
+      columns:
+        layer:
+          key:
+            splay: -35
+            shift: [0.35kx, -0.5ky]
+            column_net: col_inner
+            tags: [switch]
+        space:
+          key:
+            width: 1.5kx
+            splay: 65
+            shift: [-0.2kx,-0.9ky]
+            column_net: col_thumb
+            tags: [switch, key_1.5u]
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [2, -2 + -kx]
+      rows:
+        cluster: 
+          row_net: row_thumb
+
+    matrix_middle_mod_key:
+      anchor:
+        ref: matrix_middle_bottom
+        shift: [-0.02kx, -1.16ky]
+      key:
+        rotate: -5
+        shift: [0, 0]
+        column_net: col_middle
+        row_net: row_thumb
+        tags: [switch]
+
+    matrix_index_mod_key:
+      anchor:
+        ref: matrix_index_bottom
+        shift: [0.1kx, -1.2kx]
+      key:
+        rotate: -20
+        shift: [0, -0.5]
+        column_net: col_index
+        row_net: row_thumb
+        tags: [switch]
+        
+    right_encoder:
+      anchor: {ref: matrix_outer_num}
+      key:
+        asym: clone
+        padding: 1ky
+        spread: 1kx
+        footprint: Rotary
+        shift: [0, 0.1kx]
+        nets: {a: encoder_a, b: encoder_b, from: encoder_from, to: GND}
+        tags: [encoder] 
+
+    left_encoder:
+      anchor: {ref: matrix_inner_bottom}
+      key:
+        asym: source
+        shift: [20, 5]
+        padding: 1ky
+        spread: 1kx
+        footprint: Rotary
+        nets: {a: encoder_a, b: encoder_b, from: encoder_from, to: GND}
+        tags: [encoder]
+
+    mcu:
+      anchor: {ref: matrix_inner_num, shift: [20, 0]}
+      key:
+        shift: [0, -4]
+        footprint: nice!nano_v2
+        tags: [mcu]
+        nets:
+          RAW: RAW
+          GND: GND
+          VCC: VCC
+    
+    display:
+      key:
+        asym: source
+        tags: [oled]
+        height: 36
+        width: 14
+        nets: {gnd: GND, vcc: VCC, mosi: display_mosi, sck: display_sck, cs: display_cs}
+      anchor:
+        - ref: mcu
+          shift: [0,-3.5]
+
+    left_power_sw:
+      anchor: {ref: mcu, shift: [9, -68]}
+      key:
+        asym: source
+        footprint: Power_Switch_MSK12C02
+        tags: [power_l] 
+        nets: {from: BAT_P, to: RAW}
+    
+    right_power_sw:
+      anchor: {ref: mcu, shift: [9, -68]}
+      key:
+        asym: clone
+        rotate: 180
+        footprint: Power_Switch_MSK12C02
+        tags: [power_r] 
+        nets: {from: BAT_P, to: RAW}
+    
+    reset_button:
+      anchor:
+        ref: matrix_inner_num
+      key:
+        footprint: reset_switch
+        tags: [reset_button]
+        shift: [0.35kx, 0.625ky]
+        rotate: 0
+        nets: {from: RST, to: GND}
+
+    # Going to use the Azoteq TPS43 with the kit from https://holykeebs.com/products/touchpad-module
+    trackpad_socket:
+      anchor: {ref: matrix_inner_bottom, shift: [20, 6]}
+      key:
+        asym: clone
+        footprint: nice!nano_v2
+        nets: {vcc: VCC, gnd: GND, sda: touchpad_sda, scl: touchpad_scl, rdy: touchpad_rdy}
+        tags: [trackpad]
+
+    battery_connector_under:
+      anchor:
+        - ref: mcu
+          shift: [0, 10]
+      key: 
+        tags: [jst]
+        nets: {pos: BAT_P, neg: GND}
+
+    battery_connector_lower:
+      anchor:
+        - ref: thumbs_layer_cluster
+          shift: [5, 15]
+          rotate: 180
+      key: 
+        tags: [jst]
+        nets: {pos: BAT_P, neg: GND}
+
+    mounting_hole_top_left:
+      anchor: 
+        ref: matrix_pinky_num
+      key:
+        tags: [hole]
+        shift: [-0.6kx, -0.5ky]
+    
+    mounting_hole_bottom_left:
+      anchor: 
+        ref: matrix_ring_bottom
+      key:
+        tags: [hole]
+        shift: [0kx, -0.75ky]
+
+    mounting_hole_top_right:
+      anchor: 
+        ref: mcu
+      key:
+        tags: [hole]
+        shift: [-0.525kx, -1.25ky]
+
+    mounting_hole_bottom_right:
+      anchor: 
+        ref: matrix_inner_bottom
+      key:
+        tags: [hole]
+        shift: [0kx, -0.8ky]
+
+outlines:
+  switch_cutouts:
+    - what: rectangle
+      fillet: 2
+      where: "/switch/"
+      size: [13.8, 13.8] 
+
+  _key_cutouts:
+    - what: rectangle
+      fillet: 2
+      where: "/switch/"
+      size: [kx-0.5, ky-0.5]
+
+  _encoder_cutouts:
+    - what: circle
+      where: /encoder/
+      radius: 8
+
+  _trackpad_cutout:
+    - what: rectangle
+      where: /trackpad/
+      size: [43.2, 40.2]
+      fillet: 2
+      adjust:
+        shift: [12, -3]
+
+  _board:
+    - what: polygon
+      operation: stack
+      fillet: 4
+      points: 
+        - ref: matrix_outer_num
+          shift: [-0.5px,0.5py]
+        - ref: matrix_pinky_num
+          shift: [-0.5px,0.5py]
+        - ref: matrix_ring_num
+          shift: [-0.5px,0.5py]
+        - ref: matrix_middle_num
+          shift: [-0.5px,0.5py]
+        - ref: matrix_middle_num
+          shift: [0.5px,0.5py]
+        - ref: matrix_index_num
+          shift: [0.5px,0.5py]
+        - ref: mcu
+          shift: [-0.5px,0.8py]
+        - ref: mcu
+          shift: [0.5px,0.8py]
+        # - ref: left_power_sw
+        #   shift: [0.08px,0.2py]
+        - ref: thumbs_space_cluster
+          shift: [0.8px,0.5py]
+        - ref: thumbs_space_cluster
+          shift: [0.75px,-0.55py]
+        - ref: thumbs_space_cluster
+          shift: [-0.75px,-0.55py]
+        - ref: thumbs_layer_cluster
+          shift: [0, -0.5py]
+        - ref: matrix_index_mod_key
+          shift: [-0.5px,-0.55py]
+        - ref: matrix_ring_bottom
+          shift: [0,-1.2py]
+        - ref: matrix_outer_bottom
+          shift: [0.5px,-0.55py]
+        - ref: matrix_outer_bottom
+          shift: [-0.55px,-0.55py]
+    - what: polygon
+      operation: stack
+      fillet: 4
+      points: 
+        - ref: mirror_right_encoder
+          shift: [-0.5px,0.4py]
+        - ref: mirror_matrix_pinky_num
+          shift: [-0.5px,0.5py]
+        - ref: mirror_matrix_ring_num
+          shift: [-0.5px,0.5py]
+        - ref: mirror_matrix_middle_num
+          shift: [-0.5px,0.5py]
+        - ref: mirror_matrix_middle_num
+          shift: [0.5px,0.5py]
+        - ref: mirror_matrix_index_num
+          shift: [0.5px,0.5py]
+        - ref: mirror_mcu
+          shift: [-0.5px,0.8py]
+        - ref: mirror_mcu
+          shift: [0.5px,0.8py]
+        # - ref: mirror_right_power_sw
+        #   shift: [-0.08px,-0.2py]
+        - ref: mirror_thumbs_space_cluster
+          shift: [0.8px,0.5py]
+        - ref: mirror_thumbs_space_cluster
+          shift: [0.75px,-0.55py]
+        - ref: mirror_thumbs_space_cluster
+          shift: [-0.75px,-0.55py]
+        - ref: mirror_thumbs_layer_cluster
+          shift: [0, -0.5py]
+        - ref: mirror_matrix_index_mod_key
+          shift: [-0.5px,-0.55py]
+        - ref: mirror_matrix_ring_bottom
+          shift: [0,-1.2py]
+        - ref: mirror_matrix_outer_bottom
+          shift: [0.5px,-0.55py]
+        - ref: mirror_matrix_outer_bottom
+          shift: [-0.55px,-0.55py]
+
+  _mcu:
+    - what: rectangle
+      where: /mcu/
+      size: [17.78,33]
+      fillet: 1
+    - what: rectangle
+      where: /mcu/
+      size: [8.94,7.35]
+      fillet: 0.1
+      operation: stack
+      adjust:
+        shift: [0,33/2-7.35/2+0.7]
+
+  _display:
+    - what: rectangle
+      where: /display/
+      size: [14,36]
+      fillet: 0.5
+    - what: rectangle
+      where: /display/
+      size: [12.82,2.66]
+      operation: stack
+      fillet: 0.1
+      adjust:
+        shift: [0,-16.7]
+    - what: rectangle
+      where: /display/
+      size: [10.8,24.6]
+      operation: stack
+      adjust:
+        shift: [0,-0.75]
+  
+  _power_switch:
+    - what: rectangle
+      where: /power/
+      size: [2, 6]
+
+  _thumb_keys:
+    - what: rectangle
+      where: /key_1.5u/
+      size: [18*1.5,18]
+      fillet: 1.5
+      operation: stack
+
+  _mounting_holes:
+    - what: circle
+      where: /hole/
+      operation: stack
+      radius: 1.1
+
+  default:
+    - name: _board
+    - name: _key_cutouts
+      operation: subtract
+    - name: _encoder_cutouts
+      operation: subtract
+    - name: _trackpad_cutout
+      operation: add
+    - name: _trackpad_cutout
+      operation: subtract
+    - name: _mcu
+      operation: subtract
+    - name: _display
+      operation: stack
+    - name: _power_switch
+      operation: subtract
+    - name: _mounting_holes
+      operation: subtract
+    - name: _thumb_keys
+      operation: subtract
+    
+
+pcbs:
+  board:
+    template: kicad8
+    outlines: 
+      main.outline: _board
+    footprints:
+      mcu_left:
+        what: ceoloide/mcu_supermini_nrf52840
+        # Selects ONLY the left (source) MCU
+        where: [[/mcu/, -/^mirror_.*/]] 
+        params:
+          # Adds extra 3 pins
+          include_extra_pins: true
+          reverse_mount: true
+
+          # --- POWER ---
+          VCC: "{{nets.VCC}}"
+          GND: "{{nets.GND}}"
+          RAW: "{{nets.RAW}}"
+
+          # Main matrix columns (top/sides)
+          P21: "col_outer" # Outer
+          P20: "col_pinky" # Pinky
+          P19: "col_ring"  # Ring
+          P18: "col_middle"  # Middle (includes thumb key)
+          P15: "col_index" # Index (includes thumb key)
+          P14: "col_inner" # Inner (includes thumb key)
+
+          # --- ROWS (Mapped according to the board definition) ---
+          # Mapping the row connections to MCU pins based on your board layout
+          P1: "row_num"   # Num row
+          P0: "row_top"   # Top row
+          P2: "row_home"   # Home row
+          P3: "row_bottom"   # Bottom row
+          P4: "row_thumb"   # Thumb row
+          P9: "col_thumb"
+
+          # --- ENCODER PINS ---
+          P6: "encoder_a"
+          P101: "encoder_B"
+          P7: "encoder_from"
+
+          # --- DEVICES ---
+          P8: "display_cs"
+          P16: "display_sck"
+          P10: "display_mosi"
+
+          P102: ""
+          P5: ""
+
+      mcu_right:
+        what: ceoloide/mcu_supermini_nrf52840
+        # Selects ONLY the right (mirror) MCU
+        where: [[/mcu/, /^mirror_.*/]]
+        params:
+          # Adds extra 3 pins
+          include_extra_pins: true
+          reverse_mount: true
+
+          # --- POWER ---
+          VCC: "{{nets.VCC}}"
+          GND: "{{nets.GND}}"
+          RAW: "{{nets.RAW}}"
+
+          # Main matrix columns (top/sides)
+          P2: "col_outer"
+          P3: "col_pinky"
+          P4: "col_ring"
+          P5: "col_middle"
+          P6: "col_index"
+          P7: "col_inner"
+          P10: "col_thumb"
+
+          # --- ROWS (Mapped according to the board definition) ---
+          P21: "row_num"
+          P20: "row_top"
+          P19: "row_home"
+          P18: "row_bottom"
+          P15: "row_thumb"
+          
+
+          # --- ENCODER PINS ---
+          P1: "encoder_a"
+          P101: "encoder_b"
+          P0: "encoder_from"
+
+          # --- DEVICES ---
+          P14: "touchpad_sda"
+          P16: "touchpad_scl"
+          P102: "touchpad_rdy"
+
+          P9: ""
+          P8: ""
+
+      oled: 
+        what: ceoloide/display_nice_view
+        where: /oled/
+        params:
+          side: F
+          GND: "{{nets.gnd}}"
+          VCC: "{{nets.vcc}}"
+          MOSI: "{{nets.mosi}}"
+          SCK: "{{nets.sck}}"
+          CS: "{{nets.cs}}"
+       
+      power_switch_left:
+        what: ceoloide/power_switch_smd_side
+        where: /power_l/
+        params:
+          from: "{{nets.from}}"
+          to: "{{nets.to}}"
+      
+      power_switch_right:
+        what: ceoloide/power_switch_smd_side
+        where: /power_r/
+        params:
+          from: "{{nets.from}}"
+          to: "{{nets.to}}"
+
+      reset_buttons:
+        what: ceoloide/reset_switch_smd_side
+        where: /reset_button/
+        params:
+          from: "{{nets.from}}"
+          to: "{{nets.to}}"
+        
+      encoders:
+        what: ceoloide/rotary_encoder_ec11_ec12
+        where: /encoder/
+        params: 
+          A: "{{nets.a}}" 
+          B: "{{nets.b}}"
+          S1: "{{nets.from}}"
+          S2: "{{nets.to}}"
+
+      switches:
+        what: ceoloide/switch_choc_v1_v2
+        where: /switch/
+        params:
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+
+      diodes_left:
+        what: ceoloide/diode_tht_sod123
+        where: [[/switch/, -/^mirror_.*/]]
+        params:
+          side: 'B'
+          include_tht: true
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [2, -5]
+
+      diodes_right:
+        what: ceoloide/diode_tht_sod123
+        where: [[/switch/, /^mirror_.*/]]
+        params:
+          side: 'B'
+          include_tht: true
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [-2, -5]
+
+      trackpad:
+        what: ceoloide/mcu_supermini_nrf52840
+        where: /trackpad/
+        params:
+          reverse_mount: true
+          VCC: "{{nets.vcc}}"
+          GND: "{{nets.gnd}}"
+          P2: "{{nets.sda}}"
+          P3: "{{nets.scl}}"
+          P4: "{{nets.rdy}}"
+          # Unused pins — disable them
+          RAW: ""
+          RST: ""
+          P0: ""
+          P1: ""
+          P5: ""
+          P6: ""
+          P7: ""
+          P8: ""
+          P9: ""
+          P10: ""
+          P14: ""
+          P15: ""
+          P16: ""
+          P18: ""
+          P19: ""
+          P20: ""
+          P21: ""
+          P101: ""
+
+      battery_connectors:
+        what: ceoloide/battery_connector_jst_ph_2
+        where: /jst/
+        params:
+          side: "B"
+          BAT_P: "{{nets.pos}}"
+          BAT_N: "{{nets.neg}}"
+
+      standoffs:
+        what: ceoloide/mounting_hole_plated
+        where: /hole/
+        params:
+          drill: 2.2
