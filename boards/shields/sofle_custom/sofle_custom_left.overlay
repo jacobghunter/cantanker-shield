@@ -76,14 +76,3 @@
     };
 };
 */
-
-/ {
-    gpio_keys {
-        compatible = "gpio-keys";
-        encoder_click: encoder_click {
-            label = "ENCODER_CLICK";
-            gpios = <&pro_micro 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-            linux,code = <INPUT_KEY_1>; // Mapped in keymap via sensor-bindings or direct? No, direct.
-        };
-    };
-};
