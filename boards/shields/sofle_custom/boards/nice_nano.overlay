@@ -1,5 +1,13 @@
 #include <dt-bindings/led/led.h>
 
+/*
+ * Disable uart0 to prevent conflict with matrix Row 0 (P0.06).
+ * This also forces Zephyr to use the USB CDC ACM console for logging.
+ */
+&uart0 {
+    status = "disabled";
+};
+
 &pinctrl {
     spi3_default: spi3_default {
         group1 {
