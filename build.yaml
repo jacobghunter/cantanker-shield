@@ -1,11 +1,11 @@
 include:
   - board: nice_nano_v2
     shield: sofle_custom_left
-  - board: nice_nano_v2
-    shield: sofle_custom_right
+  # - board: nice_nano_v2
+  #   shield: sofle_custom_right
 
 artifacts:
   - name: sofle_left_config
     path: build/zephyr/nice_nano_v2-sofle_custom_left/.config
-  - name: sofle_right_config
-    path: build/zephyr/nice_nano_v2-sofle_custom_right/.config
+  # - name: sofle_right_config
+  #   path: build/zephyr/nice_nano_v2-sofle_custom_right/.config
