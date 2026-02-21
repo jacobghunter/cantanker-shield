@@ -9,6 +9,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/mouse.h>
 
 #define BASE 0
 #define LOWER 1
@@ -16,6 +17,8 @@
 #define ADJUST 3
 
 / {
+    // Override the behavior to make scroll faster if needed
+    // msc { acceleration-delay-ms = <0>; };
 
    // Activate ADJUST layer by pressing raise and lower
     conditional_layers {
@@ -45,7 +48,7 @@
                           &kp LALT &kp TAB  &kp TAB    &kp SPACE      &kp ENTER &kp BSPC  &kp RCTRL &kp RALT
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &msc SCRL_UP SCRL_DOWN>;
         };
 
         lower_layer {
