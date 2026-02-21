@@ -3,3 +3,6 @@ include:
     shield: sofle_custom_left
   - board: nice_nano_v2
     shield: sofle_custom_right
+
+artifacts:
+  - build/zephhr/.config
