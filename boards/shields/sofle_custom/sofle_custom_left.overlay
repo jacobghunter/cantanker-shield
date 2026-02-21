@@ -69,8 +69,10 @@
 };
 
 /* Tell ZMK to use this display */
+/*
 / {
     chosen {
         zephyr,display = &nice_view;
     };
 };
+*/
