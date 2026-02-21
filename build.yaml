@@ -5,4 +5,5 @@ include:
     shield: sofle_custom_right
 
 artifacts:
-  - build/zephhr/.config
+  - build/zephyr/nice_nano_v2-sofle_custom_left/.config
+  - build/zephyr/nice_nano_v2-sofle_custom_right/.config
