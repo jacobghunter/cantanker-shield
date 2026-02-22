@@ -39,16 +39,24 @@
 // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   | BKSPC |
 // |  SHIFT  |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
 // | CTRL |  Z  |  X  |  C   |  V   |  B   |  MUTE  |  |       |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-//               | ALT | SUPER  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
+//               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
             bindings = <
 &bootloader &kp N1 &kp N2   &kp N3   &kp N4    &kp N5                           &kp N6 &kp N7    &kp N8    &kp N9   &kp N0   &none
-&kp TAB   &kp Q  &kp W    &kp E    &kp R     &kp T                            &kp Y  &kp U     &kp I     &kp O    &kp P    &kp BSPC
-&kp LSHIFT   &kp A  &kp S    &kp D    &kp F     &kp G                            &kp H  &kp J     &kp K     &kp L    &kp SEMI &kp SQT
-&kp LSHFT &kp Z  &kp X    &kp C    &kp V     &kp B      &mkp MCLK      &mkp MCLK &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-                          &kp LCTRL &kp SPACE  &kp TAB    &mkp MCLK      &mkp MCLK &kp BSPC  &kp RCTRL &kp RALT
+&kp ESC   &kp Q  &kp W    &kp E    &kp R     &kp T                            &kp Y  &kp U     &kp I     &kp O    &kp P    &kp BSPC
+&kp TAB   &kp A  &kp S    &kp D    &kp F     &kp G                            &kp H  &kp J     &kp K     &kp L    &kp SEMI &kp SQT
+&kp LSHFT &kp Z  &kp X    &kp C    &kp V     &kp B                              &kp N  &kp M     &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
+                          &kp LCTRL &kp SPACE  &kp TAB    &kp ESC      &kp RALT  &kp RCTRL &kp BSPC  &kp ENTER
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp PG_UP PG_DN>;
+        };
+
+        unmapped_keys {
+            compatible = "zmk,keymap-unmapped-keys";
+            encoder_click: encoder_click {
+                linux,code = <INPUT_KEY_PROG1>;
+                bindings = <&mkp MCLK>;
+            };
         };
 
         lower_layer {
