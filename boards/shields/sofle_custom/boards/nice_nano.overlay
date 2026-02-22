@@ -5,7 +5,7 @@
  * This ensures the UART node exists for the console subsystem, but doesn't interfere with keys.
  */
 &uart0 {
-    status = "okay";
+    status = "disabled";
     pinctrl-0 = <&uart0_custom>;
     pinctrl-1 = <&uart0_custom_sleep>;
     pinctrl-names = "default", "sleep";
