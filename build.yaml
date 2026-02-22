@@ -1,6 +1,6 @@
 include:
   - board: nice_nano_v2
     shield: sofle_custom_left
-    snippet: [zmk-usb-logging, sofle_custom_gpio]
+    snippet: zmk-usb-logging
   # - board: nice_nano_v2
   #   shield: sofle_custom_right
