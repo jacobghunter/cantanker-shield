@@ -7,6 +7,33 @@
 #include "sofle_custom.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
 
+/ {
+    chosen {
+        zmk,kscan = &kscan_composite;
+    };
+
+    kscan_direct: kscan_direct {
+        compatible = "zmk,kscan-gpio-direct";
+        input-gpios = <&pro_micro 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    };
+
+    kscan_composite: kscan_composite {
+        compatible = "zmk,kscan-composite";
+        matrix {
+            kscan = <&kscan0>;
+        };
+        direct {
+            kscan = <&kscan_direct>;
+            row-offset = <3>;
+            column-offset = <6>;
+        };
+    };
+};
+
+&left_encoder {
+    status = "okay";
+};
+
 &kscan0 {
     row-gpios
         = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
