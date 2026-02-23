@@ -9,7 +9,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/ext_power.h>
-#include <dt-bindings/zmk/hid_consumer.h>
 
 #define BASE 0
 #define LOWER 1
@@ -45,7 +44,7 @@
                           &kp LCTRL &kp SPACE  &kp TAB    &mkp MCLK    &mkp MCLK &kp BSPC  &kp RCTRL &kp RALT
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
         lower_layer {
