@@ -458,7 +458,7 @@ pcbs:
 
           # --- ENCODER PINS ---
           P6: "encoder_a"
-          P101: "encoder_B"
+          P101: "encoder_b"
           P7: "encoder_from"
 
           # --- DEVICES ---
