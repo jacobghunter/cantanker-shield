@@ -54,7 +54,6 @@
         triggers-per-rotation = <20>;
     };
 
-    # Disable nfc for encoder
     &nfct {
         status = "disabled";
     };
