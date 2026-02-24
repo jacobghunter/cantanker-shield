@@ -10,7 +10,6 @@
     chosen {
         zmk,kscan = &kscan_composite;
         zmk,matrix_transform = &default_transform;
-        zmk,display = &nice_view;
     };
 
     default_transform: keymap_transform_0 {
