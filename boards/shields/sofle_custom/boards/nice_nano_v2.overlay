@@ -1,20 +1,12 @@
-/ {
-    chosen {
-        zmk,display = &nice_view;
-    };
-};
-
 &uart0 {
     status = "disabled";
 };
-
 &pinctrl {
     spi3_default: spi3_default {
         group1 {
             psels = <NRF_PSEL(SPIM_MOSI, 0, 6)>;
         };
     };
-
     spi3_sleep: spi3_sleep {
         group1 {
             psels = <NRF_PSEL(SPIM_MOSI, 0, 6)>;
@@ -35,10 +27,6 @@
         };
     };
 };
-
-/*
- * Disable spi3 (underglow) because it conflicts with matrix row on P0.06.
- */
 &spi3 {
     compatible = "nordic,nrf-spim";
     status = "disabled";
@@ -46,28 +34,15 @@
     pinctrl-1 = <&spi3_sleep>;
     pinctrl-names = "default", "sleep";
 };
-&spi0 {
-    compatible = "nordic,nrf-spim";
-    status = "okay";
+&nice_view_spi {
+    cs-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>;
     pinctrl-0 = <&spi0_default>;
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>;
-
-    nice_view: ls0xx@0 {
-        compatible = "sharp,ls0xx";
-        spi-max-frequency = <1000000>;
-        reg = <0>;
-        width = <160>;
-        height = <68>;
-    };
 };
-
 &i2c0 {
     status = "disabled";
 };
-
-
 &nfct {
     status = "disabled";
 };
