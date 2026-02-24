@@ -54,7 +54,3 @@
         triggers-per-rotation = <20>;
     };
 };
-
-&nfct {
-    status = "disabled";
-};
