@@ -42,13 +42,15 @@
         compatible = "zmk,kscan-composite";
         rows = <5>;
         columns = <14>;
+        wakeup-source;
+
         matrix {
             kscan = <&kscan0>;
         };
         direct {
             kscan = <&left_encoder_key>;
             row-offset = <3>;
-            column-offset = <6>;
+            col-offset = <6>;
         };
     };
 
