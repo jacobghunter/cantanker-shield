@@ -10,6 +10,7 @@
     chosen {
         zmk,kscan = &kscan_composite;
         zmk,matrix_transform = &default_transform;
+        zmk,display = &nice_view;
     };
 
     default_transform: keymap_transform_0 {
@@ -38,6 +39,12 @@
         input-gpios = <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 
+    right_encoder_key: right_encoder_key {
+        compatible = "zmk,kscan-gpio-direct";
+        wakeup-source;
+        input-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    };
+
     kscan_composite: kscan_composite {
         compatible = "zmk,kscan-composite";
         rows = <5>;
@@ -58,15 +65,15 @@
         compatible = "alps,ec11";
         a-gpios = <&gpio1 0 (GPIO_ACTIVE_HIGH  | GPIO_PULL_UP)>;
         b-gpios = <&gpio1 1 (GPIO_ACTIVE_HIGH  | GPIO_PULL_UP)>;
-        steps = <80>;
+        steps = <20>;
         status = "disabled";
     };
 
     right_encoder: encoder_right {
         compatible = "alps,ec11";
-        a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
+        a-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <20>;
         status = "disabled";
     };
 
