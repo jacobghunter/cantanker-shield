@@ -22,7 +22,7 @@
 &kp LCTRL       &kp Z      &kp X    &kp C     &kp V    &kp B    &kp W                &kp N     &kp M      &kp COMMA  &kp DOT  &kp FSLH  &bootloader
                                     &kp LALT  &kp LGUI &kp TAB  &kp SPACE  &kp BSPC  &kp BSPC  &kp RCTRL  &kp RALT>;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
