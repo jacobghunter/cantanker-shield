@@ -27,7 +27,7 @@
 };
 
 &default_transform {
-    col-offset = <6>;
+    col-offset = <7>;
 };
 
 &right_encoder {
@@ -46,6 +46,6 @@
     direct_right {
         kscan = <&right_encoder_key>;
         row-offset = <0>;
-        col-offset = <12>;
+        col-offset = <13>;
     };
 };
