@@ -64,7 +64,7 @@
             kscan = <&right_encoder_key>;
             row-offset = <0>;
             col-offset = <12>;
-        }
+        };
     };
 
     left_encoder: encoder_left {
