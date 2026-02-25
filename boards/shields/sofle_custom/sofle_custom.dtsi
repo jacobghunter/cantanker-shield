@@ -32,20 +32,6 @@
         diode-direction = "col2row";
     };
 
-    left_encoder_key: left_encoder_key {
-        compatible = "zmk,kscan-gpio-direct";
-        wakeup-source;
-        input-gpios = <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        status = "disabled";
-    };
-
-    right_encoder_key: right_encoder_key {
-        compatible = "zmk,kscan-gpio-direct";
-        wakeup-source;
-        input-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        status = "disabled";
-    };
-
     kscan_composite: kscan_composite {
         compatible = "zmk,kscan-composite";
         rows = <5>;

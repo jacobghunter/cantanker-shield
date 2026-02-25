@@ -31,6 +31,10 @@
     status = "okay";
 };
 
-&left_encoder_key {
-    status = "okay";
+/ {
+    left_encoder_key: left_encoder_key {
+        compatible = "zmk,kscan-gpio-direct";
+        wakeup-source;
+        input-gpios = <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    };
 };
