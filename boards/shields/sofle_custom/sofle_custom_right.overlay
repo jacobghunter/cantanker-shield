@@ -15,3 +15,7 @@
 &right_encoder {
     status = "okay";
 };
+
+&right_encoder_key {
+    status = "okay";
+};
