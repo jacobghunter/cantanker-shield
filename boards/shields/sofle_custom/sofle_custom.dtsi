@@ -55,12 +55,12 @@
         matrix {
             kscan = <&kscan0>;
         };
-        direct {
+        direct_left {
             kscan = <&left_encoder_key>;
             row-offset = <3>;
             col-offset = <6>;
         };
-        direct {
+        direct_right {
             kscan = <&right_encoder_key>;
             row-offset = <0>;
             col-offset = <12>;
