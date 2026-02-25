@@ -41,3 +41,11 @@
         input-gpios = <&gpio0 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 };
+
+&kscan_composite {
+    direct_right {
+        kscan = <&right_encoder_key>;
+        row-offset = <0>;
+        col-offset = <12>;
+    };
+};

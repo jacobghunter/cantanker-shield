@@ -41,16 +41,6 @@
         matrix {
             kscan = <&kscan0>;
         };
-        direct_left {
-            kscan = <&left_encoder_key>;
-            row-offset = <3>;
-            col-offset = <6>;
-        };
-        direct_right {
-            kscan = <&right_encoder_key>;
-            row-offset = <0>;
-            col-offset = <12>;
-        };
     };
 
     left_encoder: encoder_left {
