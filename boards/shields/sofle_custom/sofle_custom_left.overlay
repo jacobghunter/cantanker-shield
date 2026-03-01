@@ -13,7 +13,7 @@
         , <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         , <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&pro_micro 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+        , <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
         ;
 
     col-gpios
@@ -35,7 +35,7 @@
     left_encoder_key: left_encoder_key {
         compatible = "zmk,kscan-gpio-direct";
         wakeup-source;
-        input-gpios = <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        input-gpios = <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 };
 
