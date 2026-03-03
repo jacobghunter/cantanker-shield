@@ -61,7 +61,7 @@
 //                                 | T         | T     | T     |  T     |   | T     |  T     |  T    |  0    |
             bindings = <
 &bt BT_CLR  &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                      &kp DEL     &kp FSLH    &kp ASTRK   &kp LPAR    &kp RPAR  &trans
-&bootloader      &kp PG_UP   &kp UP      &kp PG_DN   &kp HOME    &kp N5                      &none       &kp N7      &kp N8      &kp N9      &kp N0    &kp MINUS
+&bootloader &kp PG_UP   &kp UP      &kp PG_DN   &kp HOME    &kp N5                      &none       &kp N7      &kp N8      &kp N9      &kp N0    &kp MINUS
 &trans      &kp LEFT    &kp DOWN    &kp RIGHT   &kp END     &kp G                       &none       &kp N4      &kp N5      &kp N6      &kp SEMI  &kp SQT
 &trans      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0  &mkp MCLK           &none       &kp N1      &kp N2      &kp N3      &kp BSLH  &kp EQUAL
                                     &trans      &trans      &trans  &trans      &trans  &trans      &trans      &kp N0>;
