@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "sofle_custom.dtsi"
+#include "cantanker.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
 
 &kscan0 {

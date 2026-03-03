@@ -2,8 +2,8 @@ file_format: "1"
 id: cantanker
 name: Cantanker
 type: shield
-url: https://github.com/your-username/your-repo # Please update this URL
-requires: [nice_nano_v2]
+url: https://github.com/jacobghunter/cantanker-shield
+requires: [pro_micro]
 exposes: [i2c_oled]
 features:
   - keys

@@ -1,7 +1,7 @@
 include:
   - board: nice_nano_v2
-    shield: sofle_custom_left nice_view
+    shield: cantanker_left nice_view
     snippet: zmk-usb-logging
   - board: nice_nano_v2
-    shield: sofle_custom_right
+    shield: cantanker_right
     snippet: zmk-usb-logging
