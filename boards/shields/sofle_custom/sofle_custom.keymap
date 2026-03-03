@@ -15,6 +15,7 @@
 #define BASE 0
 #define UPPER 1
 #define LOWER 2
+#define ADJUST 3
 
 / {
     behaviors {
