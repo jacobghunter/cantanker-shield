@@ -23,11 +23,11 @@
 
     &left_encoder {
         resolution = <25>;
-    }
+    };
 
     &right_encoder {
         resolution = <25>;
-    }
+    };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
