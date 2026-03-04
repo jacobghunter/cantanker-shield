@@ -54,7 +54,7 @@
             wait-ms = <30>;
             tap-ms = <30>;
             // {}, Left, Enter, Enter, Up, Tab
-            bindings = <&kp LBRC &kp RBRC &kp LEFT &kp RET &kp RET &kp UP &kp TAB>;
+            bindings = <&kp LBRC &kp RBRC &kp LEFT &kp RET &kp UP &kp TAB>;
         };
     };
 
@@ -224,13 +224,12 @@
 // |  T   |  `  |  \  |  ;   |  :   |  ?   |  MCLK  |  |       |  <    |  >    |  "    |  '   |   /   | BOOT  |
 //                      | BTCLR| GUI  | TAB  |  SPACE |  | BSPC  | RET   | RCTRL |  DEL  |
             bindings = <
-&kp F1   &kp F2      &kp F3      &kp F4      &kp F5     &kp F6                                      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11    &kp F11
-&trans   &kp EXCL   &kp AT      &kp HASH    &kp DLLR    &kp PRCNT                                   &kp CARET   &kp AMPS    &kp ASTRK   &kp LPAR    &kp RPAR    &trans
+&kp F1   &kp F2      &kp F3      &kp F4      &kp F5     &kp F6                                      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &trans
+&trans   &kp EXCL   &kp AT      &kp HASH    &kp DLLR    &kp PRCNT                                   &kp CARET   &kp AMPS    &kp ASTRK   &kp LPAR    &kp RPAR    &kp F12
 &trans   &kp TILDE  &kp UNDER   &kp MINUS   &kp EQUAL   &kp PLUS                                    &kp LBRC    &kp RBRC    &kp LBKT    &kp RBKT    &kp PIPE    &trans
 &trans   &kp GRAVE  &kp BSLH    &kp SEMI    &kp COLON   &kp QMARK   &mkp MCLK           &trans      &kp LT      &kp GT      &kp DQT     &kp SQT     &kp FSLH    &bootloader
                                 &bt BT_CLR  &kp LGUI    &kp TAB     &kp SPACE           &kp BSPC    &kp RET     &kp RCTRL   &kp DEL
             >;
-
             sensor-bindings = <&scroll_encoder &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
