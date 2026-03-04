@@ -10,6 +10,21 @@ azoteq,iqs5xx@74 {
 - bodge wiring of trackpad pins
     - Should be rewiring the P6 and P7 cols to go to P8 and P9 instead, moving the trackpad SDA and SCL to those two pins 
 
+## Case edits 
+- Edit case/plate to cover the MCU with an OLED screen hole
+- edit plates to cover the bottom of the encoder (it's ugly)
+- edit plates to have cutout for power switch
+- edit case to allow for plastic sheet to slot above battery
+- magnetic feet attachment
+
+- possible to use magnets in the plate to mount?
+
+# things 2 get
+- magnetic tape/strips for feet?
+- heat shrink tubing and heat gun?
+- keyboard foam?
+- mounting plastic tape/plate
+
 # Ideas
 
 Scroll wheel
