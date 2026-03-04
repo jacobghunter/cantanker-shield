@@ -47,6 +47,15 @@
             tap-ms = <30>;
             bindings = <&kp LT &kp GT &kp LEFT>;
         };
+
+        expand_brace_macro: expand_brace_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            // {}, Left, Enter, Enter, Up, Tab
+            bindings = <&kp LBRC &kp RBRC &kp LEFT &kp RET &kp RET &kp UP &kp TAB>;
+        };
     };
 
     combos {
@@ -73,12 +82,20 @@
         combo_lbrc {
             timeout-ms = <50>;
             key-positions = <31 32>; // J + K
-            bindings = <&brace_macro>; // FIXED: Now points to the right macro!
+            bindings = <&brace_macro>; 
         };
         combo_rbrc {
             timeout-ms = <50>;
             key-positions = <32 33>; // K + L
             bindings = <&kp RBRC>;
+        };
+
+        // Macro to do function spacing
+        combo_expand_brace {
+            timeout-ms = <50>;
+            // Pressing J, K, and L together
+            key-positions = <31 32 33>; 
+            bindings = <&expand_brace_macro>;
         };
 
         combo_lt {
@@ -95,7 +112,7 @@
         combo_lbkt {
             timeout-ms = <50>;
             key-positions = <44 45>; // M + ,
-            bindings = <&brkt_macro>; // FIXED: Now points to the macro!
+            bindings = <&brkt_macro>; 
         };
         combo_rbkt {
             timeout-ms = <50>;
