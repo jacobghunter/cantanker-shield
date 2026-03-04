@@ -9,3 +9,14 @@ azoteq,iqs5xx@74 {
 - trackpad
 - bodge wiring of trackpad pins
     - Should be rewiring the P6 and P7 cols to go to P8 and P9 instead, moving the trackpad SDA and SCL to those two pins 
+
+# Ideas
+
+Scroll wheel
+- Do/undo
+- Swap tabs in browser/code
+- Swap workspaces???
+- Zoom in/out (already done via mouse scroll with ctrl home mod)
+Combos
+Sticky keys?
+Gaming mode.
