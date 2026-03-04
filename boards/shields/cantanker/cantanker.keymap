@@ -35,6 +35,10 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
             flavor = "tap-preferred";
+
+            // NEW: Prevents accidental modifiers during fast typing
+            require-prior-idle-ms = <150>;
+            
             bindings = <&kp>, <&kp>;
         };
     };
