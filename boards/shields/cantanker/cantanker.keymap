@@ -14,22 +14,55 @@
 #define GAME_LOWER 5
 
 / {
+
+    macros {
+        paren_macro: paren_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LPAR &kp RPAR &kp LEFT>;
+        };
+
+        brkt_macro: brkt_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LBKT &kp RBKT &kp LEFT>;
+        };
+
+        brace_macro: brace_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LBRC &kp RBRC &kp LEFT>;
+        };
+
+        angle_macro: angle_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LT &kp GT &kp LEFT>;
+        };
+    };
+
     combos {
-        // For gaming mode
         compatible = "zmk,combos";
         
+        // For gaming mode
         combo_gaming_mode {
             timeout-ms = <50>;
-            // Positions 0 (ESC) and 12 (TAB) pressed together
-            key-positions = <0 12>; 
+            key-positions = <0 12>; // ESC + TAB
             bindings = <&tog GAMING>;
         };
 
-        // For code
         combo_lpar {
             timeout-ms = <50>;
             key-positions = <19 20>; // U + I
-            bindings = <&kp LPAR>;
+            bindings = <&paren_macro>;
         };
         combo_rpar {
             timeout-ms = <50>;
@@ -37,11 +70,10 @@
             bindings = <&kp RPAR>;
         };
 
-        // --- Curly Braces {} on Home Row ---
         combo_lbrc {
             timeout-ms = <50>;
             key-positions = <31 32>; // J + K
-            bindings = <&kp LBRC>;
+            bindings = <&brace_macro>; // FIXED: Now points to the right macro!
         };
         combo_rbrc {
             timeout-ms = <50>;
@@ -49,11 +81,21 @@
             bindings = <&kp RBRC>;
         };
 
-        // --- Square Brackets [] on Bottom Row ---
+        combo_lt {
+            timeout-ms = <50>;
+            key-positions = <30 31>; // H + J
+            bindings = <&angle_macro>;
+        };
+        combo_gt {
+            timeout-ms = <50>;
+            key-positions = <33 34>; // L + ;
+            bindings = <&kp GT>;
+        };
+
         combo_lbkt {
             timeout-ms = <50>;
             key-positions = <44 45>; // M + ,
-            bindings = <&kp LBKT>;
+            bindings = <&brkt_macro>; // FIXED: Now points to the macro!
         };
         combo_rbkt {
             timeout-ms = <50>;
