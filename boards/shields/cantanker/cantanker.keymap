@@ -92,21 +92,18 @@
             bindings = <&kp>, <&kp>;
         };
 
-        // Morph 1: Esc on tap, Backtick (`) on Ctrl + tap
         esc_ctrl: esc_ctrl_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp ESC>;
-            morph-bindings = <&kp GRAVE>;
+            bindings = <&kp ESC>, <&kp GRAVE>;
             mods = <(MOD_LCTL|MOD_RCTL)>;
         };
 
-        // Morph 2: Tilde (~) on Shift + tap. If no Shift, fallback to Morph 1
+        // FIXED Morph 2: Tilde (~) on Shift + tap. If no Shift, fallback to Morph 1
         esc_shift_ctrl: esc_shift_ctrl_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&esc_ctrl>;  // <--- This is the magic link!
-            morph-bindings = <&kp TILDE>;
+            bindings = <&esc_ctrl>, <&kp TILDE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
