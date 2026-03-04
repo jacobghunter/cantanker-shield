@@ -14,9 +14,11 @@ azoteq,iqs5xx@74 {
 
 Scroll wheel
 - Do/undo
+- arrow key navigation? Would use shift as a mod to do up/down and default to left/right?
 - Swap tabs in browser/code
 - Swap workspaces???
 - Zoom in/out (already done via mouse scroll with ctrl home mod)
 Combos
-Sticky keys?
+Sticky keys/layers?
 Gaming mode.
+Positional Hold-Tap?
