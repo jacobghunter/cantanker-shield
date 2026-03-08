@@ -12,35 +12,35 @@
 #include <zephyr/drivers/i2c.h>
 #include <zephyr/drivers/sensor.h>
 
-/* TPS43 with IQS572 controller register definitions - Based on actual IQS572 datasheet */
-#define TPS43_REG_DEVICE_INFO       0x00
-#define TPS43_REG_SYS_INFO_0        0x01
-#define TPS43_REG_SYS_INFO_1        0x02
-#define TPS43_REG_VERSION_INFO      0x03
-#define TPS43_REG_XY_INFO_0         0x10
-#define TPS43_REG_XY_INFO_1         0x11
-#define TPS43_REG_TOUCH_STRENGTH    0x12
-#define TPS43_REG_TOUCH_AREA        0x13
-#define TPS43_REG_COORDINATES_X     0x14
-#define TPS43_REG_COORDINATES_Y     0x16
-#define TPS43_REG_PROX_STATUS       0x20
-#define TPS43_REG_TOUCH_STATUS      0x21
-#define TPS43_REG_COUNTS            0x22
-#define TPS43_REG_LTA               0x23
-#define TPS43_REG_DELTAS            0x24
-#define TPS43_REG_MULTIPLIERS       0x25
-#define TPS43_REG_COMPENSATION      0x26
-#define TPS43_REG_PROX_SETTINGS     0x40
-#define TPS43_REG_THRESHOLDS        0x41
-#define TPS43_REG_TIMINGS_0         0x42
-#define TPS43_REG_TIMINGS_1         0x43
-#define TPS43_REG_GESTURE_TIMERS    0x44
-#define TPS43_REG_ACTIVE_CHANNELS   0x45
+/* TPS43 with IQS572 controller register definitions (16-bit addresses) */
+#define TPS43_REG_DEVICE_INFO       0x0000
+#define TPS43_REG_SYS_INFO_0        0x0001
+#define TPS43_REG_SYS_INFO_1        0x0002
+#define TPS43_REG_VERSION_INFO      0x0003
+#define TPS43_REG_XY_INFO_0         0x0010
+#define TPS43_REG_XY_INFO_1         0x0011
+#define TPS43_REG_TOUCH_STRENGTH    0x0012
+#define TPS43_REG_TOUCH_AREA        0x0013
+#define TPS43_REG_COORDINATES_X     0x0014
+#define TPS43_REG_COORDINATES_Y     0x0016
+#define TPS43_REG_PROX_STATUS       0x0020
+#define TPS43_REG_TOUCH_STATUS      0x0021
+#define TPS43_REG_COUNTS            0x0022
+#define TPS43_REG_LTA               0x0023
+#define TPS43_REG_DELTAS            0x0024
+#define TPS43_REG_MULTIPLIERS       0x0025
+#define TPS43_REG_COMPENSATION      0x0026
+#define TPS43_REG_PROX_SETTINGS     0x0040
+#define TPS43_REG_THRESHOLDS        0x0041
+#define TPS43_REG_TIMINGS_0         0x0042
+#define TPS43_REG_TIMINGS_1         0x0043
+#define TPS43_REG_GESTURE_TIMERS    0x0044
+#define TPS43_REG_ACTIVE_CHANNELS   0x0045
 
 /* IQS572 specific configuration registers */
-#define TPS43_REG_SYS_CONFIG        0x50
-#define TPS43_REG_FILTER_SETTINGS   0x51
-#define TPS43_REG_POWER_MODE        0x52
+#define TPS43_REG_SYS_CONFIG        0x0050
+#define TPS43_REG_FILTER_SETTINGS   0x0051
+#define TPS43_REG_POWER_MODE        0x0052
 
 /* IQS572 specific values for TPS43 */
 #define TPS43_MAX_X                 2048
@@ -76,7 +76,7 @@
 #define TPS43_INIT_TIMEOUT_MS       1000
 #define TPS43_MAX_RETRIES           3
 
-#define TPS43_REG_SYS_CONFIG_0      0x50
-#define TPS43_REG_X_RESOLUTION      0x53
+#define TPS43_REG_SYS_CONFIG_0      0x0050
+#define TPS43_REG_X_RESOLUTION      0x0053
 
 #endif /* ZEPHYR_DRIVERS_SENSOR_TPS43_H_ */ 

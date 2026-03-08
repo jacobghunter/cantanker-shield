@@ -18,6 +18,7 @@ azoteq,iqs5xx@74 {
 - magnetic feet attachment
  - slots for straps in the bottom?
 - Color switches to not be red and super obvious (fine tip sharpie?)
+- make wider so rubber can grab correctly when wrapped around pcb
 
 # things 2 get
 - magnetic tape/strips for feet?

@@ -65,15 +65,16 @@ struct tps43_config {
     bool swap_xy;
 };
 
-/* I2C helper functions with error recovery */
-static int tps43_i2c_read_reg(const struct device *dev, uint8_t reg, uint8_t *data, size_t len)
+/* I2C helper functions with 16-bit addressing */
+static int tps43_i2c_read_reg(const struct device *dev, uint16_t reg, uint8_t *data, size_t len)
 {
     const struct tps43_config *config = dev->config;
-    int ret;
+    uint8_t reg_addr[2];
+    sys_put_be16(reg, reg_addr);
     
-    ret = i2c_write_read_dt(&config->i2c, &reg, 1, data, len);
+    int ret = i2c_write_read_dt(&config->i2c, reg_addr, 2, data, len);
     if (ret < 0) {
-        LOG_ERR("Failed to read register 0x%02x: %d", reg, ret);
+        LOG_ERR("Failed to read register 0x%04x: %d", reg, ret);
         i2c_recover_bus(config->i2c.bus);
         return ret;
     }
@@ -81,18 +82,16 @@ static int tps43_i2c_read_reg(const struct device *dev, uint8_t reg, uint8_t *da
     return 0;
 }
 
-static int tps43_i2c_write_reg(const struct device *dev, uint8_t reg, uint8_t *data, size_t len)
+static int tps43_i2c_write_reg(const struct device *dev, uint16_t reg, uint8_t *data, size_t len)
 {
     const struct tps43_config *config = dev->config;
-    uint8_t buffer[len + 1];
-    int ret;
+    uint8_t buffer[len + 2];
+    sys_put_be16(reg, buffer);
+    memcpy(&buffer[2], data, len);
     
-    buffer[0] = reg;
-    memcpy(&buffer[1], data, len);
-    
-    ret = i2c_write_dt(&config->i2c, buffer, len + 1);
+    int ret = i2c_write_dt(&config->i2c, buffer, len + 2);
     if (ret < 0) {
-        LOG_ERR("Failed to write register 0x%02x: %d", reg, ret);
+        LOG_ERR("Failed to write register 0x%04x: %d", reg, ret);
         return ret;
     }
     
@@ -307,17 +306,12 @@ static int tps43_read_touch_data(const struct device *dev)
     /* Check for reset bit (bit 7) */
     if (xy_info & 0x80) {
         LOG_INF("Device reset detected, acknowledging...");
-        uint8_t sys_cfg_reg = TPS43_REG_SYS_CONFIG_0;
-        uint8_t val;
-        /* Read-modify-write to set bit 7 of register 0x50 */
-        if (tps43_i2c_read_reg(dev, sys_cfg_reg, &val, 1) == 0) {
-            val |= 0x80;
-            tps43_i2c_write_reg(dev, sys_cfg_reg, &val, 1);
-        }
+        uint8_t ack_val = 0x80;
+        tps43_i2c_write_reg(dev, TPS43_REG_SYS_CONFIG_0, &ack_val, 1);
         return -EAGAIN;
     }
 
-    data->touch_state = (xy_info & TPS43_XY_INFO_TOUCH_MASK) ? 1 : 0;
+    data->touch_state = (xy_info & 0x01) ? 1 : 0;
     
     if (data->touch_state) {
         /* Extract coordinates (Big Endian) */
