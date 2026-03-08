@@ -70,6 +70,7 @@ static int tps43_i2c_read_reg(const struct device *dev, uint8_t reg, uint8_t *da
     ret = i2c_write_read_dt(&config->i2c, &reg, 1, data, len);
     if (ret < 0) {
         LOG_ERR("Failed to read register 0x%02x: %d", reg, ret);
+        i2c_recover_bus(config->i2c.bus);
         return ret;
     }
     
@@ -249,7 +250,7 @@ static int tps43_read_touch_data(const struct device *dev)
         if (data->error_count > TPS43_MAX_ERROR_COUNT) {
             LOG_WRN("Too many errors, reinitializing device");
             data->device_ready = false;
-            k_work_reschedule(&data->work, K_MSEC(100));
+            k_work_reschedule(&data->work, K_MSEC(1500));
         }
         return ret;
     }
