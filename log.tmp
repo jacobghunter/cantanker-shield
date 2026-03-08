@@ -1,50 +1,51 @@
-[00:00:00.502,685] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
-[00:00:00.502,685] [1;31m<err> iqs5xx: Failed to configure event mode: -5[0m
-[00:00:00.502,716] [1;31m<err> iqs5xx: Failed to setup device: -5[0m
-[00:00:00.502,716] [0m<dbg> zmk: vddh_init: VDDHDIV5 setup returned 0[0m
+[00:00:00.509,338] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:00.509,338] [1;31m<err> iqs5xx: Failed to configure event mode: -5[0m
+[00:00:00.509,368] [1;31m<err> iqs5xx: Failed to setup device: -5[0m
+[00:00:00.509,368] [0m<dbg> zmk: vddh_init: VDDHDIV5 setup returned 0[0m
 *** Booting Zephyr OS build dacab4875df7 ***
-[00:00:00.509,246] [0m<inf> fs_nvs: 8 Sectors of 4096 bytes[0m
-[00:00:00.509,277] [0m<inf> fs_nvs: alloc wra: 0, f50[0m
-[00:00:00.509,277] [0m<inf> fs_nvs: data wra: 0, fc[0m
-[00:00:00.510,650] [0m<inf> bt_hci_core: HW Platform: Nordic Semiconductor (0x0002)[0m
-[00:00:00.510,681] [0m<inf> bt_hci_core: HW Variant: nRF52x (0x0002)[0m
-[00:00:00.510,711] [0m<inf> bt_hci_core: Firmware: Standard Bluetooth controller (0x00) Version 3.5 Build 0[0m
-[00:00:00.511,047] [0m<inf> bt_hci_core: No ID address. App must call settings_load()[0m
-[00:00:00.511,138] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 15 on gpio@50000300 for input[0m
-[00:00:00.511,169] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 13 on gpio@50000300 for input[0m
-[00:00:00.511,230] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 31 on gpio@50000000 for input[0m
-[00:00:00.511,260] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 29 on gpio@50000000 for input[0m
-[00:00:00.511,322] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 2 on gpio@50000000 for input[0m
-[00:00:00.511,383] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 9 on gpio@50000000 for output[0m
-[00:00:00.511,413] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 6 on gpio@50000300 for output[0m
-[00:00:00.511,474] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 4 on gpio@50000300 for output[0m
-[00:00:00.511,505] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 24 on gpio@50000000 for output[0m
-[00:00:00.511,566] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 22 on gpio@50000000 for output[0m
-[00:00:00.511,627] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 20 on gpio@50000000 for output[0m
-[00:00:00.511,657] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 17 on gpio@50000000 for output[0m
-[00:00:00.512,054] [0m<dbg> zmk: kscan_direct_init_input_inst: Configured pin 8 on gpio@50000000 for input[0m
-[00:00:00.512,298] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 0[0m
-[00:00:00.512,298] [0m<dbg> zmk: zmk_sensors_init_item: No local device for 0[0m
-[00:00:00.512,329] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 1[0m
-[00:00:00.517,700] [0m<inf> zmk: Welcome to ZMK!
+[00:00:00.515,899] [0m<inf> fs_nvs: 8 Sectors of 4096 bytes[0m
+[00:00:00.515,930] [0m<inf> fs_nvs: alloc wra: 0, f50[0m
+[00:00:00.515,930] [0m<inf> fs_nvs: data wra: 0, fc[0m
+[00:00:00.517,303] [0m<inf> bt_hci_core: HW Platform: Nordic Semiconductor (0x0002)[0m
+[00:00:00.517,333] [0m<inf> bt_hci_core: HW Variant: nRF52x (0x0002)[0m
+[00:00:00.517,364] [0m<inf> bt_hci_core: Firmware: Standard Bluetooth controller (0x00) Version 3.5 Build 0[0m
+[00:00:00.517,700] [0m<inf> bt_hci_core: No ID address. App must call settings_load()[0m
+[00:00:00.517,791] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 15 on gpio@50000300 for input[0m
+[00:00:00.517,822] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 13 on gpio@50000300 for input[0m
+[00:00:00.517,883] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 31 on gpio@50000000 for input[0m
+[00:00:00.517,944] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 29 on gpio@50000000 for input[0m
+[00:00:00.517,974] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 2 on gpio@50000000 for input[0m
+[00:00:00.518,035] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 9 on gpio@50000000 for output[0m
+[00:00:00.518,066] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 6 on gpio@50000300 for output[0m
+[00:00:00.518,127] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 4 on gpio@50000300 for output[0m
+[00:00:00.518,188] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 24 on gpio@50000000 for output[0m
+[00:00:00.518,218] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 22 on gpio@50000000 for output[0m
+[00:00:00.518,280] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 20 on gpio@50000000 for output[0m
+[00:00:00.518,310] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 17 on gpio@50000000 for output[0m
+[00:00:00.518,707] [0m<dbg> zmk: kscan_direct_init_input_inst: Configured pin 8 on gpio@50000000 for input[0m
+[00:00:00.518,951] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 0[0m
+[00:00:00.518,981] [0m<dbg> zmk: zmk_sensors_init_item: No local device for 0[0m
+[00:00:00.518,981] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 1[0m
+[00:00:00.524,353] [0m<inf> zmk: Welcome to ZMK!
 [0m
-[00:00:00.518,585] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
-[00:00:00.518,615] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
-[00:00:00.519,165] [0m<inf> bt_hci_core: Identity: E0:39:78:E7:AC:2E (random)[0m
-[00:00:00.519,195] [0m<inf> bt_hci_core: HCI: version 5.4 (0x0d) revision 0x0000, manufacturer 0x05f1[0m
-[00:00:00.519,226] [0m<inf> bt_hci_core: LMP: version 5.4 (0x0d) subver 0xffff[0m
-[00:00:00.521,697] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
-[00:00:00.521,728] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
-[00:00:00.635,345] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 6[0m
-[00:00:00.635,406] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.635,437] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.749,481] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.749,511] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.804,443] [0m<dbg> zmk: vddh_sample_fetch: ADC raw 3290 ~ 4815 mV => 100%[0m
-[00:00:00.804,443] [0m<dbg> zmk: split_peripheral_listener: [0m
-[00:00:00.877,990] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
-[00:00:00.878,021] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
-[00:00:01.207,214] [0m<dbg> zmk: split_svc_pos_state_ccc: value 1[0m
-[00:00:01.207,244] [0m<dbg> zmk: split_svc_sensor_state_ccc: value 1[0m
-[00:00:01.207,366] [0m<dbg> zmk: security_changed: Security changed: FC:DD:F4:C6:B3:27 (random) level 2[0m
-[00:00:01.304,840] [0m<dbg> zmk: split_svc_select_phys_layout_callback: Selecting physical layout after GATT write of 0[0m
+[00:00:00.525,238] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
+[00:00:00.525,268] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
+[00:00:00.525,817] [0m<inf> bt_hci_core: Identity: E0:39:78:E7:AC:2E (random)[0m
+[00:00:00.525,848] [0m<inf> bt_hci_core: HCI: version 5.4 (0x0d) revision 0x0000, manufacturer 0x05f1[0m
+[00:00:00.525,878] [0m<inf> bt_hci_core: LMP: version 5.4 (0x0d) subver 0xffff[0m
+[00:00:00.528,350] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
+[00:00:00.528,381] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
+[00:00:00.649,017] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 6[0m
+[00:00:00.649,078] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.649,108] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.762,084] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.762,115] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.817,626] [0m<dbg> zmk: vddh_sample_fetch: ADC raw 3292 ~ 4820 mV => 100%[0m
+[00:00:00.817,657] [0m<dbg> zmk: split_peripheral_listener: [0m
+[00:00:00.890,014] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
+[00:00:00.890,075] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
+[00:00:01.245,025] [0m<dbg> zmk: split_svc_pos_state_ccc: value 1[0m
+[00:00:01.245,056] [0m<dbg> zmk: split_svc_sensor_state_ccc: value 1[0m
+[00:00:01.245,178] [0m<dbg> zmk: security_changed: Security changed: FC:DD:F4:C6:B3:27 (random) level 2[0m
+[00:00:01.335,144] [0m<dbg> zmk: split_svc_select_phys_layout_callback: Selecting physical layout after GATT write of 0[0m
+[00:00:03.455,566] [0m<inf> iqs5xx: Device reset detected[0m
