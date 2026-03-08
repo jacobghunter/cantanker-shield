@@ -32,6 +32,7 @@ struct tps43_data {
     struct k_work_delayable work;
     struct k_mutex lock;
     const struct device *dev;
+    struct gpio_callback gpio_cb;
     
     /* Touch data */
     int16_t x;
@@ -130,7 +131,7 @@ static int tps43_device_reset(const struct device *dev)
     
     if (!gpio_is_ready_dt(&config->rst_gpio)) {
         LOG_ERR("Reset GPIO not ready");
-        return -ENODEV;
+        return 0;
     }
     
     LOG_INF("Performing hardware reset");
