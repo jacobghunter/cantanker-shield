@@ -26,6 +26,19 @@
             low-power-enable;
         };
     };
+    i2c0_default: i2c0_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 14)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 16)>;
+        };
+    };
+    i2c0_sleep: i2c0_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 14)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 16)>;
+            low-power-enable;
+        };
+    };
 };
 &spi3 {
     compatible = "nordic,nrf-spim";
@@ -35,7 +48,11 @@
     pinctrl-names = "default", "sleep";
 };
 &i2c0 {
-    status = "disabled";
+    compatible = "nordic,nrf-twim";
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
+    pinctrl-names = "default", "sleep";
+    clock-frequency = <I2C_BITRATE_FAST>;  /* 400kHz */
 };
 &nfct {
     status = "disabled";

@@ -29,6 +29,10 @@
     resolution = <25>;
 };
 
+&i2c0 {
+    status = "okay";
+};
+
 / {
     right_encoder_key: right_encoder_key {
         compatible = "zmk,kscan-gpio-direct";
