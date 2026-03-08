@@ -316,6 +316,7 @@ static void tps43_work_handler(struct k_work *work)
 
 static void tps43_gpio_callback(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
 {
+    LOG_INF("RDY interrupt fired");
     struct tps43_data *data = CONTAINER_OF(cb, struct tps43_data, gpio_cb);
     
     /* Schedule work to handle interrupt in work queue context */
@@ -382,6 +383,7 @@ static int tps43_trigger_set(const struct device *dev, const struct sensor_trigg
     if (handler) {
         /* Enable interrupt */
         ret = gpio_pin_interrupt_configure_dt(&config->rdy_gpio , GPIO_INT_EDGE_FALLING);
+        LOG_INF("RDY interrupt configured: %d", ret);
         if (ret < 0) {
                 LOG_ERR("Failed to enable RDY interrupt: %d", ret);
             goto unlock;
