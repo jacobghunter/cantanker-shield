@@ -1,1 +1,1 @@
-rsource "drivers/sensor/Kconfig"
+rsource "config/drivers/sensor/Kconfig"
