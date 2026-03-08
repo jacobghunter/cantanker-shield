@@ -316,19 +316,20 @@ static int tps43_read_touch_data(const struct device *dev)
     data->touch_state = (xy_info & 0x01) ? 1 : 0;
     
     if (data->touch_state) {
-        /* Extract coordinates (Try LE first if BE was giving weird results) */
-        data->x = sys_get_le16(&touch_data[4]);
-        data->y = sys_get_le16(&touch_data[6]);
-        data->touch_strength = touch_data[2];
+        /* Extract coordinates (IQS5xx: X at 2,3, Y at 4,5 - Big Endian) */
+        data->x = (int16_t)sys_get_be16(&touch_data[2]);
+        data->y = (int16_t)sys_get_be16(&touch_data[4]);
+        data->touch_strength = touch_data[6];
         
         LOG_INF("Touch: x=%d, y=%d, strength=%d", data->x, data->y, data->touch_strength);
 
         /* Report relative movement if this is a continuation of a touch */
         if (data->last_touch_state) {
-            int16_t dx = (data->x - data->last_x) / 4; /* Scale down for smoother testing */
-            int16_t dy = (data->y - data->last_y) / 4;
+            int16_t dx = (data->x - data->last_x) / 8; /* Increased scaling for safety */
+            int16_t dy = (data->y - data->last_y) / 8;
             
             if (dx != 0 || dy != 0) {
+                LOG_INF("Reporting move: dx=%d, dy=%d", dx, dy);
                 input_report_rel(dev, INPUT_REL_X, dx, false, K_FOREVER);
                 input_report_rel(dev, INPUT_REL_Y, dy, true, K_FOREVER);
             }
