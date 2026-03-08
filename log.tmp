@@ -1,103 +1,737 @@
-[00:00:00.502,960] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
-[00:00:00.502,960] [1;31m<err> iqs5xx: Failed to configure event mode: -5[0m
-[00:00:00.502,990] [1;31m<err> iqs5xx: Failed to setup device: -5[0m
-[00:00:00.502,990] [0m<dbg> zmk: vddh_init: VDDHDIV5 setup returned 0[0m
+[00:00:00.497,955] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:00.497,955] [1;31m<err> iqs5xx: Failed to configure event mode: -5[0m
+[00:00:00.497,985] [1;31m<err> iqs5xx: Failed to setup device: -5[0m
+[00:00:00.497,985] [0m<dbg> zmk: vddh_init: VDDHDIV5 setup returned 0[0m
 *** Booting Zephyr OS build dacab4875df7 ***
-[00:00:00.509,582] [0m<inf> fs_nvs: 8 Sectors of 4096 bytes[0m
-[00:00:00.509,582] [0m<inf> fs_nvs: alloc wra: 0, f50[0m
-[00:00:00.509,582] [0m<inf> fs_nvs: data wra: 0, fc[0m
-[00:00:00.510,955] [0m<inf> bt_hci_core: HW Platform: Nordic Semiconductor (0x0002)[0m
-[00:00:00.510,986] [0m<inf> bt_hci_core: HW Variant: nRF52x (0x0002)[0m
-[00:00:00.511,016] [0m<inf> bt_hci_core: Firmware: Standard Bluetooth controller (0x00) Version 3.5 Build 0[0m
-[00:00:00.511,352] [0m<inf> bt_hci_core: No ID address. App must call settings_load()[0m
-[00:00:00.511,444] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 15 on gpio@50000300 for input[0m
-[00:00:00.511,474] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 13 on gpio@50000300 for input[0m
-[00:00:00.511,535] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 31 on gpio@50000000 for input[0m
-[00:00:00.511,566] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 29 on gpio@50000000 for input[0m
-[00:00:00.511,627] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 2 on gpio@50000000 for input[0m
-[00:00:00.511,657] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 9 on gpio@50000000 for output[0m
-[00:00:00.511,718] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 6 on gpio@50000300 for output[0m
-[00:00:00.511,749] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 4 on gpio@50000300 for output[0m
-[00:00:00.511,810] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 24 on gpio@50000000 for output[0m
-[00:00:00.511,840] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 22 on gpio@50000000 for output[0m
-[00:00:00.511,901] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 20 on gpio@50000000 for output[0m
-[00:00:00.511,932] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 17 on gpio@50000000 for output[0m
-[00:00:00.512,329] [0m<dbg> zmk: kscan_direct_init_input_inst: Configured pin 8 on gpio@50000000 for input[0m
-[00:00:00.512,603] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 0[0m
-[00:00:00.512,603] [0m<dbg> zmk: zmk_sensors_init_item: No local device for 0[0m
-[00:00:00.512,603] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 1[0m
-[00:00:00.517,974] [0m<inf> zmk: Welcome to ZMK!
+[00:00:00.504,547] [0m<inf> fs_nvs: 8 Sectors of 4096 bytes[0m
+[00:00:00.504,577] [0m<inf> fs_nvs: alloc wra: 0, f50[0m
+[00:00:00.504,577] [0m<inf> fs_nvs: data wra: 0, fc[0m
+[00:00:00.505,950] [0m<inf> bt_hci_core: HW Platform: Nordic Semiconductor (0x0002)[0m
+[00:00:00.505,981] [0m<inf> bt_hci_core: HW Variant: nRF52x (0x0002)[0m
+[00:00:00.506,011] [0m<inf> bt_hci_core: Firmware: Standard Bluetooth controller (0x00) Version 3.5 Build 0[0m
+[00:00:00.506,347] [0m<inf> bt_hci_core: No ID address. App must call settings_load()[0m
+[00:00:00.506,439] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 15 on gpio@50000300 for input[0m
+[00:00:00.506,469] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 13 on gpio@50000300 for input[0m
+[00:00:00.506,530] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 31 on gpio@50000000 for input[0m
+[00:00:00.506,561] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 29 on gpio@50000000 for input[0m
+[00:00:00.506,622] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 2 on gpio@50000000 for input[0m
+[00:00:00.506,652] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 9 on gpio@50000000 for output[0m
+[00:00:00.506,713] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 6 on gpio@50000300 for output[0m
+[00:00:00.506,774] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 4 on gpio@50000300 for output[0m
+[00:00:00.506,805] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 24 on gpio@50000000 for output[0m
+[00:00:00.506,866] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 22 on gpio@50000000 for output[0m
+[00:00:00.506,896] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 20 on gpio@50000000 for output[0m
+[00:00:00.506,958] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 17 on gpio@50000000 for output[0m
+[00:00:00.507,354] [0m<dbg> zmk: kscan_direct_init_input_inst: Configured pin 8 on gpio@50000000 for input[0m
+[00:00:00.507,598] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 0[0m
+[00:00:00.507,598] [0m<dbg> zmk: zmk_sensors_init_item: No local device for 0[0m
+[00:00:00.507,598] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 1[0m
+[00:00:00.512,969] [0m<inf> zmk: Welcome to ZMK!
 [0m
-[00:00:00.518,859] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
-[00:00:00.518,890] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
-[00:00:00.519,470] [0m<inf> bt_hci_core: Identity: E0:39:78:E7:AC:2E (random)[0m
-[00:00:00.519,500] [0m<inf> bt_hci_core: HCI: version 5.4 (0x0d) revision 0x0000, manufacturer 0x05f1[0m
-[00:00:00.519,531] [0m<inf> bt_hci_core: LMP: version 5.4 (0x0d) subver 0xffff[0m
-[00:00:00.521,972] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
-[00:00:00.522,003] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
-[00:00:00.635,772] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 6[0m
-[00:00:00.635,833] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.635,864] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.747,924] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.747,955] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.799,682] [0m<dbg> zmk: vddh_sample_fetch: ADC raw 3294 ~ 4825 mV => 100%[0m
-[00:00:00.799,713] [0m<dbg> zmk: split_peripheral_listener: [0m
-[00:00:00.876,708] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
-[00:00:00.876,770] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
-[00:00:01.220,031] [0m<dbg> zmk: split_svc_pos_state_ccc: value 1[0m
-[00:00:01.220,031] [0m<dbg> zmk: split_svc_sensor_state_ccc: value 1[0m
-[00:00:01.220,153] [0m<dbg> zmk: security_changed: Security changed: FC:DD:F4:C6:B3:27 (random) level 2[0m
-[00:00:01.317,626] [0m<dbg> zmk: split_svc_select_phys_layout_callback: Selecting physical layout after GATT write of 0[0m
-[00:00:00.509,582] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
-[00:00:00.509,582] [1;31m<err> iqs5xx: Failed to configure event mode: -5[0m
-[00:00:00.509,613] [1;31m<err> iqs5xx: Failed to setup device: -5[0m
-[00:00:00.509,613] [0m<dbg> zmk: vddh_init: VDDHDIV5 setup returned 0[0m
-*** Booting Zephyr OS build dacab4875df7 ***
-[00:00:00.516,204] [0m<inf> fs_nvs: 8 Sectors of 4096 bytes[0m
-[00:00:00.516,204] [0m<inf> fs_nvs: alloc wra: 0, f50[0m
-[00:00:00.516,204] [0m<inf> fs_nvs: data wra: 0, fc[0m
-[00:00:00.517,578] [0m<inf> bt_hci_core: HW Platform: Nordic Semiconductor (0x0002)[0m
-[00:00:00.517,608] [0m<inf> bt_hci_core: HW Variant: nRF52x (0x0002)[0m
-[00:00:00.517,639] [0m<inf> bt_hci_core: Firmware: Standard Bluetooth controller (0x00) Version 3.5 Build 0[0m
-[00:00:00.517,974] [0m<inf> bt_hci_core: No ID address. App must call settings_load()[0m
-[00:00:00.518,066] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 15 on gpio@50000300 for input[0m
-[00:00:00.518,096] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 13 on gpio@50000300 for input[0m
-[00:00:00.518,157] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 31 on gpio@50000000 for input[0m
-[00:00:00.518,188] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 29 on gpio@50000000 for input[0m
-[00:00:00.518,249] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 2 on gpio@50000000 for input[0m
-[00:00:00.518,280] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 9 on gpio@50000000 for output[0m
-[00:00:00.518,341] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 6 on gpio@50000300 for output[0m
-[00:00:00.518,371] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 4 on gpio@50000300 for output[0m
-[00:00:00.518,432] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 24 on gpio@50000000 for output[0m
-[00:00:00.518,463] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 22 on gpio@50000000 for output[0m
-[00:00:00.518,524] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 20 on gpio@50000000 for output[0m
-[00:00:00.518,554] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 17 on gpio@50000000 for output[0m
-[00:00:00.518,951] [0m<dbg> zmk: kscan_direct_init_input_inst: Configured pin 8 on gpio@50000000 for input[0m
-[00:00:00.519,195] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 0[0m
-[00:00:00.519,226] [0m<dbg> zmk: zmk_sensors_init_item: No local device for 0[0m
-[00:00:00.519,226] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 1[0m
-[00:00:00.524,597] [0m<inf> zmk: Welcome to ZMK!
-[0m
-[00:00:00.525,482] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
-[00:00:00.525,512] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
-[00:00:00.526,092] [0m<inf> bt_hci_core: Identity: E0:39:78:E7:AC:2E (random)[0m
-[00:00:00.526,123] [0m<inf> bt_hci_core: HCI: version 5.4 (0x0d) revision 0x0000, manufacturer 0x05f1[0m
-[00:00:00.526,153] [0m<inf> bt_hci_core: LMP: version 5.4 (0x0d) subver 0xffff[0m
-[00:00:00.528,594] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
-[00:00:00.528,625] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
-[00:00:00.641,540] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 6[0m
-[00:00:00.641,601] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.641,662] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.754,669] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.754,699] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.837,982] [0m<dbg> zmk: vddh_sample_fetch: ADC raw 3295 ~ 4825 mV => 100%[0m
-[00:00:00.838,012] [0m<dbg> zmk: split_peripheral_listener: [0m
-[00:00:00.883,911] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
-[00:00:00.883,972] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
-[00:00:01.425,903] [0m<dbg> zmk: split_svc_pos_state_ccc: value 1[0m
-[00:00:01.425,933] [0m<dbg> zmk: split_svc_sensor_state_ccc: value 1[0m
-[00:00:01.426,055] [0m<dbg> zmk: security_changed: Security changed: FC:DD:F4:C6:B3:27 (random) level 2[0m
-[00:00:01.516,021] [0m<dbg> zmk: split_svc_select_phys_layout_callback: Selecting physical layout after GATT write of 0[0m
-[00:00:03.231,567] [0m<inf> iqs5xx: Device reset detected[0m
-[00:00:03.608,856] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
-[00:00:03.608,886] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:00.513,854] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
+[00:00:00.513,885] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
+[00:00:00.514,434] [0m<inf> bt_hci_core: Identity: E0:39:78:E7:AC:2E (random)[0m
+[00:00:00.514,465] [0m<inf> bt_hci_core: HCI: version 5.4 (0x0d) revision 0x0000, manufacturer 0x05f1[0m
+[00:00:00.514,495] [0m<inf> bt_hci_core: LMP: version 5.4 (0x0d) subver 0xffff[0m
+[00:00:00.516,967] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
+[00:00:00.516,998] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
+[00:00:00.634,735] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 6[0m
+[00:00:00.634,796] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.634,826] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.746,734] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.746,765] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.840,209] [0m<dbg> zmk: vddh_sample_fetch: ADC raw 3290 ~ 4815 mV => 100%[0m
+[00:00:00.840,209] [0m<dbg> zmk: split_peripheral_listener: [0m
+[00:00:00.877,075] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
+[00:00:00.877,166] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
+[00:00:02.209,625] [0m<dbg> zmk: split_svc_pos_state_ccc: value 1[0m
+[00:00:02.209,686] [0m<dbg> zmk: split_svc_sensor_state_ccc: value 1[0m
+[00:00:02.209,777] [0m<dbg> zmk: security_changed: Security changed: FC:DD:F4:C6:B3:27 (random) level 2[0m
+[00:00:02.299,774] [0m<dbg> zmk: split_svc_select_phys_layout_callback: Selecting physical layout after GATT write of 0[0m
+[00:00:02.899,719] [0m<inf> iqs5xx: Device reset detected[0m
+[00:00:02.912,322] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:02.912,322] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:02.919,372] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:02.919,372] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:02.926,391] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:02.926,391] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:02.933,471] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:02.933,471] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:02.940,826] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:02.940,856] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:02.948,333] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:02.948,333] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:02.955,535] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:02.955,566] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:02.962,554] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:02.962,554] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:02.969,543] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:02.969,543] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:02.976,959] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:02.976,959] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:02.984,863] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:02.984,863] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:02.992,462] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:02.992,462] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:02.999,877] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:02.999,908] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.007,354] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.007,354] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.014,831] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.014,831] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.022,827] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.022,827] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.030,975] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.030,975] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.038,543] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.038,543] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.046,081] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.046,112] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.053,253] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.053,253] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.060,455] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.060,455] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.067,779] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.067,779] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.075,225] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.075,225] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.082,641] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.082,641] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.089,752] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.089,782] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.096,649] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.096,649] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.103,515] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.103,515] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.110,412] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.110,412] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.117,309] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.117,309] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.124,237] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.124,267] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.131,378] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.131,408] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.138,519] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.138,519] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.145,660] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.145,660] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.152,404] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.152,404] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.158,996] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.158,996] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.165,466] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.165,466] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.171,966] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.171,997] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.178,405] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.178,405] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.184,692] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.184,692] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.190,673] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.190,673] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.196,563] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.196,563] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.201,660] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.201,660] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.206,634] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.206,634] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.211,639] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.211,669] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.216,644] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.216,644] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.221,649] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.221,649] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.226,654] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.226,654] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.231,658] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.231,658] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.236,724] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.236,724] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.241,699] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.241,699] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.246,734] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.246,765] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.251,739] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.251,739] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.256,744] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.256,744] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.261,749] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.261,749] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.266,754] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.266,754] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.271,850] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.271,850] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.276,855] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.276,855] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.281,860] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.281,890] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.286,865] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.286,865] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.291,870] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.291,870] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.296,875] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.296,875] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.301,879] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.301,879] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.306,945] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.306,976] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.311,950] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.311,950] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.316,986] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.317,016] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.321,990] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.321,990] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.326,995] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.326,995] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.332,000] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.332,000] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.337,005] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.337,005] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.342,071] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.342,071] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.347,045] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.347,045] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.352,050] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.352,081] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.357,055] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.357,055] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.362,060] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.362,060] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.367,065] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.367,065] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.372,070] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.372,070] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.377,136] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.377,136] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.382,110] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.382,110] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.387,115] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.387,145] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.392,120] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.392,120] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.397,094] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.397,094] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.402,099] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.402,099] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.407,104] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.407,104] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.412,170] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.412,200] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.417,175] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.417,175] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.422,180] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.422,210] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.427,185] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.427,185] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.432,189] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.432,189] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.437,194] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.437,194] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.442,199] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.442,199] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.447,265] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.447,265] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.452,239] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.452,239] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.457,244] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.457,275] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.462,249] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.462,249] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.467,254] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.467,254] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.472,259] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.472,259] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.477,264] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.477,264] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.482,330] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.482,330] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.487,304] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.487,304] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.492,309] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.492,340] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.497,314] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.497,314] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.502,319] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.502,319] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.507,324] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.507,324] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.512,329] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.512,329] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.517,395] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.517,425] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.522,369] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.522,369] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.527,374] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.527,404] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.532,379] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.532,379] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.537,384] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.537,384] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.542,388] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.542,388] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.547,393] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.547,393] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.552,459] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.552,490] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.557,464] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.557,464] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.562,500] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.562,530] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.567,504] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.567,504] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.572,509] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.572,509] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.577,514] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.577,514] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.582,519] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.582,519] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.587,554] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.587,585] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.592,620] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.592,620] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.597,625] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.597,656] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.602,630] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.602,630] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.607,635] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.607,635] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.612,640] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.612,640] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.617,645] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.617,645] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.622,680] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.622,711] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.627,655] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.627,655] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.632,659] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.632,690] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.637,664] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.637,664] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.642,669] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.642,669] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.647,674] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.647,674] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.652,679] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.652,679] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.657,714] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.657,745] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.662,750] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.662,750] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.667,755] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.667,785] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.672,760] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.672,760] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.677,764] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.677,764] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.682,769] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.682,769] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.687,774] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.687,774] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.692,871] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.692,871] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.697,906] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.697,906] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.702,941] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.702,972] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.707,946] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.707,946] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.712,951] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.712,951] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.717,956] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.717,956] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.722,961] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.722,961] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.728,027] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.728,027] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.733,062] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.733,062] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.738,067] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.738,098] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.743,072] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.743,072] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.748,077] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.748,077] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.753,082] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.753,082] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.758,087] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.758,087] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.763,153] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.763,153] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.768,127] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.768,127] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.773,162] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.773,193] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.778,167] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.778,167] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.783,172] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.783,172] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.788,177] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.788,177] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.793,182] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.793,182] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.798,248] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.798,278] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.803,253] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.803,253] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.808,258] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.808,288] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.813,262] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.813,262] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.818,267] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.818,267] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.823,272] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.823,272] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.828,277] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.828,277] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.833,312] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.833,343] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.838,256] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.838,256] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.843,261] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.843,292] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.848,266] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.848,266] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.853,271] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.853,271] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.858,276] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.858,276] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.863,281] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.863,281] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.868,316] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.868,347] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.873,291] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.873,291] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.878,295] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.878,326] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.883,300] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.883,300] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.888,305] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.888,305] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.893,280] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.893,280] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.898,284] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.898,284] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.903,350] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.903,381] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.908,355] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.908,386] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.913,330] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.913,360] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.918,334] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.918,334] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.923,339] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.923,339] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.928,344] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.928,344] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.933,349] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.933,349] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.938,385] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.938,415] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.943,389] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.943,389] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.948,394] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.948,425] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.953,399] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.953,399] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.958,404] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.958,404] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.963,409] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.963,409] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.968,414] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.968,414] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.973,480] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.973,480] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.978,454] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.978,454] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.983,489] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.983,520] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.988,494] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.988,494] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.993,499] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.993,499] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:03.998,504] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:03.998,504] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.003,509] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.003,509] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.008,544] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.008,544] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.013,549] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.013,549] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.018,585] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.018,615] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.023,590] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.023,590] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.028,594] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.028,594] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.033,599] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.033,599] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.038,604] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.038,604] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.043,670] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.043,670] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.048,645] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.048,645] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.053,649] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.053,680] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.058,654] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.058,654] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.063,659] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.063,659] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.068,664] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.068,664] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.073,669] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.073,669] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.078,735] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.078,765] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.083,740] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.083,740] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.088,745] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.088,775] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.093,750] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.093,750] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.098,754] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.098,754] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.103,759] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.103,759] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.108,764] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.108,764] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.113,830] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.113,830] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.118,804] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.118,804] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.123,809] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.123,840] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.128,814] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.128,814] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.133,819] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.133,819] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.138,824] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.138,824] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.143,829] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.143,829] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.148,925] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.148,925] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.153,930] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.153,930] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.158,935] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.158,966] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.163,940] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.163,940] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.168,945] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.168,945] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.173,950] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.173,950] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.175,415] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.175,415] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.177,001] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.177,001] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.178,466] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.178,466] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.179,931] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.179,931] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.181,457] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.181,488] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.182,983] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.182,983] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.184,478] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.184,509] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.185,974] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.185,974] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.187,469] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.187,500] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.188,934] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.188,964] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.190,490] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.190,490] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.191,955] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.191,955] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.193,420] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.193,420] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.194,976] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.195,007] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.196,502] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.196,502] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.197,967] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.197,967] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.199,462] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.199,493] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.200,988] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.200,988] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.202,484] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.202,514] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.203,979] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.203,979] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.205,444] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.205,444] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.206,970] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.206,970] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.208,496] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.208,496] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.210,052] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.210,052] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.211,517] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.211,517] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.213,043] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.213,043] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.214,538] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.214,538] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.216,094] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.216,094] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.217,559] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.217,559] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.219,055] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.219,055] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.220,611] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.220,642] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.222,167] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.222,167] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.223,663] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.223,663] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.225,189] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.225,189] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.226,684] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.226,684] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.228,210] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.228,210] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.229,675] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.229,675] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.231,201] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.231,201] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.232,666] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.232,696] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.234,222] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.234,222] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.235,687] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.235,687] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.237,182] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.237,182] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.238,677] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.238,677] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.240,203] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.240,203] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.241,699] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.241,699] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.243,164] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.243,194] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.244,720] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.244,720] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.246,185] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.246,185] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.247,650] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.247,650] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.249,206] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.249,237] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.250,701] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.250,732] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.252,227] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.252,227] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.253,692] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.253,692] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.255,187] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.255,187] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.256,713] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.256,744] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.258,209] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.258,209] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.259,674] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.259,674] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.261,230] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.261,230] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.262,725] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.262,725] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.264,190] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.264,190] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.265,655] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.265,655] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.267,150] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.267,181] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.268,707] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.268,737] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.270,202] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.270,202] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.271,667] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.271,667] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.273,132] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.273,132] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.274,658] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.274,658] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.276,153] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.276,153] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.277,709] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.277,709] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.279,205] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.279,205] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.280,761] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.280,792] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.282,226] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.282,226] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.283,782] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.283,782] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.285,339] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.285,339] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.286,804] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.286,804] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.288,299] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.288,299] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.289,825] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.289,825] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.291,381] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.291,381] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.292,846] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.292,846] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.294,342] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.294,342] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.295,867] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.295,898] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.297,363] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.297,363] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.298,889] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.298,889] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.300,354] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.300,354] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.301,879] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.301,910] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.303,375] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.303,375] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.304,901] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.304,901] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.306,365] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.306,365] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.307,891] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.307,922] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.309,387] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.309,417] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.310,852] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.310,852] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.312,316] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.312,316] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.313,842] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.313,873] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.315,307] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.315,338] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.316,802] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.316,802] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.318,267] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.318,267] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.319,763] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.319,763] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.321,319] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.321,350] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.322,784] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.322,784] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.324,249] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.324,249] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.325,805] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.325,805] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.327,239] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.327,301] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.328,796] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.328,796] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.330,261] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.330,261] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.331,756] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.331,787] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.333,282] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.333,312] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
+[00:00:04.334,808] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:04.334,808] [1;31m<err> iqs5xx: Failed to read system info 0: -5[0m
