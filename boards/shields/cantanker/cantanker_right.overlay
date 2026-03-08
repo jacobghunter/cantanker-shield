@@ -49,23 +49,29 @@
 &pro_micro_i2c {
     status = "okay";
     
-    tps43: trackpad@74 {
+    tps43: iqs5xx@74 {
         compatible = "azoteq,iqs5xx";
         reg = <0x74>;
         rdy-gpios = <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+
+        /* Features enabled in the chip firmware */
+        one-finger-tap;
+        two-finger-tap;
+        press-and-hold;
+        press-and-hold-time = <250>;
+
+        scroll;
+        natural-scroll-y;
+        natural-scroll-x;
+
+        bottom-beta = <5>;
+        stationary-threshold = <5>;
     };
 };
 
 / {
-    trackpad_listener {
+    trackpad_listener: trackpad_listener {
         compatible = "zmk,input-listener";
         device = <&tps43>;
-        
-        x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;
-        
-        /* Optional: Add taps if you want clicking */
-        one-finger-tap-button = <0x110>; /* Mouse Left Click */
-        two-finger-tap-button = <0x111>; /* Mouse Right Click */
     };
 };
