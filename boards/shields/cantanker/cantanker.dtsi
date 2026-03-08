@@ -59,19 +59,3 @@
         triggers-per-rotation = <20>;
     };
 };
-
-&i2c0 {
-    tps43: trackpad@74 {
-        compatible = "azoteq,tps43";
-        reg = <0x74>;
-        variant = "43mm";
-        resolution-x = <2048>;
-        resolution-y = <1792>;
-        rdy-gpios = <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        touch-threshold = <40>;
-        max-touches = <5>;
-        palm-reject-threshold = <100>;
-        gesture-enable;
-        i2c-timeout-ms = <10>;
-    };
-};
