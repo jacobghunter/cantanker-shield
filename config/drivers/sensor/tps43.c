@@ -52,7 +52,7 @@ struct tps43_data {
 
 struct tps43_config {
     struct i2c_dt_spec i2c;
-    struct gpio_dt_spec int_gpio;
+    struct gpio_dt_spec rdy_gpio ;
     struct gpio_dt_spec rst_gpio;
     uint8_t resolution_x;
     uint8_t resolution_y;
@@ -381,14 +381,14 @@ static int tps43_trigger_set(const struct device *dev, const struct sensor_trigg
     
     if (handler) {
         /* Enable interrupt */
-        ret = gpio_pin_interrupt_configure_dt(&config->int_gpio, GPIO_INT_EDGE_FALLING);
+        ret = gpio_pin_interrupt_configure_dt(&config->rdy_gpio , GPIO_INT_EDGE_FALLING);
         if (ret < 0) {
-            LOG_ERR("Failed to configure interrupt");
+                LOG_ERR("Failed to enable RDY interrupt: %d", ret);
             goto unlock;
         }
     } else {
         /* Disable interrupt */
-        ret = gpio_pin_interrupt_configure_dt(&config->int_gpio, GPIO_INT_DISABLE);
+        ret = gpio_pin_interrupt_configure_dt(&config->rdy_gpio , GPIO_INT_DISABLE);
     }
     
 unlock:
@@ -424,13 +424,13 @@ static int tps43_init(const struct device *dev)
         }
     }
     
-    if (gpio_is_ready_dt(&config->int_gpio)) {
-        ret = gpio_pin_configure_dt(&config->int_gpio, GPIO_INPUT);
+    if (gpio_is_ready_dt(&config->rdy_gpio )) {
+        ret = gpio_pin_configure_dt(&config->rdy_gpio , GPIO_INPUT);
         if (ret < 0) {
             LOG_WRN("Failed to configure interrupt GPIO: %d", ret);
         } else {
-            gpio_init_callback(&data->gpio_cb, tps43_gpio_callback, BIT(config->int_gpio.pin));
-            gpio_add_callback(config->int_gpio.port, &data->gpio_cb);
+            gpio_init_callback(&data->gpio_cb, tps43_gpio_callback, BIT(config->rdy_gpio .pin));
+            gpio_add_callback(config->rdy_gpio .port, &data->gpio_cb);
         }
     }
     
@@ -446,7 +446,7 @@ static int tps43_init(const struct device *dev)
                                                                              \
     static const struct tps43_config tps43_config_##inst = {                \
         .i2c = I2C_DT_SPEC_INST_GET(inst),                                 \
-        .int_gpio = GPIO_DT_SPEC_INST_GET_OR(inst, int_gpios, {0}),        \
+        .rdy_gpio  = GPIO_DT_SPEC_INST_GET_OR(inst, rdy_gpio s, {0}),        \
         .rst_gpio = GPIO_DT_SPEC_INST_GET_OR(inst, rst_gpios, {0}),        \
         .resolution_x = DT_INST_PROP_OR(inst, resolution_x, 0),            \
         .resolution_y = DT_INST_PROP_OR(inst, resolution_y, 0),            \
