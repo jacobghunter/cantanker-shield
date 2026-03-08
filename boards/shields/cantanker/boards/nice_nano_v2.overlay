@@ -30,12 +30,15 @@
         group1 {
             psels = <NRF_PSEL(TWIM_SDA, 1, 11)>,
                     <NRF_PSEL(TWIM_SCL, 0, 10)>;
+            bias-pull-up;
         };
     };
+
     i2c0_sleep: i2c0_sleep {
         group1 {
             psels = <NRF_PSEL(TWIM_SDA, 1, 11)>,
                     <NRF_PSEL(TWIM_SCL, 0, 10)>;
+            bias-pull-up;
             low-power-enable;
         };
     };
