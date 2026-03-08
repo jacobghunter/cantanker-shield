@@ -6,10 +6,15 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: jacobghunter
       url-base: https://github.com/jacobghunter
+    - name: aym1607
+      url-base: https://github.com/aym1607
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
+    - name: zmk-driver-azoteq-iqs5xx
+      remote: aym1607
+      revision: main
     - name: cantanker-shield
       remote: jacobghunter
       revision: main

@@ -1,2 +1,1 @@
-zephyr_library()
-zephyr_library_sources(tps43.c)
+# Empty for now as we are using the external IQS5xx module via west.yml

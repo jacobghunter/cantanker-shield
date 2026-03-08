@@ -49,16 +49,15 @@
     status = "okay";
     
     tps43: trackpad@74 {
-        compatible = "azoteq,tps43";
+        compatible = "azoteq,iqs5xx";
         reg = <0x74>;
-        variant = "43mm";
-        resolution-x = <2048>;
-        resolution-y = <1792>;
-        rdy-gpios = <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        touch-threshold = <40>;
-        max-touches = <5>;
-        palm-reject-threshold = <100>;
-        gesture-enable;
-        i2c-timeout-ms = <10>;
+        dr-gpios = <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    };
+};
+
+/ {
+    trackpad_listener {
+        compatible = "zmk,input-listener";
+        device = <&tps43>;
     };
 };
