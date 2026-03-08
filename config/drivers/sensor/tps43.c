@@ -140,9 +140,9 @@ static int tps43_device_reset(const struct device *dev)
     
     /* Reset sequence: ACTIVE (Reset) -> wait -> INACTIVE (Run) */
     gpio_pin_set_dt(&config->rst_gpio, 1);
-    k_msleep(10);
+    k_msleep(20);
     gpio_pin_set_dt(&config->rst_gpio, 0);
-    k_msleep(50); /* Allow device to boot */
+    k_msleep(200); /* Increased delay for device to boot and stabilize */
     
     /* Reset driver state */
     data->device_ready = false;
@@ -188,6 +188,12 @@ static int tps43_configure_device(const struct device *dev)
     if (ret < 0) {
         LOG_ERR("Failed to write system config");
         return ret;
+    }
+
+    /* Verify configuration was applied */
+    uint8_t read_back[2];
+    if (tps43_i2c_read_reg(dev, TPS43_REG_SYS_CONFIG_0, read_back, 2) == 0) {
+        LOG_INF("Config read-back: %02x %02x", read_back[0], read_back[1]);
     }
 
     /* Small delay for the chip to process the ACK */
@@ -306,10 +312,10 @@ static int tps43_read_touch_data(const struct device *dev)
 
     /* Check for reset bit (bit 7) */
     if (xy_info & 0x80) {
-        LOG_WRN("Device reset detected, reconfiguring...");
-        data->device_ready = false;
-        k_work_reschedule(&data->work, K_MSEC(10));
-        return -EAGAIN;
+        LOG_INF("Device reset bit detected, acknowledging...");
+        /* We'll acknowledge this during the next configuration or via a specific write */
+        uint8_t ack_val = 0x80;
+        tps43_i2c_write_reg(dev, TPS43_REG_SYS_CONFIG_0, &ack_val, 1);
     }
 
     data->touch_state = (xy_info & TPS43_XY_INFO_TOUCH_MASK) ? 1 : 0;
