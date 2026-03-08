@@ -1,60 +1,556 @@
-[00:00:00.403,808] [0m<dbg> zmk: vddh_init: VDDHDIV5 setup returned 0[0m
-[00:00:00.403,869] [0m<inf> tps43: RDY GPIO is ready, configuring interrupt[0m
-[00:00:00.403,900] [0m<inf> tps43: RDY interrupt configured: 0[0m
-[00:00:00.403,930] [0m<inf> tps43: TPS43 driver registered, init scheduled[0m
+[00:00:00.408,874] [0m<dbg> zmk: vddh_init: VDDHDIV5 setup returned 0[0m
+[00:00:00.408,935] [0m<inf> tps43: RDY GPIO is ready, configuring interrupt[0m
+[00:00:00.408,966] [0m<inf> tps43: RDY interrupt configured: 0[0m
+[00:00:00.408,996] [0m<inf> tps43: TPS43 driver registered, init scheduled[0m
 *** Booting Zephyr OS build dacab4875df7 ***
-[00:00:00.410,644] [0m<inf> fs_nvs: 8 Sectors of 4096 bytes[0m
-[00:00:00.410,675] [0m<inf> fs_nvs: alloc wra: 0, f50[0m
-[00:00:00.410,675] [0m<inf> fs_nvs: data wra: 0, fc[0m
-[00:00:00.412,048] [0m<inf> bt_hci_core: HW Platform: Nordic Semiconductor (0x0002)[0m
-[00:00:00.412,078] [0m<inf> bt_hci_core: HW Variant: nRF52x (0x0002)[0m
-[00:00:00.412,078] [0m<inf> bt_hci_core: Firmware: Standard Bluetooth controller (0x00) Version 3.5 Build 0[0m
-[00:00:00.412,414] [0m<inf> bt_hci_core: No ID address. App must call settings_load()[0m
-[00:00:00.412,506] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 15 on gpio@50000300 for input[0m
-[00:00:00.412,567] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 13 on gpio@50000300 for input[0m
-[00:00:00.412,628] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 31 on gpio@50000000 for input[0m
-[00:00:00.412,658] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 29 on gpio@50000000 for input[0m
-[00:00:00.412,719] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 2 on gpio@50000000 for input[0m
-[00:00:00.412,750] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 9 on gpio@50000000 for output[0m
-[00:00:00.412,811] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 6 on gpio@50000300 for output[0m
-[00:00:00.412,841] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 4 on gpio@50000300 for output[0m
-[00:00:00.412,902] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 24 on gpio@50000000 for output[0m
-[00:00:00.412,963] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 22 on gpio@50000000 for output[0m
-[00:00:00.412,994] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 20 on gpio@50000000 for output[0m
-[00:00:00.413,055] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 17 on gpio@50000000 for output[0m
-[00:00:00.413,421] [0m<dbg> zmk: kscan_direct_init_input_inst: Configured pin 8 on gpio@50000000 for input[0m
-[00:00:00.413,665] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 0[0m
-[00:00:00.413,665] [0m<dbg> zmk: zmk_sensors_init_item: No local device for 0[0m
-[00:00:00.413,665] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 1[0m
-[00:00:00.419,036] [0m<inf> zmk: Welcome to ZMK!
+[00:00:00.415,405] [0m<inf> fs_nvs: 8 Sectors of 4096 bytes[0m
+[00:00:00.415,435] [0m<inf> fs_nvs: alloc wra: 0, f50[0m
+[00:00:00.415,435] [0m<inf> fs_nvs: data wra: 0, fc[0m
+[00:00:00.416,809] [0m<inf> bt_hci_core: HW Platform: Nordic Semiconductor (0x0002)[0m
+[00:00:00.416,809] [0m<inf> bt_hci_core: HW Variant: nRF52x (0x0002)[0m
+[00:00:00.416,839] [0m<inf> bt_hci_core: Firmware: Standard Bluetooth controller (0x00) Version 3.5 Build 0[0m
+[00:00:00.417,175] [0m<inf> bt_hci_core: No ID address. App must call settings_load()[0m
+[00:00:00.417,266] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 15 on gpio@50000300 for input[0m
+[00:00:00.417,327] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 13 on gpio@50000300 for input[0m
+[00:00:00.417,358] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 31 on gpio@50000000 for input[0m
+[00:00:00.417,419] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 29 on gpio@50000000 for input[0m
+[00:00:00.417,449] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 2 on gpio@50000000 for input[0m
+[00:00:00.417,510] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 9 on gpio@50000000 for output[0m
+[00:00:00.417,541] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 6 on gpio@50000300 for output[0m
+[00:00:00.417,602] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 4 on gpio@50000300 for output[0m
+[00:00:00.417,633] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 24 on gpio@50000000 for output[0m
+[00:00:00.417,694] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 22 on gpio@50000000 for output[0m
+[00:00:00.417,724] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 20 on gpio@50000000 for output[0m
+[00:00:00.417,785] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 17 on gpio@50000000 for output[0m
+[00:00:00.418,151] [0m<dbg> zmk: kscan_direct_init_input_inst: Configured pin 8 on gpio@50000000 for input[0m
+[00:00:00.418,365] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 0[0m
+[00:00:00.418,395] [0m<dbg> zmk: zmk_sensors_init_item: No local device for 0[0m
+[00:00:00.418,395] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 1[0m
+[00:00:00.423,767] [0m<inf> zmk: Welcome to ZMK!
 [0m
-[00:00:00.419,921] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
-[00:00:00.419,952] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
-[00:00:00.420,471] [0m<inf> bt_hci_core: Identity: E0:39:78:E7:AC:2E (random)[0m
-[00:00:00.420,501] [0m<inf> bt_hci_core: HCI: version 5.4 (0x0d) revision 0x0000, manufacturer 0x05f1[0m
-[00:00:00.420,532] [0m<inf> bt_hci_core: LMP: version 5.4 (0x0d) subver 0xffff[0m
-[00:00:00.423,034] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
-[00:00:00.423,065] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
-[00:00:00.543,975] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 6[0m
-[00:00:00.544,036] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.544,067] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.656,036] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.656,066] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.705,474] [0m<dbg> zmk: vddh_sample_fetch: ADC raw 3307 ~ 4840 mV => 100%[0m
-[00:00:00.705,505] [0m<dbg> zmk: split_peripheral_listener: [0m
-[00:00:00.784,179] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
-[00:00:00.784,210] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
-[00:00:00.903,961] [0m<inf> tps43: Reinitializing device[0m
-[00:00:00.904,083] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
-[00:00:00.904,113] [1;31m<err> tps43: Failed to read register 0x00: -5[0m
-[00:00:00.904,144] [1;31m<err> tps43: Failed to read device info[0m
-[00:00:00.904,144] [1;31m<err> tps43: Device verification failed[0m
-[00:00:00.904,174] [1;31m<err> tps43: Device reinitialization failed[0m
-[00:00:01.115,814] [0m<dbg> zmk: split_svc_pos_state_ccc: value 1[0m
-[00:00:01.115,814] [0m<dbg> zmk: split_svc_sensor_state_ccc: value 1[0m
-[00:00:01.115,936] [0m<dbg> zmk: security_changed: Security changed: FC:DD:F4:C6:B3:27 (random) level 2[0m
-[00:00:01.205,902] [0m<dbg> zmk: split_svc_select_phys_layout_callback: Selecting physical layout after GATT write of 0[0m
-[00:00:01.904,235] [0m<inf> tps43: Reinitializing device[0m
-[00:00:01.905,181] [0m<inf> tps43: Device Product ID: 0x003a[0m
-[00:00:01.905,792] [0m<inf> tps43: Device configured successfully[0m
-[00:00:01.905,822] [0m<inf> tps43: TPS43 device initialized successfully[0m
+[00:00:00.424,652] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
+[00:00:00.424,682] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
+[00:00:00.425,201] [0m<inf> bt_hci_core: Identity: E0:39:78:E7:AC:2E (random)[0m
+[00:00:00.425,231] [0m<inf> bt_hci_core: HCI: version 5.4 (0x0d) revision 0x0000, manufacturer 0x05f1[0m
+[00:00:00.425,262] [0m<inf> bt_hci_core: LMP: version 5.4 (0x0d) subver 0xffff[0m
+[00:00:00.427,764] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
+[00:00:00.427,795] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
+[00:00:00.548,248] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 6[0m
+[00:00:00.548,309] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.548,339] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.661,346] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.661,376] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.703,277] [0m<dbg> zmk: vddh_sample_fetch: ADC raw 3297 ~ 4825 mV => 100%[0m
+[00:00:00.703,308] [0m<dbg> zmk: split_peripheral_listener: [0m
+[00:00:00.793,945] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
+[00:00:00.794,006] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
+[00:00:00.909,027] [0m<inf> tps43: Reinitializing device[0m
+[00:00:00.909,149] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:00.909,179] [1;31m<err> tps43: Failed to read register 0x00: -5[0m
+[00:00:00.909,210] [1;31m<err> tps43: Failed to read device info[0m
+[00:00:00.909,210] [1;31m<err> tps43: Device verification failed[0m
+[00:00:00.909,240] [1;31m<err> tps43: Device reinitialization failed[0m
+[00:00:01.127,197] [0m<dbg> zmk: split_svc_pos_state_ccc: value 1[0m
+[00:00:01.127,227] [0m<dbg> zmk: split_svc_sensor_state_ccc: value 1[0m
+[00:00:01.127,319] [0m<dbg> zmk: security_changed: Security changed: FC:DD:F4:C6:B3:27 (random) level 2[0m
+[00:00:01.224,853] [0m<dbg> zmk: split_svc_select_phys_layout_callback: Selecting physical layout after GATT write of 0[0m
+[00:00:01.909,301] [0m<inf> tps43: Reinitializing device[0m
+[00:00:01.909,729] [0m<inf> tps43: Device Product ID: 0x003a[0m
+[00:00:01.910,339] [0m<inf> tps43: Device configured successfully[0m
+[00:00:01.910,339] [0m<inf> tps43: TPS43 device initialized successfully[0m
+[00:00:01.910,736] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:01.921,203] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:01.931,671] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:01.942,138] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:01.952,606] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:01.963,073] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:01.973,571] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:01.984,039] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:01.994,506] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.004,974] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.015,441] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.025,909] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.036,376] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.046,844] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.057,312] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.067,779] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.078,277] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.088,745] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.099,212] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.109,680] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.120,147] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.130,615] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.141,082] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.151,550] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.162,017] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.172,485] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.182,983] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.193,450] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.203,918] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.214,385] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.224,853] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.235,321] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.245,788] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.256,256] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.266,723] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.277,191] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.287,689] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.298,156] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.308,624] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.319,091] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.329,559] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.340,026] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.350,494] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.360,961] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.371,429] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.381,896] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.392,395] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.402,862] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.413,330] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.423,797] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.434,265] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.444,732] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.455,200] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.465,667] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.476,135] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.486,602] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.497,100] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.507,568] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.518,035] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.528,503] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.538,970] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.549,438] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.559,906] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.570,373] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.580,841] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.591,308] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.601,806] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.612,274] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.622,741] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.633,209] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.643,676] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.654,144] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.664,611] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.675,079] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.685,546] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.696,014] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.706,512] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.716,979] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.727,447] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.737,915] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.748,382] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.758,850] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.769,317] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.779,785] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.790,252] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.800,720] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.811,218] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.821,685] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.832,153] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.842,620] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.853,088] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.863,555] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.874,023] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.884,490] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.894,958] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.905,426] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.915,924] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.926,391] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.936,859] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.947,326] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.957,794] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.968,261] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.978,729] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.989,196] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:02.999,664] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.010,131] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.020,629] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.031,097] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.041,564] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.052,032] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.062,500] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.072,967] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.083,435] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.093,902] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.104,370] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.114,837] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.125,335] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.135,803] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.146,270] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.156,738] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.167,205] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.177,673] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.188,140] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.198,608] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.209,075] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.219,543] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.230,041] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.240,509] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.250,976] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.261,444] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.271,911] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.282,379] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.292,846] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.303,314] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.313,781] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.324,249] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.334,747] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.345,214] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.355,682] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.366,149] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.376,617] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.387,084] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.397,552] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.408,020] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.418,487] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.428,955] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.439,453] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.449,920] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.460,388] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.470,855] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.481,323] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.491,790] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.502,258] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.512,725] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.523,193] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.533,660] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.544,158] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.554,626] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.565,093] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.575,561] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.586,029] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.596,496] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.606,964] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.617,431] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.627,899] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.638,366] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.648,864] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.659,332] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.669,799] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.680,267] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.690,734] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.701,202] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.711,669] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.722,137] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.732,604] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.743,072] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.753,570] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.764,038] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.774,505] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.784,973] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.795,440] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.805,908] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.816,375] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.826,843] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.837,310] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.847,778] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.858,276] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.868,743] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.879,211] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.889,678] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.900,146] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.910,614] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.921,081] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.931,549] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.942,016] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.952,484] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.962,982] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.973,449] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.983,917] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:03.994,384] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.004,852] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.015,319] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.025,817] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.036,285] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.046,752] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.057,220] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.067,718] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.078,186] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.088,653] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.099,121] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.109,588] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.120,056] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.130,523] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.140,991] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.151,458] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.161,926] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.172,424] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.182,891] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.193,359] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.203,826] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.214,294] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.224,761] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.235,229] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.245,758] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.256,225] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.266,693] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.277,191] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.287,658] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.298,126] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.308,593] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.319,061] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.329,528] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.339,996] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.350,463] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.360,931] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.371,398] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.381,896] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.392,364] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.402,832] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.413,299] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.423,767] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.434,234] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.444,702] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.455,169] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.465,637] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.476,104] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.486,602] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.497,070] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.507,537] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.518,005] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.528,472] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.538,940] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.549,407] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.559,875] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.570,343] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.580,810] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.591,308] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.601,776] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.612,243] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.622,711] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.633,178] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.643,646] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.654,113] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.664,581] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.675,048] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.685,516] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.696,014] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.706,481] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.716,949] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.727,416] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.737,884] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.748,352] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.758,819] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.769,287] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.779,754] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.790,222] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.800,720] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.811,187] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.821,655] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.832,122] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.842,590] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.853,057] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.863,525] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.873,992] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.884,460] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.894,927] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.905,426] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.915,893] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.926,361] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.936,828] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.947,296] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.957,763] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.968,231] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.978,698] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.989,166] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:04.999,633] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.010,131] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.020,599] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.031,066] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.041,534] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.052,001] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.062,469] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.072,937] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.083,404] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.093,872] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.104,339] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.114,837] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.125,305] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.135,772] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.146,240] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.156,707] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.167,175] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.177,642] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.188,110] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.198,577] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.209,045] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.219,543] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.230,010] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.240,478] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.250,946] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.261,413] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.271,881] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.282,348] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.292,816] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.303,283] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.313,751] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.324,249] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.334,716] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.345,184] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.355,651] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.366,119] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.376,586] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.387,054] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.397,521] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.407,989] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.418,457] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.428,955] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.439,422] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.449,890] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.460,357] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.470,855] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.481,323] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.491,790] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.502,258] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.512,725] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.523,193] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.533,691] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.544,158] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.554,626] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.565,093] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.575,561] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.586,029] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.596,496] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.606,964] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.617,431] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.627,899] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.638,397] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.648,864] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.659,332] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.669,799] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.680,267] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.690,734] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.701,202] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.711,669] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.722,137] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.732,604] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.743,103] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.753,570] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.764,038] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.774,505] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.784,973] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.795,440] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.805,908] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.816,375] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.826,843] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.837,310] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.847,808] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.858,276] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.868,743] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.879,211] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.889,678] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.900,146] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.910,614] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.921,081] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.931,549] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.942,016] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.952,514] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.962,982] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.973,449] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.983,917] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:05.994,384] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.004,852] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.015,319] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.025,787] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.036,254] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.046,722] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.057,220] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.067,687] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.078,155] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.088,623] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.099,090] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.109,558] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.120,025] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.130,493] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.140,960] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.151,428] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.161,926] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.172,393] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.182,861] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.193,328] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.203,796] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.214,263] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.224,731] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.235,198] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.245,666] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.256,134] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.266,632] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.277,099] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.287,567] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.298,034] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.308,502] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.318,969] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.329,437] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.339,904] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.350,372] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.360,839] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.371,337] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.381,805] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.392,272] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.402,740] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.413,208] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.423,675] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.434,143] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.444,610] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.455,078] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.465,545] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.476,043] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.486,511] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.496,978] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.507,446] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.517,913] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.528,381] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.538,848] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.549,316] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.559,783] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.570,251] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.580,749] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.591,217] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.601,684] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.612,152] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.622,619] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.633,087] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.643,554] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.654,022] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.664,489] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.674,957] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.685,455] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.695,922] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.706,390] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.716,857] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.727,325] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.737,792] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.748,260] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.758,728] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.769,195] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.779,663] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.790,161] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.800,628] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.811,096] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.821,563] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.832,031] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.842,498] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.852,966] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.863,433] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.873,901] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.884,368] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.894,866] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.905,334] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.915,802] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.926,269] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.936,737] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.947,204] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.957,672] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.968,139] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.978,607] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.989,074] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:06.999,572] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:07.010,040] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:07.020,507] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:07.030,975] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:07.041,442] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:07.051,910] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:07.062,377] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:07.072,845] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:07.083,312] [0m<inf> tps43: Poll successful, touch_state: 0[0m
+[00:00:07.093,780] [0m<inf> tps43: Poll successful, touch_state: 0[0m
