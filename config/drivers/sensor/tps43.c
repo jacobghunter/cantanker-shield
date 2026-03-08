@@ -325,7 +325,9 @@ static void tps43_work_handler(struct k_work *work)
     /* Read touch data */
     ret = tps43_read_touch_data(dev);
     if (ret == 0) {
-        LOG_DBG("Poll successful, touch_state: %d", data->touch_state);
+        LOG_INF("Poll successful, touch_state: %d", data->touch_state);
+    } else {
+        LOG_WRN("Touch read failed: %d", ret);
     }
     
     /* Trigger callback if configured */
@@ -333,7 +335,7 @@ static void tps43_work_handler(struct k_work *work)
         data->trigger_handler(dev, data->trigger);
     }
 
-    /* Reschedule for polling if configured */
+    /* Reschedule for polling if configured - ALWAYS reschedule so loop doesn't die */
 #if CONFIG_ZMK_SENSOR_TPS43_POLL_RATE_MS > 0
     k_work_reschedule(&data->work, K_MSEC(CONFIG_ZMK_SENSOR_TPS43_POLL_RATE_MS));
 #endif
