@@ -17,8 +17,7 @@ azoteq,iqs5xx@74 {
 - edit case to allow for plastic sheet to slot above battery
 - magnetic feet attachment
  - slots for straps in the bottom?
-
-- possible to use magnets in the plate to mount?
+- Color switches to not be red and super obvious (fine tip sharpie?)
 
 # things 2 get
 - magnetic tape/strips for feet?
