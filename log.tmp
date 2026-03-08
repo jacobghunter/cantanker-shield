@@ -1,133 +1,172 @@
-[00:00:00.400,390] [0m<dbg> zmk: vddh_init: VDDHDIV5 setup returned 0[0m
-[00:00:00.400,451] [0m<inf> tps43: RDY GPIO is ready, configuring interrupt[0m
-[00:00:00.400,482] [0m<inf> tps43: RDY interrupt configured: 0[0m
-[00:00:00.400,512] [0m<inf> tps43: TPS43 driver registered, init scheduled[0m
+2,698] [0m<inf> tps43: Device configured successfully[0m
+[00:00:01.922,729] [0m<inf> tps43: TPS43 device initialized successfully[0m
+[00:00:23.364,746] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 6[0m
+[00:00:23.364,776] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 6[0m
+[00:00:00.408,630] [0m<dbg> zmk: vddh_init: VDDHDIV5 setup returned 0[0m
+[00:00:00.408,691] [0m<inf> tps43: RDY GPIO is ready, configuring interrupt[0m
+[00:00:00.408,721] [0m<inf> tps43: RDY interrupt configured: 0[0m
+[00:00:00.408,752] [0m<inf> tps43: TPS43 driver registered, init scheduled[0m
 *** Booting Zephyr OS build dacab4875df7 ***
-[00:00:00.407,135] [0m<inf> fs_nvs: 8 Sectors of 4096 bytes[0m
-[00:00:00.407,135] [0m<inf> fs_nvs: alloc wra: 0, f50[0m
-[00:00:00.407,135] [0m<inf> fs_nvs: data wra: 0, fc[0m
-[00:00:00.408,508] [0m<inf> bt_hci_core: HW Platform: Nordic Semiconductor (0x0002)[0m
-[00:00:00.408,508] [0m<inf> bt_hci_core: HW Variant: nRF52x (0x0002)[0m
-[00:00:00.408,538] [0m<inf> bt_hci_core: Firmware: Standard Bluetooth controller (0x00) Version 3.5 Build 0[0m
-[00:00:00.408,874] [0m<inf> bt_hci_core: No ID address. App must call settings_load()[0m
-[00:00:00.408,966] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 15 on gpio@50000300 for input[0m
-[00:00:00.409,027] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 13 on gpio@50000300 for input[0m
-[00:00:00.409,057] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 31 on gpio@50000000 for input[0m
-[00:00:00.409,118] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 29 on gpio@50000000 for input[0m
-[00:00:00.409,149] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 2 on gpio@50000000 for input[0m
-[00:00:00.409,210] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 9 on gpio@50000000 for output[0m
-[00:00:00.409,240] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 6 on gpio@50000300 for output[0m
-[00:00:00.409,301] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 4 on gpio@50000300 for output[0m
-[00:00:00.409,332] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 24 on gpio@50000000 for output[0m
-[00:00:00.409,393] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 22 on gpio@50000000 for output[0m
-[00:00:00.409,423] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 20 on gpio@50000000 for output[0m
-[00:00:00.409,484] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 17 on gpio@50000000 for output[0m
-[00:00:00.409,881] [0m<dbg> zmk: kscan_direct_init_input_inst: Configured pin 8 on gpio@50000000 for input[0m
-[00:00:00.410,125] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 0[0m
-[00:00:00.410,156] [0m<dbg> zmk: zmk_sensors_init_item: No local device for 0[0m
-[00:00:00.410,156] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 1[0m
-[00:00:00.415,527] [0m<inf> zmk: Welcome to ZMK!
+[00:00:00.415,283] [0m<inf> fs_nvs: 8 Sectors of 4096 bytes[0m
+[00:00:00.415,313] [0m<inf> fs_nvs: alloc wra: 0, f50[0m
+[00:00:00.415,313] [0m<inf> fs_nvs: data wra: 0, fc[0m
+[00:00:00.416,656] [0m<inf> bt_hci_core: HW Platform: Nordic Semiconductor (0x0002)[0m
+[00:00:00.416,687] [0m<inf> bt_hci_core: HW Variant: nRF52x (0x0002)[0m
+[00:00:00.416,717] [0m<inf> bt_hci_core: Firmware: Standard Bluetooth controller (0x00) Version 3.5 Build 0[0m
+[00:00:00.417,053] [0m<inf> bt_hci_core: No ID address. App must call settings_load()[0m
+[00:00:00.417,144] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 15 on gpio@50000300 for input[0m
+[00:00:00.417,175] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 13 on gpio@50000300 for input[0m
+[00:00:00.417,236] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 31 on gpio@50000000 for input[0m
+[00:00:00.417,266] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 29 on gpio@50000000 for input[0m
+[00:00:00.417,327] [0m<dbg> zmk: kscan_matrix_init_input_inst: Configured pin 2 on gpio@50000000 for input[0m
+[00:00:00.417,358] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 9 on gpio@50000000 for output[0m
+[00:00:00.417,419] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 6 on gpio@50000300 for output[0m
+[00:00:00.417,449] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 4 on gpio@50000300 for output[0m
+[00:00:00.417,510] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 24 on gpio@50000000 for output[0m
+[00:00:00.417,541] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 22 on gpio@50000000 for output[0m
+[00:00:00.417,602] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 20 on gpio@50000000 for output[0m
+[00:00:00.417,633] [0m<dbg> zmk: kscan_matrix_init_output_inst: Configured pin 17 on gpio@50000000 for output[0m
+[00:00:00.418,029] [0m<dbg> zmk: kscan_direct_init_input_inst: Configured pin 8 on gpio@50000000 for input[0m
+[00:00:00.418,273] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 0[0m
+[00:00:00.418,304] [0m<dbg> zmk: zmk_sensors_init_item: No local device for 0[0m
+[00:00:00.418,304] [0m<dbg> zmk: zmk_sensors_init_item: Init sensor at index 1[0m
+[00:00:00.423,675] [0m<inf> zmk: Welcome to ZMK!
 [0m
-[00:00:00.416,412] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
-[00:00:00.416,442] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
-[00:00:00.416,992] [0m<inf> bt_hci_core: Identity: E0:39:78:E7:AC:2E (random)[0m
-[00:00:00.417,022] [0m<inf> bt_hci_core: HCI: version 5.4 (0x0d) revision 0x0000, manufacturer 0x05f1[0m
-[00:00:00.417,053] [0m<inf> bt_hci_core: LMP: version 5.4 (0x0d) subver 0xffff[0m
-[00:00:00.419,525] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
-[00:00:00.419,555] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
-[00:00:00.535,278] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 6[0m
-[00:00:00.535,339] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.535,369] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.647,491] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.647,521] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
-[00:00:00.695,251] [0m<dbg> zmk: vddh_sample_fetch: ADC raw 3295 ~ 4825 mV => 100%[0m
-[00:00:00.695,281] [0m<dbg> zmk: split_peripheral_listener: [0m
-[00:00:00.776,763] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
-[00:00:00.776,794] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
-[00:00:00.900,543] [0m<inf> tps43: Reinitializing device[0m
-[00:00:00.900,756] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
-[00:00:00.900,787] [1;31m<err> tps43: Failed to read register 0x0000: -5[0m
-[00:00:00.900,817] [1;31m<err> tps43: Failed to read device info[0m
-[00:00:00.900,848] [1;31m<err> tps43: Device verification failed[0m
-[00:00:00.900,848] [1;31m<err> tps43: Device reinitialization failed[0m
-[00:00:01.098,571] [0m<dbg> zmk: split_svc_pos_state_ccc: value 1[0m
-[00:00:01.098,602] [0m<dbg> zmk: split_svc_sensor_state_ccc: value 1[0m
-[00:00:01.098,724] [0m<dbg> zmk: security_changed: Security changed: FC:DD:F4:C6:B3:27 (random) level 2[0m
-[00:00:01.188,690] [0m<dbg> zmk: split_svc_select_phys_layout_callback: Selecting physical layout after GATT write of 0[0m
-[00:00:01.900,939] [0m<inf> tps43: Reinitializing device[0m
-[00:00:01.902,130] [0m<inf> tps43: Device Product ID: 0x003a[0m
-[00:00:01.904,174] [0m<inf> tps43: Config read-back: 00 00[0m
-[00:00:01.911,132] [0m<inf> tps43: Device configured successfully[0m
-[00:00:01.911,163] [0m<inf> tps43: TPS43 device initialized successfully[0m
-[00:00:03.650,268] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:03.752,502] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:03.854,675] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:03.956,939] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:04.172,088] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:04.279,846] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:04.279,876] [0m<inf> tps43: Touch detected: x=0, y=225, strength=0[0m
-[00:00:04.279,876] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:04.385,620] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:04.385,650] [0m<inf> tps43: Touch released[0m
-[00:00:05.658,966] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:05.766,815] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:05.766,845] [0m<inf> tps43: Touch detected: x=0, y=141, strength=0[0m
-[00:00:05.766,876] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:05.874,694] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:05.874,725] [0m<inf> tps43: Touch detected: x=-154, y=224, strength=0[0m
-[00:00:05.874,755] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:05.982,543] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:05.982,574] [0m<inf> tps43: Touch detected: x=-307, y=300, strength=0[0m
-[00:00:05.982,604] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:06.090,850] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:06.090,881] [0m<inf> tps43: Touch detected: x=-414, y=350, strength=0[0m
-[00:00:06.090,911] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:06.198,394] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:06.198,425] [0m<inf> tps43: Touch detected: x=-492, y=388, strength=0[0m
-[00:00:06.198,455] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:06.306,030] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:06.306,060] [0m<inf> tps43: Touch detected: x=-559, y=419, strength=1[0m
-[00:00:06.306,091] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:06.412,780] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:06.412,811] [0m<inf> tps43: Touch detected: x=-594, y=441, strength=1[0m
-[00:00:06.412,841] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:06.518,585] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:06.518,615] [0m<inf> tps43: Touch released[0m
-[00:00:06.624,328] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:06.730,072] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:06.835,815] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:06.941,558] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:08.002,716] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:08.110,351] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:08.110,382] [0m<inf> tps43: Touch detected: x=0, y=305, strength=0[0m
-[00:00:08.110,382] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:08.218,322] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:08.218,353] [0m<inf> tps43: Touch detected: x=-101, y=188, strength=255[0m
-[00:00:08.218,383] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:08.325,866] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:08.325,897] [0m<inf> tps43: Touch detected: x=-182, y=114, strength=255[0m
-[00:00:08.325,927] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:08.432,891] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:08.432,922] [0m<inf> tps43: Touch detected: x=-259, y=61, strength=255[0m
-[00:00:08.432,952] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:08.539,581] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:08.539,611] [0m<inf> tps43: Touch detected: x=-326, y=38, strength=254[0m
-[00:00:08.539,642] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:08.645,324] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:08.645,355] [0m<inf> tps43: Touch released[0m
-[00:00:09.389,587] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:09.497,344] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:09.497,375] [0m<inf> tps43: Touch detected: x=0, y=391, strength=0[0m
-[00:00:09.497,406] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:09.605,224] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:09.605,255] [0m<inf> tps43: Touch detected: x=-269, y=451, strength=0[0m
-[00:00:09.605,285] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:09.713,470] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:09.713,500] [0m<inf> tps43: Touch detected: x=-434, y=471, strength=0[0m
-[00:00:09.713,531] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:09.820,953] [0m<inf> tps43: Valid XY_INFO: 0x09, RDY state: 0[0m
-[00:00:09.820,983] [0m<inf> tps43: Touch detected: x=-521, y=477, strength=0[0m
-[00:00:09.821,014] [0m<inf> tps43: Poll successful, touch_state: 1[0m
-[00:00:09.926,727] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
-[00:00:09.926,757] [0m<inf> tps43: Touch released[0m
-[00:00:10.032,440] [0m<inf> tps43: Valid XY_INFO: 0x08, RDY state: 0[0m
+[00:00:00.424,560] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
+[00:00:00.424,621] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 2[0m
+[00:00:00.425,079] [0m<inf> bt_hci_core: Identity: E0:39:78:E7:AC:2E (random)[0m
+[00:00:00.425,109] [0m<inf> bt_hci_core: HCI: version 5.4 (0x0d) revision 0x0000, manufacturer 0x05f1[0m
+[00:00:00.425,140] [0m<inf> bt_hci_core: LMP: version 5.4 (0x0d) subver 0xffff[0m
+[00:00:00.427,673] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
+[00:00:00.427,703] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 5[0m
+[00:00:00.540,588] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 6[0m
+[00:00:00.540,649] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.540,679] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.653,533] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.653,564] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 1[0m
+[00:00:00.715,026] [0m<dbg> zmk: vddh_sample_fetch: ADC raw 3297 ~ 4825 mV => 100%[0m
+[00:00:00.715,026] [0m<dbg> zmk: split_peripheral_listener: [0m
+[00:00:00.781,890] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
+[00:00:00.781,951] [0m<dbg> zmk: zmk_usb_get_conn_state: state: 3[0m
+[00:00:00.908,782] [0m<inf> tps43: Reinitializing device[0m
+[00:00:00.908,996] [1;31m<err> i2c_nrfx_twim: Error 0x0BAE0001 occurred for message 0[0m
+[00:00:00.909,027] [1;31m<err> tps43: Failed to read register 0x0000: -5[0m
+[00:00:00.909,057] [1;31m<err> tps43: Failed to read device info[0m
+[00:00:00.909,088] [1;31m<err> tps43: Device verification failed[0m
+[00:00:00.909,088] [1;31m<err> tps43: Device reinitialization failed[0m
+[00:00:01.173,889] [0m<dbg> zmk: split_svc_pos_state_ccc: value 1[0m
+[00:00:01.173,919] [0m<dbg> zmk: split_svc_sensor_state_ccc: value 1[0m
+[00:00:01.174,011] [0m<dbg> zmk: security_changed: Security changed: FC:DD:F4:C6:B3:27 (random) level 2[0m
+[00:00:01.271,484] [0m<dbg> zmk: split_svc_select_phys_layout_callback: Selecting physical layout after GATT write of 0[0m
+[00:00:01.909,149] [0m<inf> tps43: Reinitializing device[0m
+[00:00:01.910,583] [0m<inf> tps43: Device Product ID: 0x003a[0m
+[00:00:01.912,628] [0m<inf> tps43: Config read-back: 00 00[0m
+[00:00:01.919,586] [0m<inf> tps43: Device configured successfully[0m
+[00:00:01.919,616] [0m<inf> tps43: TPS43 device initialized successfully[0m
+[00:00:03.659,271] [0m<inf> tps43: Raw: 08 00 00 00 00 00 ff ff[0m
+[00:00:03.761,535] [0m<inf> tps43: Raw: 08 00 00 00 00 00 ff ff[0m
+[00:00:03.863,708] [0m<inf> tps43: Raw: 08 00 00 00 00 00 ff ff[0m
+[00:00:03.966,003] [0m<inf> tps43: Raw: 08 00 00 00 00 00 ff ff[0m
+[00:00:04.181,213] [0m<inf> tps43: Raw: 08 01 00 00 00 00 01 dc[0m
+[00:00:04.289,245] [0m<inf> tps43: Raw: 08 01 00 00 00 00 01 d0[0m
+[00:00:04.397,094] [0m<inf> tps43: Raw: 09 01 00 00 00 00 01 aa[0m
+[00:00:04.397,094] [0m<inf> tps43: Touch: x=0, y=-22015, strength=0[0m
+[00:00:04.397,125] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:04.505,157] [0m<inf> tps43: Raw: 09 01 ff cd ff bd 01 77[0m
+[00:00:04.505,187] [0m<inf> tps43: Touch: x=-16897, y=30465, strength=255[0m
+[00:00:04.505,218] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:04.613,189] [0m<inf> tps43: Raw: 09 01 ff a5 ff 83 01 4f[0m
+[00:00:04.613,220] [0m<inf> tps43: Touch: x=-31745, y=20225, strength=255[0m
+[00:00:04.613,250] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:04.721,466] [0m<inf> tps43: Raw: 09 01 ff 87 ff 58 01 31[0m
+[00:00:04.721,496] [0m<inf> tps43: Touch: x=22783, y=12545, strength=255[0m
+[00:00:04.721,527] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:04.827,270] [0m<inf> tps43: Raw: 08 00 ff 87 ff 58 ff ff[0m
+[00:00:04.827,301] [0m<inf> tps43: Touch released[0m
+[00:00:04.933,013] [0m<inf> tps43: Raw: 08 00 ff 87 ff 58 ff ff[0m
+[00:00:05.038,757] [0m<inf> tps43: Raw: 08 00 ff 87 ff 58 ff ff[0m
+[00:00:05.144,470] [0m<inf> tps43: Raw: 08 00 ff 87 ff 58 ff ff[0m
+[00:00:05.250,213] [0m<inf> tps43: Raw: 08 00 ff 87 ff 58 ff ff[0m
+[00:00:06.097,930] [0m<inf> tps43: Raw: 08 00 00 00 00 00 01 c2[0m
+[00:00:06.839,874] [0m<inf> tps43: Raw: 08 00 00 00 00 00 01 43[0m
+[00:00:07.584,320] [0m<inf> tps43: Raw: 09 01 00 00 00 00 00 7d[0m
+[00:00:07.584,350] [0m<inf> tps43: Touch: x=0, y=32000, strength=0[0m
+[00:00:07.584,350] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:07.692,108] [0m<inf> tps43: Raw: 09 01 00 6e ff 91 00 eb[0m
+[00:00:07.692,138] [0m<inf> tps43: Touch: x=-28161, y=-5376, strength=0[0m
+[00:00:07.692,169] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:07.799,987] [0m<inf> tps43: Raw: 09 01 00 d9 ff 2f 01 56[0m
+[00:00:07.800,018] [0m<inf> tps43: Touch: x=12287, y=22017, strength=0[0m
+[00:00:07.800,048] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:07.908,782] [0m<inf> tps43: Raw: 09 01 01 31 fe dc 01 ae[0m
+[00:00:07.908,813] [0m<inf> tps43: Touch: x=-8962, y=-20991, strength=1[0m
+[00:00:07.908,843] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:08.016,540] [0m<inf> tps43: Raw: 09 01 01 74 fe 9f 01 f1[0m
+[00:00:08.016,571] [0m<inf> tps43: Touch: x=-24578, y=-3839, strength=1[0m
+[00:00:08.016,601] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:08.124,420] [0m<inf> tps43: Raw: 09 01 01 a5 fe 72 02 22[0m
+[00:00:08.124,450] [0m<inf> tps43: Touch: x=29438, y=8706, strength=1[0m
+[00:00:08.124,481] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:08.232,299] [0m<inf> tps43: Raw: 09 01 01 be fe 5a 02 3b[0m
+[00:00:08.232,330] [0m<inf> tps43: Touch: x=23294, y=15106, strength=1[0m
+[00:00:08.232,360] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:08.338,073] [0m<inf> tps43: Raw: 08 00 01 be fe 5a ff ff[0m
+[00:00:08.338,104] [0m<inf> tps43: Touch released[0m
+[00:00:08.443,817] [0m<inf> tps43: Raw: 08 00 01 be fe 5a ff ff[0m
+[00:00:08.549,530] [0m<inf> tps43: Raw: 08 00 01 be fe 5a ff ff[0m
+[00:00:08.655,303] [0m<inf> tps43: Raw: 08 00 01 be fe 5a ff ff[0m
+[00:00:08.761,016] [0m<inf> tps43: Raw: 08 00 01 be fe 5a ff ff[0m
+[00:00:09.395,690] [0m<inf> tps43: Raw: 08 00 01 be fe 5a ff ff[0m
+[00:00:09.609,069] [0m<inf> tps43: Raw: 08 01 01 be fe 5a 03 34[0m
+[00:00:09.717,102] [0m<inf> tps43: Raw: 08 01 00 00 00 00 03 23[0m
+[00:00:09.825,225] [0m<inf> tps43: Raw: 09 01 00 00 00 00 02 d9[0m
+[00:00:09.825,256] [0m<inf> tps43: Touch: x=0, y=-9982, strength=0[0m
+[00:00:09.825,256] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:09.933,166] [0m<inf> tps43: Raw: 09 01 ff a6 ff c3 02 7f[0m
+[00:00:09.933,197] [0m<inf> tps43: Touch: x=-15361, y=32514, strength=255[0m
+[00:00:09.933,227] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:10.041,229] [0m<inf> tps43: Raw: 09 01 ff 62 ff 8d 02 3b[0m
+[00:00:10.041,259] [0m<inf> tps43: Touch: x=-29185, y=15106, strength=255[0m
+[00:00:10.041,290] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:10.149,322] [0m<inf> tps43: Raw: 09 01 ff 1f ff 4c 01 f8[0m
+[00:00:10.149,353] [0m<inf> tps43: Touch: x=19711, y=-2047, strength=255[0m
+[00:00:10.149,383] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:10.257,568] [0m<inf> tps43: Raw: 09 01 fe e7 ff 0a 01 c0[0m
+[00:00:10.257,598] [0m<inf> tps43: Touch: x=2815, y=-16383, strength=254[0m
+[00:00:10.257,629] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:10.365,539] [0m<inf> tps43: Raw: 09 01 fe ba fe db 01 93[0m
+[00:00:10.365,539] [0m<inf> tps43: Touch: x=-9218, y=-27903, strength=254[0m
+[00:00:10.365,570] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:10.473,358] [0m<inf> tps43: Raw: 09 01 fe 98 fe b8 01 71[0m
+[00:00:10.473,388] [0m<inf> tps43: Touch: x=-18178, y=28929, strength=254[0m
+[00:00:10.473,388] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:10.579,101] [0m<inf> tps43: Raw: 08 00 fe 98 fe b8 ff ff[0m
+[00:00:10.579,132] [0m<inf> tps43: Touch released[0m
+[00:00:10.684,844] [0m<inf> tps43: Raw: 08 00 fe 98 fe b8 ff ff[0m
+[00:00:10.790,557] [0m<inf> tps43: Raw: 08 00 fe 98 fe b8 ff ff[0m
+[00:00:10.896,301] [0m<inf> tps43: Raw: 08 00 fe 98 fe b8 ff ff[0m
+[00:00:11.002,014] [0m<inf> tps43: Raw: 08 00 fe 98 fe b8 ff ff[0m
+[00:00:12.593,109] [0m<inf> tps43: Raw: 08 01 00 00 00 00 03 28[0m
+[00:00:12.701,019] [0m<inf> tps43: Raw: 09 01 00 00 00 00 02 9e[0m
+[00:00:12.701,049] [0m<inf> tps43: Touch: x=0, y=-25086, strength=0[0m
+[00:00:12.701,049] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:12.808,410] [0m<inf> tps43: Raw: 09 01 ff 58 ff 91 01 f6[0m
+[00:00:12.808,441] [0m<inf> tps43: Touch: x=-28161, y=-2559, strength=255[0m
+[00:00:12.808,471] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:12.915,710] [0m<inf> tps43: Raw: 09 01 ff 15 ff 61 01 b3[0m
+[00:00:12.915,740] [0m<inf> tps43: Touch: x=25087, y=-19711, strength=255[0m
+[00:00:12.915,771] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:13.021,484] [0m<inf> tps43: Raw: 08 00 ff 15 ff 61 ff ff[0m
+[00:00:13.021,514] [0m<inf> tps43: Touch released[0m
+[00:00:13.343,658] [0m<inf> tps43: Raw: 09 01 00 00 00 00 02 1c[0m
+[00:00:13.343,658] [0m<inf> tps43: Touch: x=0, y=7170, strength=0[0m
+[00:00:13.343,688] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:13.451,538] [0m<inf> tps43: Raw: 09 01 00 76 ff 5c 02 92[0m
+[00:00:13.451,568] [0m<inf> tps43: Touch: x=23807, y=-28158, strength=0[0m
+[00:00:13.451,599] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:13.559,448] [0m<inf> tps43: Raw: 09 01 00 8e ff 3a 02 aa[0m
+[00:00:13.559,478] [0m<inf> tps43: Touch: x=15103, y=-22014, strength=0[0m
+[00:00:13.559,509] [0m<inf> tps43: Poll successful, touch_state: 1[0m
+[00:00:13.666,656] [0m<inf> tps43: Raw: 08 01 00 9c ff 28 02 b8[0m
+[00:00:13.666,687] [0m<inf> tps43: Touch released[0m
+[00:00:13.772,430] [0m<inf> tps43: Raw: 08 00 00 9c ff 28 ff ff[0m
