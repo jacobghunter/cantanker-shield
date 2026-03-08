@@ -267,6 +267,7 @@ static int tps43_device_init(const struct device *dev)
 static int tps43_read_touch_data(const struct device *dev)
 {
     struct tps43_data *data = dev->data;
+    const struct tps43_config *config = dev->config;
     uint8_t touch_data[8];
     int ret;
     
@@ -274,13 +275,15 @@ static int tps43_read_touch_data(const struct device *dev)
         return -ENODEV;
     }
 
+    /* Check if device is physically ready (RDY pin Low) */
+    if (gpio_pin_get_dt(&config->rdy_gpio) == 0) {
+        /* Not ready - don't even try I2C to avoid bus errors */
+        return -EAGAIN;
+    }
+
     /* Read XY info and coordinates in one transaction */
     ret = tps43_i2c_read_reg(dev, TPS43_REG_XY_INFO_0, touch_data, 8);
     if (ret < 0) {
-        // Only log error occasionally to avoid spamming
-        if (data->error_count == 0) {
-            LOG_ERR("Failed to read touch data");
-        }
         data->error_count++;
         if (data->error_count > TPS43_MAX_ERROR_COUNT) {
             LOG_WRN("Too many errors, reinitializing device");
@@ -293,29 +296,25 @@ static int tps43_read_touch_data(const struct device *dev)
     /* Reset error count on successful read */
     data->error_count = 0;
     
-    /* Log some raw data every 50 polls even if zero, just to see heartbeat */
-    static uint8_t heartbeat_counter = 0;
-    if (++heartbeat_counter >= 50) {
-        heartbeat_counter = 0;
-        const struct tps43_config *config = dev->config;
-        int rdy_state = gpio_pin_get_dt(&config->rdy_gpio);
-        LOG_INF("Heartbeat - Raw: %02x %02x %02x %02x, RDY: %d", 
-                touch_data[0], touch_data[1], touch_data[2], touch_data[3], rdy_state);
-    }
-
     /* Parse touch data */
     uint8_t xy_info = touch_data[0];
     
+    /* Log if we see anything non-zero */
     if (xy_info != 0) {
-        LOG_INF("Raw XY_INFO: 0x%02x", xy_info);
+        LOG_INF("Valid XY_INFO: 0x%02x, RDY state: %d", xy_info, gpio_pin_get_dt(&config->rdy_gpio));
     }
 
     /* Check for reset bit (bit 7) */
     if (xy_info & 0x80) {
-        LOG_INF("Device reset bit detected, acknowledging...");
-        /* We'll acknowledge this during the next configuration or via a specific write */
-        uint8_t ack_val = 0x80;
-        tps43_i2c_write_reg(dev, TPS43_REG_SYS_CONFIG_0, &ack_val, 1);
+        LOG_INF("Device reset detected, acknowledging...");
+        uint8_t sys_cfg_reg = TPS43_REG_SYS_CONFIG_0;
+        uint8_t val;
+        /* Read-modify-write to set bit 7 of register 0x50 */
+        if (tps43_i2c_read_reg(dev, sys_cfg_reg, &val, 1) == 0) {
+            val |= 0x80;
+            tps43_i2c_write_reg(dev, sys_cfg_reg, &val, 1);
+        }
+        return -EAGAIN;
     }
 
     data->touch_state = (xy_info & TPS43_XY_INFO_TOUCH_MASK) ? 1 : 0;
@@ -375,7 +374,14 @@ static void tps43_work_handler(struct k_work *work)
     /* Read touch data */
     ret = tps43_read_touch_data(dev);
     if (ret == 0) {
-        LOG_INF("Poll successful, touch_state: %d", data->touch_state);
+        if (data->touch_state) {
+            LOG_INF("Poll successful, touch_state: %d", data->touch_state);
+        }
+    } else if (ret == -EAGAIN) {
+        /* Device not ready, poll again soon */
+        k_work_reschedule(&data->work, K_MSEC(10));
+        k_mutex_unlock(&data->lock);
+        return;
     } else {
         LOG_WRN("Touch read failed: %d", ret);
     }
