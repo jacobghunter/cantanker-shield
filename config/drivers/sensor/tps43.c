@@ -16,6 +16,7 @@
 #include <zephyr/logging/log.h>
 #include <zephyr/sys/byteorder.h>
 #include <zephyr/input/input.h>
+#include <zmk/mouse/pointing.h>
 
 LOG_MODULE_REGISTER(tps43, CONFIG_SENSOR_LOG_LEVEL);
 
@@ -298,9 +299,11 @@ static int tps43_read_touch_data(const struct device *dev)
     /* Parse touch data */
     uint8_t xy_info = touch_data[0];
     
-    /* Log if we see anything non-zero */
-    if (xy_info != 0) {
-        LOG_INF("Valid XY_INFO: 0x%02x, RDY state: %d", xy_info, gpio_pin_get_dt(&config->rdy_gpio));
+    /* Log all 8 bytes if touch or tracking is active */
+    if (xy_info & 0x0F) {
+        LOG_INF("Raw: %02x %02x %02x %02x %02x %02x %02x %02x",
+                touch_data[0], touch_data[1], touch_data[2], touch_data[3],
+                touch_data[4], touch_data[5], touch_data[6], touch_data[7]);
     }
 
     /* Check for reset bit (bit 7) */
@@ -314,21 +317,24 @@ static int tps43_read_touch_data(const struct device *dev)
     data->touch_state = (xy_info & 0x01) ? 1 : 0;
     
     if (data->touch_state) {
-        /* Extract coordinates (Big Endian) */
-        data->x = sys_get_be16(&touch_data[4]);
-        data->y = sys_get_be16(&touch_data[6]);
+        /* Extract coordinates (Try LE first if BE was giving weird results) */
+        data->x = sys_get_le16(&touch_data[4]);
+        data->y = sys_get_le16(&touch_data[6]);
         data->touch_strength = touch_data[2];
         
-        LOG_INF("Touch detected: x=%d, y=%d, strength=%d", data->x, data->y, data->touch_strength);
+        LOG_INF("Touch: x=%d, y=%d, strength=%d", data->x, data->y, data->touch_strength);
 
         /* Report relative movement if this is a continuation of a touch */
         if (data->last_touch_state) {
-            int16_t dx = data->x - data->last_x;
-            int16_t dy = data->y - data->last_y;
+            int16_t dx = (data->x - data->last_x) / 4; /* Scale down for smoother testing */
+            int16_t dy = (data->y - data->last_y) / 4;
             
             if (dx != 0 || dy != 0) {
-                input_report_rel(dev, INPUT_REL_X, dx, false, K_FOREVER);
-                input_report_rel(dev, INPUT_REL_Y, dy, true, K_FOREVER);
+                struct zmk_pointing_relative_report report = {
+                    .x = dx,
+                    .y = dy,
+                };
+                zmk_pointing_report_relative(report);
             }
         }
         
