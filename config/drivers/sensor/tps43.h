@@ -72,8 +72,8 @@
 #define TPS43_PROX_EVENT            BIT(1)
 
 /* Communication timeouts and retry counts */
-#define TPS43_I2C_TIMEOUT_MS        100
-#define TPS43_INIT_TIMEOUT_MS       500
+#define TPS43_I2C_TIMEOUT_MS        500
+#define TPS43_INIT_TIMEOUT_MS       1000
 #define TPS43_MAX_RETRIES           3
 
 #define TPS43_REG_SYS_CONFIG_0      0x50

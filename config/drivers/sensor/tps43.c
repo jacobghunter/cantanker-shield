@@ -178,8 +178,8 @@ static int tps43_configure_device(const struct device *dev)
         sys_cfg[0] |= TPS43_SYS_CFG_SWITCH_XY;
     }
     
-    /* Acknowledge any pending reset */
-    sys_cfg[0] |= BIT(3); 
+    /* Acknowledge any pending reset (Bit 7 of Register 0x50) */
+    sys_cfg[0] |= BIT(7); 
     
     /* System Config 1 (0x51): CLEAR bits 0 and 1 to ENABLE Touch and Prox */
     sys_cfg[1] &= ~(BIT(0) | BIT(1));
@@ -189,6 +189,9 @@ static int tps43_configure_device(const struct device *dev)
         LOG_ERR("Failed to write system config");
         return ret;
     }
+
+    /* Small delay for the chip to process the ACK */
+    k_msleep(5);
 
     /* Set a more sensitive touch threshold (Register 0x41, Byte 1 is Touch) */
     uint8_t thresholds[2] = {10, 20}; /* Prox=10, Touch=20 */
