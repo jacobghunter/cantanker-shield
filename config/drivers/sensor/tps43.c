@@ -409,52 +409,35 @@ static int tps43_init(const struct device *dev)
     int ret;
     
     data->dev = dev;
-    
-    /* Initialize mutex */
     k_mutex_init(&data->lock);
-    
-    /* Initialize work queue */
     k_work_init_delayable(&data->work, tps43_work_handler);
     
-    /* Check I2C bus readiness */
     if (!i2c_is_ready_dt(&config->i2c)) {
         LOG_ERR("I2C bus not ready");
         return -ENODEV;
     }
     
-    /* Configure reset GPIO */
     if (gpio_is_ready_dt(&config->rst_gpio)) {
         ret = gpio_pin_configure_dt(&config->rst_gpio, GPIO_OUTPUT_ACTIVE);
         if (ret < 0) {
-            LOG_ERR("Failed to configure reset GPIO: %d", ret);
-            return ret;
+            LOG_WRN("Failed to configure reset GPIO: %d", ret);
         }
     }
     
-    /* Configure interrupt GPIO */
     if (gpio_is_ready_dt(&config->int_gpio)) {
         ret = gpio_pin_configure_dt(&config->int_gpio, GPIO_INPUT);
         if (ret < 0) {
-            LOG_ERR("Failed to configure interrupt GPIO: %d", ret);
-            return ret;
-        }
-        
-        gpio_init_callback(&data->gpio_cb, tps43_gpio_callback, BIT(config->int_gpio.pin));
-        ret = gpio_add_callback(config->int_gpio.port, &data->gpio_cb);
-        if (ret < 0) {
-            LOG_ERR("Failed to add GPIO callback: %d", ret);
-            return ret;
+            LOG_WRN("Failed to configure interrupt GPIO: %d", ret);
+        } else {
+            gpio_init_callback(&data->gpio_cb, tps43_gpio_callback, BIT(config->int_gpio.pin));
+            gpio_add_callback(config->int_gpio.port, &data->gpio_cb);
         }
     }
     
-    /* Initialize device */
-    ret = tps43_device_init(dev);
-    if (ret < 0) {
-        LOG_ERR("Device initialization failed: %d", ret);
-        return ret;
-    }
+    /* Non-blocking init - schedule device init as work item instead */
+    k_work_reschedule(&data->work, K_MSEC(500));
     
-    LOG_INF("TPS43 driver initialized successfully");
+    LOG_INF("TPS43 driver registered, init scheduled");
     return 0;
 }
 
