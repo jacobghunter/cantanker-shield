@@ -38,7 +38,6 @@ endif
 config ZMK_SENSOR_TPS43
 	bool "Azoteq TPS43 trackpad driver"
 	default y
-	depends on DT_HAS_AZOTEQ_TPS43_ENABLED
 	select I2C
 	select SENSOR
 	help
