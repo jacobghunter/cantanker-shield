@@ -178,13 +178,23 @@ static int tps43_configure_device(const struct device *dev)
         sys_cfg[0] |= TPS43_SYS_CFG_SWITCH_XY;
     }
     
-    /* Enable touch and proximity detection */
-    sys_cfg[1] |= TPS43_SYS_CFG_TP_EVENT | TPS43_SYS_CFG_PROX_EVENT;
+    /* Acknowledge any pending reset */
+    sys_cfg[0] |= BIT(3); 
+    
+    /* System Config 1 (0x51): CLEAR bits 0 and 1 to ENABLE Touch and Prox */
+    sys_cfg[1] &= ~(BIT(0) | BIT(1));
     
     ret = tps43_i2c_write_reg(dev, TPS43_REG_SYS_CONFIG_0, sys_cfg, 2);
     if (ret < 0) {
         LOG_ERR("Failed to write system config");
         return ret;
+    }
+
+    /* Set a more sensitive touch threshold (Register 0x41, Byte 1 is Touch) */
+    uint8_t thresholds[2] = {10, 20}; /* Prox=10, Touch=20 */
+    ret = tps43_i2c_write_reg(dev, TPS43_REG_THRESHOLDS, thresholds, 2);
+    if (ret < 0) {
+        LOG_WRN("Failed to set thresholds");
     }
     
     /* Set resolution if specified */
@@ -200,6 +210,14 @@ static int tps43_configure_device(const struct device *dev)
         }
     }
     
+    /* Set power mode to normal and disable event mode (for polling) */
+    uint8_t pwr_mode = 0x00; /* Normal power, Stream Mode */
+    ret = tps43_i2c_write_reg(dev, TPS43_REG_POWER_MODE, &pwr_mode, 1);
+    if (ret < 0) {
+        LOG_ERR("Failed to set power mode");
+        return ret;
+    }
+
     LOG_INF("Device configured successfully");
     return 0;
 }
@@ -266,8 +284,31 @@ static int tps43_read_touch_data(const struct device *dev)
     /* Reset error count on successful read */
     data->error_count = 0;
     
+    /* Log some raw data every 50 polls even if zero, just to see heartbeat */
+    static uint8_t heartbeat_counter = 0;
+    if (++heartbeat_counter >= 50) {
+        heartbeat_counter = 0;
+        const struct tps43_config *config = dev->config;
+        int rdy_state = gpio_pin_get_dt(&config->rdy_gpio);
+        LOG_INF("Heartbeat - Raw: %02x %02x %02x %02x, RDY: %d", 
+                touch_data[0], touch_data[1], touch_data[2], touch_data[3], rdy_state);
+    }
+
     /* Parse touch data */
     uint8_t xy_info = touch_data[0];
+    
+    if (xy_info != 0) {
+        LOG_INF("Raw XY_INFO: 0x%02x", xy_info);
+    }
+
+    /* Check for reset bit (bit 7) */
+    if (xy_info & 0x80) {
+        LOG_WRN("Device reset detected, reconfiguring...");
+        data->device_ready = false;
+        k_work_reschedule(&data->work, K_MSEC(10));
+        return -EAGAIN;
+    }
+
     data->touch_state = (xy_info & TPS43_XY_INFO_TOUCH_MASK) ? 1 : 0;
     
     if (data->touch_state) {
