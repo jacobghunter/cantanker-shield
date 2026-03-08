@@ -115,8 +115,7 @@ static int tps43_verify_device_id(const struct device *dev)
     
     /* IQS572 should return specific product ID (58 decimal = 0x3a) */
     if (product_id != 0x003a) {
-        LOG_WRN("Unexpected product ID: 0x%04x, expected: 0x003a", 
-                product_id, 0x003a);
+        LOG_WRN("Unexpected product ID: 0x%04x, expected: 0x003a", product_id);
         /* Don't fail completely - some variants might have different IDs */
     }
     
