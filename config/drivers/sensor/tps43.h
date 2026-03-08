@@ -60,8 +60,8 @@
 /* Touch detection flags */
 #define TPS43_XY_INFO_TOUCH_MASK    0x01
 
-/* IQS572 expected product ID */
-#define TPS43_EXPECTED_PRODUCT_ID   0x58  /* Expected device ID for IQS572 */
+/* IQS572 expected product ID (58 decimal = 0x3a) */
+#define TPS43_EXPECTED_PRODUCT_ID   0x3a  /* Expected device ID for IQS572 */
 
 /* Error recovery thresholds */
 #define TPS43_MAX_ERROR_COUNT       5

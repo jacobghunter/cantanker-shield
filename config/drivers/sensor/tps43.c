@@ -106,13 +106,13 @@ static int tps43_verify_device_id(const struct device *dev)
         return ret;
     }
     
-    uint16_t product_id = sys_get_le16(device_info);
+    uint16_t product_id = sys_get_be16(device_info);
     LOG_INF("Device Product ID: 0x%04x", product_id);
     
-    /* IQS572 should return specific product ID */
-    if (product_id != TPS43_EXPECTED_PRODUCT_ID) {
-        LOG_WRN("Unexpected product ID: 0x%04x, expected: 0x%04x", 
-                product_id, TPS43_EXPECTED_PRODUCT_ID);
+    /* IQS572 should return specific product ID (58 decimal = 0x3a) */
+    if (product_id != 0x003a) {
+        LOG_WRN("Unexpected product ID: 0x%04x, expected: 0x003a", 
+                product_id, 0x003a);
         /* Don't fail completely - some variants might have different IDs */
     }
     
@@ -124,17 +124,21 @@ static int tps43_device_reset(const struct device *dev)
     const struct tps43_config *config = dev->config;
     struct tps43_data *data = dev->data;
     
+    if (!config->rst_gpio.port) {
+        return 0;
+    }
+    
     if (!gpio_is_ready_dt(&config->rst_gpio)) {
-        LOG_ERR("Reset GPIO not ready");
+        LOG_WRN("Reset GPIO not ready");
         return 0;
     }
     
     LOG_INF("Performing hardware reset");
     
-    /* Reset sequence: LOW -> wait -> HIGH -> wait */
-    gpio_pin_set_dt(&config->rst_gpio, 0);
-    k_msleep(10);
+    /* Reset sequence: ACTIVE (Reset) -> wait -> INACTIVE (Run) */
     gpio_pin_set_dt(&config->rst_gpio, 1);
+    k_msleep(10);
+    gpio_pin_set_dt(&config->rst_gpio, 0);
     k_msleep(50); /* Allow device to boot */
     
     /* Reset driver state */
@@ -183,8 +187,8 @@ static int tps43_configure_device(const struct device *dev)
     /* Set resolution if specified */
     if (config->resolution_x > 0 || config->resolution_y > 0) {
         uint8_t res_cfg[4];
-        sys_put_le16(config->resolution_x ? config->resolution_x : 1024, &res_cfg[0]);
-        sys_put_le16(config->resolution_y ? config->resolution_y : 1024, &res_cfg[2]);
+        sys_put_be16(config->resolution_x ? config->resolution_x : 1024, &res_cfg[0]);
+        sys_put_be16(config->resolution_y ? config->resolution_y : 1024, &res_cfg[2]);
         
         ret = tps43_i2c_write_reg(dev, TPS43_REG_X_RESOLUTION, res_cfg, 4);
         if (ret < 0) {
@@ -240,8 +244,6 @@ static int tps43_read_touch_data(const struct device *dev)
         return -ENODEV;
     }
 
-    k_msleep(2);  // add this
-    
     /* Read XY info and coordinates in one transaction */
     ret = tps43_i2c_read_reg(dev, TPS43_REG_XY_INFO_0, touch_data, 8);
     if (ret < 0) {
@@ -263,9 +265,9 @@ static int tps43_read_touch_data(const struct device *dev)
     data->touch_state = (xy_info & TPS43_XY_INFO_TOUCH_MASK) ? 1 : 0;
     
     if (data->touch_state) {
-        /* Extract coordinates */
-        data->x = sys_get_le16(&touch_data[4]);
-        data->y = sys_get_le16(&touch_data[6]);
+        /* Extract coordinates (Big Endian) */
+        data->x = sys_get_be16(&touch_data[4]);
+        data->y = sys_get_be16(&touch_data[6]);
         data->touch_strength = touch_data[2];
         
         LOG_DBG("Touch: x=%d, y=%d, strength=%d", data->x, data->y, data->touch_strength);
@@ -313,9 +315,8 @@ static void tps43_work_handler(struct k_work *work)
 
 static void tps43_gpio_callback(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
 {
-    LOG_INF("RDY interrupt fired");
     struct tps43_data *data = CONTAINER_OF(cb, struct tps43_data, gpio_cb);
-    k_work_reschedule(&data->work, K_MSEC(5));
+    k_work_reschedule(&data->work, K_NO_WAIT);
 }
 
 static int tps43_sample_fetch(const struct device *dev, enum sensor_channel chan)
