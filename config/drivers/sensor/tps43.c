@@ -317,8 +317,11 @@ static int tps43_read_touch_data(const struct device *dev)
     
     if (data->touch_state) {
         /* Extract coordinates (IQS5xx: X at 2,3, Y at 4,5 - Big Endian) */
-        data->x = (int16_t)sys_get_be16(&touch_data[2]);
-        data->y = (int16_t)sys_get_be16(&touch_data[4]);
+        uint16_t raw_x = sys_get_be16(&touch_data[2]);
+        uint16_t raw_y = sys_get_be16(&touch_data[4]);
+        
+        data->x = (int16_t)raw_x;
+        data->y = (int16_t)raw_y;
         data->touch_strength = touch_data[6];
         
         LOG_INF("Touch: x=%d, y=%d, strength=%d", data->x, data->y, data->touch_strength);
