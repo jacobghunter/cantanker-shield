@@ -324,6 +324,9 @@ static void tps43_work_handler(struct k_work *work)
     
     /* Read touch data */
     ret = tps43_read_touch_data(dev);
+    if (ret == 0) {
+        LOG_DBG("Poll successful, touch_state: %d", data->touch_state);
+    }
     
     /* Trigger callback if configured */
     if (data->trigger_handler && data->trigger) {
