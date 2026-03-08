@@ -1,1 +1,1 @@
-add_subdirectory_ifdef(CONFIG_ZMK_SENSOR_TPS43 config/drivers/sensor)
+add_subdirectory(config/drivers/sensor)
