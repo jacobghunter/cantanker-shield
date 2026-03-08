@@ -15,6 +15,7 @@
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 #include <zephyr/sys/byteorder.h>
+#include <zmk/pointing.h>
 
 LOG_MODULE_REGISTER(tps43, CONFIG_SENSOR_LOG_LEVEL);
 
@@ -37,6 +38,9 @@ struct tps43_data {
     /* Touch data */
     int16_t x;
     int16_t y;
+    int16_t last_x;
+    int16_t last_y;
+    bool last_touch_state;
     uint8_t touch_state;
     uint8_t touch_strength;
     
@@ -247,7 +251,10 @@ static int tps43_read_touch_data(const struct device *dev)
     /* Read XY info and coordinates in one transaction */
     ret = tps43_i2c_read_reg(dev, TPS43_REG_XY_INFO_0, touch_data, 8);
     if (ret < 0) {
-        LOG_ERR("Failed to read touch data");
+        // Only log error occasionally to avoid spamming
+        if (data->error_count == 0) {
+            LOG_ERR("Failed to read touch data");
+        }
         data->error_count++;
         if (data->error_count > TPS43_MAX_ERROR_COUNT) {
             LOG_WRN("Too many errors, reinitializing device");
@@ -270,8 +277,29 @@ static int tps43_read_touch_data(const struct device *dev)
         data->y = sys_get_be16(&touch_data[6]);
         data->touch_strength = touch_data[2];
         
-        LOG_DBG("Touch: x=%d, y=%d, strength=%d", data->x, data->y, data->touch_strength);
+        LOG_INF("Touch detected: x=%d, y=%d, strength=%d", data->x, data->y, data->touch_strength);
+
+        /* Report relative movement if this is a continuation of a touch */
+        if (data->last_touch_state) {
+            int16_t dx = data->x - data->last_x;
+            int16_t dy = data->y - data->last_y;
+            
+            if (dx != 0 || dy != 0) {
+                struct zmk_pointing_relative_report report = {
+                    .x = dx,
+                    .y = dy,
+                };
+                zmk_pointing_report_relative(report);
+            }
+        }
+        
+        data->last_x = data->x;
+        data->last_y = data->y;
+    } else if (data->last_touch_state) {
+        LOG_INF("Touch released");
     }
+    
+    data->last_touch_state = data->touch_state;
     
     return 0;
 }
@@ -300,21 +328,23 @@ static void tps43_work_handler(struct k_work *work)
     
     /* Read touch data */
     ret = tps43_read_touch_data(dev);
-    if (ret < 0) {
-        k_mutex_unlock(&data->lock);
-        return;
-    }
     
     /* Trigger callback if configured */
     if (data->trigger_handler && data->trigger) {
         data->trigger_handler(dev, data->trigger);
     }
+
+    /* Reschedule for polling if configured */
+#if CONFIG_ZMK_SENSOR_TPS43_POLL_RATE_MS > 0
+    k_work_reschedule(&data->work, K_MSEC(CONFIG_ZMK_SENSOR_TPS43_POLL_RATE_MS));
+#endif
     
     k_mutex_unlock(&data->lock);
 }
 
 static void tps43_gpio_callback(const struct device *dev, struct gpio_callback *cb, uint32_t pins)
 {
+    LOG_DBG("RDY interrupt fired");
     struct tps43_data *data = CONTAINER_OF(cb, struct tps43_data, gpio_cb);
     k_work_reschedule(&data->work, K_NO_WAIT);
 }
