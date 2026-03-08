@@ -54,8 +54,8 @@ struct tps43_config {
     struct i2c_dt_spec i2c;
     struct gpio_dt_spec rdy_gpio;
     struct gpio_dt_spec rst_gpio;
-    uint8_t resolution_x;
-    uint8_t resolution_y;
+    uint16_t resolution_x;
+    uint16_t resolution_y;
     bool invert_x;
     bool invert_y;
     bool swap_xy;
@@ -66,9 +66,6 @@ static int tps43_i2c_read_reg(const struct device *dev, uint8_t reg, uint8_t *da
 {
     const struct tps43_config *config = dev->config;
     int ret;
-    
-    /* Add small delay to prevent I2C bus flooding */
-    k_msleep(1);
     
     ret = i2c_write_read_dt(&config->i2c, &reg, 1, data, len);
     if (ret < 0) {
@@ -87,9 +84,6 @@ static int tps43_i2c_write_reg(const struct device *dev, uint8_t reg, uint8_t *d
     
     buffer[0] = reg;
     memcpy(&buffer[1], data, len);
-    
-    /* Add small delay to prevent I2C bus flooding */
-    k_msleep(1);
     
     ret = i2c_write_dt(&config->i2c, buffer, len + 1);
     if (ret < 0) {
@@ -244,6 +238,8 @@ static int tps43_read_touch_data(const struct device *dev)
     if (!data->device_ready) {
         return -ENODEV;
     }
+
+    k_msleep(2);  // add this
     
     /* Read XY info and coordinates in one transaction */
     ret = tps43_i2c_read_reg(dev, TPS43_REG_XY_INFO_0, touch_data, 8);
@@ -318,9 +314,7 @@ static void tps43_gpio_callback(const struct device *dev, struct gpio_callback *
 {
     LOG_INF("RDY interrupt fired");
     struct tps43_data *data = CONTAINER_OF(cb, struct tps43_data, gpio_cb);
-    
-    /* Schedule work to handle interrupt in work queue context */
-    k_work_reschedule(&data->work, K_NO_WAIT);
+    k_work_reschedule(&data->work, K_MSEC(5));
 }
 
 static int tps43_sample_fetch(const struct device *dev, enum sensor_channel chan)
