@@ -16,7 +16,6 @@
 #include <zephyr/logging/log.h>
 #include <zephyr/sys/byteorder.h>
 #include <zephyr/input/input.h>
-#include <zmk/mouse/pointing.h>
 
 LOG_MODULE_REGISTER(tps43, CONFIG_SENSOR_LOG_LEVEL);
 
@@ -330,11 +329,8 @@ static int tps43_read_touch_data(const struct device *dev)
             int16_t dy = (data->y - data->last_y) / 4;
             
             if (dx != 0 || dy != 0) {
-                struct zmk_pointing_relative_report report = {
-                    .x = dx,
-                    .y = dy,
-                };
-                zmk_pointing_report_relative(report);
+                input_report_rel(dev, INPUT_REL_X, dx, false, K_FOREVER);
+                input_report_rel(dev, INPUT_REL_Y, dy, true, K_FOREVER);
             }
         }
         
