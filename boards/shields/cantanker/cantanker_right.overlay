@@ -45,14 +45,6 @@
     };
 };
 
-/ {
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&right_encoder>;
-        triggers-per-rotation = <20>;
-    };
-};
-
 &pro_micro_i2c {
     status = "okay";
     
