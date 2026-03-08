@@ -54,7 +54,7 @@
         compatible = "azoteq,iqs5xx";
         reg = <0x74>;
 
-        rdy-gpios = <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        rdy-gpios = <&gpio1 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 
         /*
          * Potentially non-exhaustive list of configuration options.
@@ -77,8 +77,13 @@
 };
 
 / {
-    tps43_input: tps43_input {
+    trackpad_listener {
         compatible = "zmk,input-listener";
         device = <&tps43>;
+        
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
+        scale-multiplier = <1>;
+        scale-divisor = <1>;
     };
 };
