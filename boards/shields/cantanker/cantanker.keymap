@@ -62,61 +62,54 @@
     combos {
         compatible = "zmk,combos";
         
-        // For gaming mode
-        combo_gaming_mode {
-            timeout-ms = <50>;
-            key-positions = <0 12>; // ESC + TAB
-            bindings = <&tog GAMING>;
-        };
-
         combo_lpar {
-            timeout-ms = <250>;
+            timeout-ms = <50>;
             key-positions = <19 20>; // U + I
             bindings = <&paren_macro>;
         };
         combo_rpar {
-            timeout-ms = <250>;
+            timeout-ms = <50>;
             key-positions = <20 21>; // I + O
             bindings = <&kp RPAR>;
         };
 
         combo_lbrc {
-            timeout-ms = <250>;
+            timeout-ms = <50>;
             key-positions = <31 32>; // J + K
             bindings = <&brace_macro>; 
         };
         combo_rbrc {
-            timeout-ms = <250>;
+            timeout-ms = <50>;
             key-positions = <32 33>; // K + L
             bindings = <&kp RBRC>;
         };
 
         // Macro to do function spacing
         combo_expand_brace {
-            timeout-ms = <250>;
+            timeout-ms = <50>;
             // Pressing J, K, and L together
             key-positions = <31 32 33>; 
             bindings = <&expand_brace_macro>;
         };
 
         combo_lt {
-            timeout-ms = <250>;
+            timeout-ms = <50>;
             key-positions = <30 31>; // H + J
             bindings = <&angle_macro>;
         };
         combo_gt {
-            timeout-ms = <250>;
+            timeout-ms = <50>;
             key-positions = <33 34>; // L + ;
             bindings = <&kp GT>;
         };
 
         combo_lbkt {
-            timeout-ms = <250>;
+            timeout-ms = <50>;
             key-positions = <44 45>; // M + ,
             bindings = <&brkt_macro>; 
         };
         combo_rbkt {
-            timeout-ms = <250>;
+            timeout-ms = <50>;
             key-positions = <45 46>; // , + .
             bindings = <&kp RBKT>;
         };
@@ -237,7 +230,7 @@
         adjust_layer {
             display-name = "adjust";
             bindings = <
-&none        &none        &none        &none        &none        &none                         &none &none &none &none &none &none
+&tog GAMING  &none        &none        &none        &none        &none                         &none &none &none &none &none &none
 &bootloader  &none        &none        &none        &none        &none                         &none &none &none &none &none &bootloader
 &bt BT_CLR   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                  &none &none &none &none &none &none
 &none        &none        &none        &none        &none        &none         &none           &none &none &none &none &none &none
