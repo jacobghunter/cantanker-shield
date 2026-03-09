@@ -254,7 +254,7 @@
             display-name = "game_lower";
             bindings = <
 // Map specific game macros, F-keys, or inventory shortcuts here
-&trans  &kp F1      &kp F2      &kp F3      &kp F4  &kp F5                          &trans &trans &trans &trans &trans &trans
+&tog GAMING  &kp F1      &kp F2      &kp F3      &kp F4  &kp F5                          &trans &trans &trans &trans &trans &trans
 &trans  &kp P       &trans      &kp I       &kp U   &kp Y                           &trans &trans &trans &trans &trans &trans
 &trans  &trans      &trans      &trans      &kp J   &kp H                           &trans &trans &trans &trans &trans &trans
 &trans  &kp FSLH    &kp DOT     &kp COMMA   &kp M   &kp N    &trans                 &trans &trans &trans &trans &trans &trans
