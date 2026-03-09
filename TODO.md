@@ -9,16 +9,19 @@ azoteq,iqs5xx@74 {
 - trackpad
 - bodge wiring of trackpad pins
     - Should be rewiring the P6 and P7 cols to go to P8 and P9 instead, moving the trackpad SDA and SCL to those two pins 
+- don't need???
 
 ## Case edits 
 - Edit case/plate to cover the MCU with an OLED screen hole
 - edit plates to cover the bottom of the encoder (it's ugly)
-- edit plates to have cutout for power switch
+- ~edit plates to have cutout for power switch~
 - edit case to allow for plastic sheet to slot above battery
-- magnetic feet attachment
+- ~magnetic feet attachment~
+- use non-magneric route with slotting feet into the base -- can slide out of the edge of the case
  - slots for straps in the bottom?
 - Color switches to not be red and super obvious (fine tip sharpie?)
 - make wider so rubber can grab correctly when wrapped around pcb
+- also make the PCB plateau further down to account for rubber
 
 # things 2 get
 - magnetic tape/strips for feet?
