@@ -37,6 +37,8 @@ Scroll wheel
 - Swap tabs in browser/code
 - Swap workspaces???
 - Zoom in/out (already done via mouse scroll with ctrl home mod)
+- Start with larger scroll for mouse and adjust it by holding ctrl as a mod for it
+
 Combos
 Sticky keys/layers?
 Gaming mode.
