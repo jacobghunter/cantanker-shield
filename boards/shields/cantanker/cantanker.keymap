@@ -70,53 +70,53 @@
         };
 
         combo_lpar {
-            timeout-ms = <50>;
+            timeout-ms = <250>;
             key-positions = <19 20>; // U + I
             bindings = <&paren_macro>;
         };
         combo_rpar {
-            timeout-ms = <50>;
+            timeout-ms = <250>;
             key-positions = <20 21>; // I + O
             bindings = <&kp RPAR>;
         };
 
         combo_lbrc {
-            timeout-ms = <50>;
+            timeout-ms = <250>;
             key-positions = <31 32>; // J + K
             bindings = <&brace_macro>; 
         };
         combo_rbrc {
-            timeout-ms = <50>;
+            timeout-ms = <250>;
             key-positions = <32 33>; // K + L
             bindings = <&kp RBRC>;
         };
 
         // Macro to do function spacing
         combo_expand_brace {
-            timeout-ms = <50>;
+            timeout-ms = <250>;
             // Pressing J, K, and L together
             key-positions = <31 32 33>; 
             bindings = <&expand_brace_macro>;
         };
 
         combo_lt {
-            timeout-ms = <50>;
+            timeout-ms = <250>;
             key-positions = <30 31>; // H + J
             bindings = <&angle_macro>;
         };
         combo_gt {
-            timeout-ms = <50>;
+            timeout-ms = <250>;
             key-positions = <33 34>; // L + ;
             bindings = <&kp GT>;
         };
 
         combo_lbkt {
-            timeout-ms = <50>;
+            timeout-ms = <250>;
             key-positions = <44 45>; // M + ,
             bindings = <&brkt_macro>; 
         };
         combo_rbkt {
-            timeout-ms = <50>;
+            timeout-ms = <250>;
             key-positions = <45 46>; // , + .
             bindings = <&kp RBKT>;
         };
@@ -147,7 +147,7 @@
             flavor = "tap-preferred";
 
             // NEW: Prevents accidental modifiers during fast typing
-            require-prior-idle-ms = <150>;
+            require-prior-idle-ms = <200>;
 
             bindings = <&kp>, <&kp>;
         };
