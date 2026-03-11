@@ -38,6 +38,7 @@ Scroll wheel
 - Swap workspaces in hyprland/tabs in firefox based on layer with encoder?
 - Zoom in/out (already done via mouse scroll with ctrl home mod)
 - Start with larger scroll for mouse and adjust it by holding ctrl as a mod for it
+- Fix expanded brace combos
 
 Combos
 Sticky keys/layers?
