@@ -14,6 +14,8 @@
 #define GAMING 4
 #define GAME_LOWER 5
 
+#define COMBO_TIMEOUT_MS 25
+
 / {
 
     macros {
@@ -87,70 +89,70 @@
         compatible = "zmk,combos";
 
         combo_lt {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <30 31>; // H + J
             bindings = <&angle_macro>;
         };
         combo_gt {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <43 44>; // N + M
             bindings = <&kp GT>;
         };
         
         combo_lbrc {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <31 32>; // J + K
             bindings = <&brace_macro>; 
         };
         combo_rbrc {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <44 45>; // M + ,
             bindings = <&kp RBRC>;
         };
 
         combo_lbkt {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <32 33>; // K + L
             bindings = <&brkt_macro>; 
         };
         combo_rbkt {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <45 46>; // , + .
             bindings = <&kp RBKT>;
         };
 
         combo_lpar {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <33 34>; // L + ;
             bindings = <&paren_macro>;
         };
         combo_rpar {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <46 47>; // . + /
             bindings = <&kp RPAR>;
         };
 
         // Expand macros for standard pairs
         combo_expand_angle {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <18 19>; // Y + U
             bindings = <&expand_angle_macro>;
         };
 
         combo_expand_brace {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <19 20>; // U + I
             bindings = <&expand_brace_macro>;
         };
 
         combo_expand_brkt {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <20 21>; // I + O
             bindings = <&expand_brkt_macro>;
         };
 
         combo_expand_paren {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <21 22>; // O + P
             bindings = <&expand_paren_macro>;
         };
