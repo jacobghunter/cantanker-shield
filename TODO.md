@@ -35,7 +35,7 @@ Scroll wheel
 - Do/undo
 - arrow key navigation? Would use shift as a mod to do up/down and default to left/right?
 - Swap tabs in browser/code
-- Swap workspaces???
+- Swap workspaces in hyprland/tabs in firefox based on layer with encoder?
 - Zoom in/out (already done via mouse scroll with ctrl home mod)
 - Start with larger scroll for mouse and adjust it by holding ctrl as a mod for it
 
