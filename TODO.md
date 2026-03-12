@@ -22,6 +22,7 @@ azoteq,iqs5xx@74 {
 - Color switches to not be red and super obvious (fine tip sharpie?)
 - make wider so rubber can grab correctly when wrapped around pcb
 - also make the PCB plateau further down to account for rubber
+- ridge on the inside above the plateau? super small inset into wall
 
 # things 2 get
 - magnetic tape/strips for feet?
