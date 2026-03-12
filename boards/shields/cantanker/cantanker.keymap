@@ -255,17 +255,17 @@
         lower_layer {
             display-name = "lower";
 // ------------------------------------------------------------------------------------------------------------
-// |  T   |  F1 |  F2 |  F3  |  F4  |  F5  |                   |  F6   |  F7   |  F8   |  F9  |  F10  |  F11  |
-// |  F12 |  !  |  @  |  #   |  $   |  %   |                   |  ^    |  &    |  *    |  (   |   )   |   T   |
-// |  T   |  ~  |  _  |  -   |  =   |  +   |                   |  {    |  }    |  [    |  ]   |   |   |   T   |
+// |  F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7   |  F8   |  F9  |  F10  |  F11  |  F12  |
+// |  T   |  !  |  @  |  #   |  $   |  %   |                   |  ^    |  &    |  *    |  (   |   )   |   T   |
+// | CAPS |  ~  |  _  |  -   |  =   |  +   |                   |  {    |  }    |  [    |  ]   |   |   |   T   |
 // |  T   |  `  |  \  |  ;   |  :   |  ?   |  MCLK  |  |       |  <    |  >    |  "    |  '   |   /   | BOOT  |
-//                      | BTCLR| GUI  | TAB  |  SPACE |  | BSPC  | RET   | RCTRL |  DEL  |
+//                    |  T   |  T   | T    |  T     |  | T     |  T    |  T    | PSCRN |
             bindings = <
-&kp F1   &kp F2     &kp F3      &kp F4      &kp F5     &kp F6                                       &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &trans
-&trans   &kp EXCL   &kp AT      &kp HASH    &kp DLLR    &kp PRCNT                                   &kp CARET   &kp AMPS    &kp ASTRK   &kp LPAR    &kp RPAR    &kp F12
-&trans   &kp TILDE  &kp UNDER   &kp MINUS   &kp EQUAL   &kp PLUS                                    &kp LBRC    &kp RBRC    &kp LBKT    &kp RBKT    &kp PIPE    &trans
-&trans   &kp GRAVE  &kp BSLH    &kp SEMI    &kp COLON   &kp QMARK   &mkp MCLK                       &kp LT      &kp GT      &kp DQT     &kp SQT     &kp FSLH    &bootloader
-                                &trans      &trans      &trans      &trans              &trans      &trans      &trans      &kp PSCRN
+&kp F1     &kp F2     &kp F3      &kp F4      &kp F5     &kp F6                                       &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &trans
+&trans     &kp EXCL   &kp AT      &kp HASH    &kp DLLR    &kp PRCNT                                   &kp CARET   &kp AMPS    &kp ASTRK   &kp LPAR    &kp RPAR    &kp F12
+&caps_word &kp TILDE  &kp UNDER   &kp MINUS   &kp EQUAL   &kp PLUS                                    &kp LBRC    &kp RBRC    &kp LBKT    &kp RBKT    &kp PIPE    &trans
+&trans     &kp GRAVE  &kp BSLH    &kp SEMI    &kp COLON   &kp QMARK   &mkp MCLK                       &kp LT      &kp GT      &kp DQT     &kp SQT     &kp FSLH    &bootloader
+                                  &trans      &trans      &trans      &trans              &trans      &trans      &trans      &kp PSCRN
             >;
             sensor-bindings = <&scroll_encoder &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
