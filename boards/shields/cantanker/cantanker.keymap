@@ -14,7 +14,7 @@
 #define GAMING 4
 #define GAME_LOWER 5
 
-#define COMBO_TIMEOUT_MS 25
+#define COMBO_TIMEOUT_MS 10
 
 / {
 

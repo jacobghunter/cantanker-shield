@@ -41,6 +41,7 @@ Scroll wheel
 - Start with larger scroll for mouse and adjust it by holding ctrl as a mod for it
 - Fix expanded brace combos
 - mouse layer when touchpad is active? so keys can be clicks?
+- Arrow function combo?
 
 Combos
 Sticky keys/layers?
