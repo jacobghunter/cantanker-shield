@@ -42,6 +42,7 @@ Scroll wheel
 - Fix expanded brace combos
 - mouse layer when touchpad is active? so keys can be clicks?
 - Arrow function combo?
+- Add vim keystrokes?
 
 Combos
 Sticky keys/layers?
