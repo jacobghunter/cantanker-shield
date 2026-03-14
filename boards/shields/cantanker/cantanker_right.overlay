@@ -66,7 +66,6 @@
         two-finger-tap;
 
         scroll;
-        natural-scroll-y;
         natural-scroll-x;
 
         bottom-beta = <5>;
