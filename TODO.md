@@ -17,6 +17,7 @@
 - make wider so rubber can grab correctly when wrapped around pcb
 - also make the PCB plateau further down to account for rubber
 - ridge on the inside above the plateau? super small inset into wall
+- add brace for trackpad
 
 # things 2 get
 
