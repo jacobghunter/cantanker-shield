@@ -11,8 +11,9 @@
 #define UPPER 1
 #define LOWER 2
 #define ADJUST 3
-#define GAMING 4
-#define GAME_LOWER 5
+#define MOUSE 4
+#define GAMING 5
+#define GAME_LOWER 6
 
 #define COMBO_TIMEOUT_MS 10
 
@@ -278,6 +279,17 @@
 &bt BT_CLR   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                  &none &none &none &none &none &none
 &none        &none        &none        &none        &none        &none         &none           &none &none &none &none &none &none
                                        &none        &none        &none         &none    &none  &none &none &none
+            >;
+        };
+
+        mouse_layer {
+            display-name = "mouse";
+            bindings = <
+&trans      &trans          &trans          &trans          &trans          &trans                              &trans &trans &trans &trans &trans &trans
+&trans      &kp PG_UP       &kp UP          &kp PG_DN       &trans          &trans                              &trans &trans &trans &trans &trans &trans
+&mkp MB4    &kp LEFT        &kp DOWN        &kp RIGHT       &mkp MB5        &trans                              &trans &trans &trans &trans &trans &trans
+&trans      &trans          &trans          &trans          &trans          &trans         &trans               &trans &trans &trans &trans &trans &trans
+                                            &trans          &mkp MCLK       &mkp RCLK      &mkp LCLK    &trans  &trans &trans &trans
             >;
         };
 
