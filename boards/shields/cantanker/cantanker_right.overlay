@@ -69,7 +69,7 @@
         natural-scroll-x;
 
         bottom-beta = <5>;
-        stationary-threshold = <5>;
+        stationary-threshold = <1>;
 
         flip-x;
         flip-y;
