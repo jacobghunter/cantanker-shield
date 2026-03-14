@@ -1,5 +1,6 @@
 #include "cantanker.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <input/processors.dtsi>
 
 &kscan0 {
     row-gpios
@@ -44,5 +45,5 @@
 
 &tps43_input {
     status = "okay";
-    input-processors = <&zip_temp_layer 4 100>;
+    input-processors = <&zip_xy_scaler 1 2 &zip_temp_layer 4 100>;
 };
