@@ -41,3 +41,7 @@
         col-offset = <6>;
     };
 };
+
+&tps43_input {
+    status = "okay";
+};
