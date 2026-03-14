@@ -44,5 +44,5 @@
 
 &tps43_input {
     status = "okay";
-    input-processors = <&zip_temp_layer MOUSE 100>;
+    input-processors = <&zip_temp_layer 4 100>;
 };
