@@ -134,29 +134,29 @@
         };
 
         // Expand macros for standard pairs
-        combo_expand_angle {
-            timeout-ms = <COMBO_TIMEOUT_MS>;
-            key-positions = <18 19>; // Y + U
-            bindings = <&expand_angle_macro>;
-        };
+        // combo_expand_angle {
+        //     timeout-ms = <COMBO_TIMEOUT_MS>;
+        //     key-positions = <18 19>; // Y + U
+        //     bindings = <&expand_angle_macro>;
+        // };
 
-        combo_expand_brace {
-            timeout-ms = <COMBO_TIMEOUT_MS>;
-            key-positions = <19 20>; // U + I
-            bindings = <&expand_brace_macro>;
-        };
+        // combo_expand_brace {
+        //     timeout-ms = <COMBO_TIMEOUT_MS>;
+        //     key-positions = <19 20>; // U + I
+        //     bindings = <&expand_brace_macro>;
+        // };
 
-        combo_expand_brkt {
-            timeout-ms = <COMBO_TIMEOUT_MS>;
-            key-positions = <20 21>; // I + O
-            bindings = <&expand_brkt_macro>;
-        };
+        // combo_expand_brkt {
+        //     timeout-ms = <COMBO_TIMEOUT_MS>;
+        //     key-positions = <20 21>; // I + O
+        //     bindings = <&expand_brkt_macro>;
+        // };
 
-        combo_expand_paren {
-            timeout-ms = <COMBO_TIMEOUT_MS>;
-            key-positions = <21 22>; // O + P
-            bindings = <&expand_paren_macro>;
-        };
+        // combo_expand_paren {
+        //     timeout-ms = <COMBO_TIMEOUT_MS>;
+        //     key-positions = <21 22>; // O + P
+        //     bindings = <&expand_paren_macro>;
+        // };
     };
 
     behaviors {
