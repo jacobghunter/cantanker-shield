@@ -36,10 +36,6 @@
         wakeup-source;
         input-gpios = <&gpio0 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
-
-    aliases {
-        glidepoint = &tps43;
-    };
 };
 
 &kscan_composite {

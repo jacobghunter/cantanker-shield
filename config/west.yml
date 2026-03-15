@@ -6,10 +6,6 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: jacobghunter
       url-base: https://github.com/jacobghunter
-    - name: aym1607
-      url-base: https://github.com/aym1607
-    - name: halfdane
-      url-base: https://github.com/halfdane
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -22,7 +18,7 @@ manifest:
       revision: main
       path: cantanker-shield
     - name: zmk-input-gestures
-      remote: halfdane
+      remote: jacobghunter
       revision: main
   self:
     path: config
