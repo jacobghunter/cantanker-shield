@@ -1,6 +1,0 @@
-name: cantanker-shield
-build:
-  cmake: .
-  kconfig: Kconfig
-  settings:
-    board_root: .
