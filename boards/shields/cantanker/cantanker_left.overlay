@@ -46,9 +46,9 @@
 
   &zip_gestures {
     inertial-cursor;
-    inertial-cursor-velocity-threshold = <3>;
+    inertial-cursor-velocity-threshold = <2>;
     inertial-cursor-decay-percent = <92>;
-    wait-for-new-position-ms = <15>;
+    wait-for-new-position-ms = <50>;
   };
 
   &tps43_input {
