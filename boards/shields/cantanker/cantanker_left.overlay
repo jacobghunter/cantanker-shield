@@ -1,7 +1,6 @@
 #include "cantanker.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <input/processors.dtsi>
-#include <behaviors/input_processor_gestures.dtsi>
 
   &kscan0 {
       row-gpios
@@ -44,14 +43,7 @@
       };
   };
 
-  &zip_gestures {
-    inertial-cursor;
-    inertial-cursor-velocity-threshold = <2>;
-    inertial-cursor-decay-percent = <92>;
-    wait-for-new-position-ms = <50>;
-  };
-
   &tps43_input {
       status = "okay";
-      input-processors = <&zip_gestures &zip_xy_scaler 1 1 &zip_temp_layer 4 250>;
+      input-processors = <&zip_xy_scaler 1 1 &zip_temp_layer 4 250>;
   };

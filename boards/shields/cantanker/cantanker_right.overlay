@@ -74,6 +74,9 @@
         flip-x;
         flip-y;
         switch-xy;
+        inertial-cursor;
+        inertial-velocity-threshold = <5>;
+        inertial-decay-percent = <15>;
     };
 };
 

@@ -17,8 +17,5 @@ manifest:
       remote: jacobghunter
       revision: main
       path: cantanker-shield
-    - name: zmk-input-gestures
-      remote: jacobghunter
-      revision: main
   self:
     path: config
