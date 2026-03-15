@@ -1,49 +1,56 @@
 #include "cantanker.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <input/processors.dtsi>
+#include <behaviors/input_processor_gestures.dtsi>
 
-&kscan0 {
-    row-gpios
-        = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        , <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-        ;
+  &kscan0 {
+      row-gpios
+          = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+          , <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+          , <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+          , <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+          , <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+          ;
 
-    col-gpios
-        = <&pro_micro 21 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 20 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 19 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 18 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 15 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 14 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 9  GPIO_ACTIVE_HIGH>
-        ;
-};
+      col-gpios
+          = <&pro_micro 21 GPIO_ACTIVE_HIGH>
+          , <&pro_micro 20 GPIO_ACTIVE_HIGH>
+          , <&pro_micro 19 GPIO_ACTIVE_HIGH>
+          , <&pro_micro 18 GPIO_ACTIVE_HIGH>
+          , <&pro_micro 15 GPIO_ACTIVE_HIGH>
+          , <&pro_micro 14 GPIO_ACTIVE_HIGH>
+          , <&pro_micro 9  GPIO_ACTIVE_HIGH>
+          ;
+  };
 
-&left_encoder {
-    status = "okay";
-    resolution = <25>;
-};
+  &left_encoder {
+      status = "okay";
+      resolution = <25>;
+  };
 
-/ {
-    left_encoder_key: left_encoder_key {
-        compatible = "zmk,kscan-gpio-direct";
-        wakeup-source;
-        input-gpios = <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-    };
-};
+  / {
+      left_encoder_key: left_encoder_key {
+          compatible = "zmk,kscan-gpio-direct";
+          wakeup-source;
+          input-gpios = <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+      };
+  };
 
-&kscan_composite {
-    direct_left {
-        kscan = <&left_encoder_key>;
-        row-offset = <3>;
-        col-offset = <6>;
-    };
-};
+  &kscan_composite {
+      direct_left {
+          kscan = <&left_encoder_key>;
+          row-offset = <3>;
+          col-offset = <6>;
+      };
+  };
 
-&tps43_input {
-    status = "okay";
-    input-processors = <&zip_xy_scaler 1 1 &zip_temp_layer 4 250>;
-};
+  &zip_gestures {
+      inertial-cursor;
+      inertial-cursor-velocity-threshold-ms = <20>;
+      inertial-cursor-decay-percent = <98>;
+  };
+
+  &tps43_input {
+      status = "okay";
+      input-processors = <&zip_gestures &zip_xy_scaler 1 1 &zip_temp_layer 4 250>;
+  };
