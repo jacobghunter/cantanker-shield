@@ -51,48 +51,20 @@
             tap-ms = <30>;
             bindings = <&kp LT &kp GT &kp LEFT>;
         };
-
-        expand_brace_macro: expand_brace_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            // {}, Left, Enter, Enter, Up, Tab
-            bindings = <&kp LBRC &kp RBRC &kp LEFT &kp RET &kp UP &kp TAB>;
-        };
-
-        expand_paren_macro: expand_paren_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp LPAR &kp RPAR &kp LEFT &kp RET &kp UP &kp TAB>;
-        };
-
-        expand_brkt_macro: expand_brkt_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp LBKT &kp RBKT &kp LEFT &kp RET &kp UP &kp TAB>;
-        };
-
-        expand_angle_macro: expand_angle_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp LT &kp GT &kp LEFT &kp RET &kp UP &kp TAB>;
-        };
     };
 
     combos {
         compatible = "zmk,combos";
 
-        combo_lt {
+        combo_lt_extend {
             timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <30 31>; // H + J
             bindings = <&angle_macro>;
+        };
+        combo_lt {
+            timeout-ms = <COMBO_TIMEOUT_MS>;
+            key-positions = <18 19>; // Y + U
+            bindings = <&kp LT>;
         };
         combo_gt {
             timeout-ms = <COMBO_TIMEOUT_MS>;
@@ -100,10 +72,15 @@
             bindings = <&kp GT>;
         };
         
-        combo_lbrc {
+        combo_lbrc_extend {
             timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <31 32>; // J + K
             bindings = <&brace_macro>; 
+        };
+        combo_lbrc {
+            timeout-ms = <COMBO_TIMEOUT_MS>;
+            key-positions = <19 20>; // U + I
+            bindings = <&kp LBRC>; 
         };
         combo_rbrc {
             timeout-ms = <COMBO_TIMEOUT_MS>;
@@ -111,10 +88,15 @@
             bindings = <&kp RBRC>;
         };
 
-        combo_lbkt {
+        combo_lbkt_extend {
             timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <32 33>; // K + L
             bindings = <&brkt_macro>; 
+        };
+        combo_lbkt {
+            timeout-ms = <COMBO_TIMEOUT_MS>;
+            key-positions = <20 21>; // I + O
+            bindings = <&kp LBKT>; 
         };
         combo_rbkt {
             timeout-ms = <COMBO_TIMEOUT_MS>;
@@ -122,41 +104,21 @@
             bindings = <&kp RBKT>;
         };
 
-        combo_lpar {
+        combo_lpar_extend {
             timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <33 34>; // L + ;
             bindings = <&paren_macro>;
+        };
+        combo_lpar {
+            timeout-ms = <COMBO_TIMEOUT_MS>;
+            key-positions = <21 22>; // O + P
+            bindings = <&kp LPAR>;
         };
         combo_rpar {
             timeout-ms = <COMBO_TIMEOUT_MS>;
             key-positions = <46 47>; // . + /
             bindings = <&kp RPAR>;
         };
-
-        // Expand macros for standard pairs
-        // combo_expand_angle {
-        //     timeout-ms = <COMBO_TIMEOUT_MS>;
-        //     key-positions = <18 19>; // Y + U
-        //     bindings = <&expand_angle_macro>;
-        // };
-
-        // combo_expand_brace {
-        //     timeout-ms = <COMBO_TIMEOUT_MS>;
-        //     key-positions = <19 20>; // U + I
-        //     bindings = <&expand_brace_macro>;
-        // };
-
-        // combo_expand_brkt {
-        //     timeout-ms = <COMBO_TIMEOUT_MS>;
-        //     key-positions = <20 21>; // I + O
-        //     bindings = <&expand_brkt_macro>;
-        // };
-
-        // combo_expand_paren {
-        //     timeout-ms = <COMBO_TIMEOUT_MS>;
-        //     key-positions = <21 22>; // O + P
-        //     bindings = <&expand_paren_macro>;
-        // };
     };
 
     behaviors {
@@ -225,7 +187,7 @@
 // |  CTRL  |  Z  |  X  |  C   |  V   |  B   |  MCLK  |          |  N    |  M    |  ,    |  .   |   /   | EQUAL |
 //                      | ALT | GUI  | UPPER |  SPACE |  | SPACE | ENTER | LOWER |  DEL  |
             bindings = <
-&esc_shift_ctrl     &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                              &kp N6          &kp N7          &kp N8          &kp N9      &kp N0          &kp C_PP
+&esc_shift_ctrl     &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                              &kp N6          &kp N7          &kp N8          &kp N9      &kp N0          &kp K_PP
 &kp TAB             &kp Q           &kp W           &kp E           &kp R           &kp T                               &kp Y           &kp U           &kp I           &kp O       &kp P           &kp MINUS
 &td_ss              &hm LGUI A      &hm LALT S      &hm LCTRL D     &hm LSHIFT F    &kp G                               &kp H           &hm RSHIFT J    &hm RCTRL K     &hm RALT L  &hm RGUI SEMI   &kp SQT
 &kp LCTRL           &kp Z           &kp X           &kp C           &kp V           &kp B       &mkp MCLK               &kp N           &kp M           &kp COMMA       &kp DOT     &kp FSLH        &kp EQUAL
