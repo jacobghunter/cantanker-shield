@@ -15,7 +15,7 @@
 #define GAMING 5
 #define GAME_LOWER 6
 
-#define COMBO_TIMEOUT_MS 10
+#define COMBO_TIMEOUT_MS 18
 
 / {
 
@@ -267,6 +267,7 @@
             sensor-bindings = <&scroll_encoder &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     
+// set some useful stuff on the right side like arrow keys?
     game_lower_layer {
             display-name = "game_lower";
             bindings = <
