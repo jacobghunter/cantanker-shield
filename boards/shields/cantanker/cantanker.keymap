@@ -194,7 +194,7 @@
                                                     &kp LALT        &kp LGUI        &mo UPPER   &kp SPACE   &kp BSPC    &kp RET         &mo LOWER       &kp DEL
                         >;
 
-            sensor-bindings = <&scroll_encoder &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&scroll_encoder &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         upper_layer {
@@ -213,7 +213,7 @@
 &trans      &kp N6      &kp N7      &kp N8      &kp N9          &kp N0  &bootloader         &none       &kp N1      &kp N2      &kp N3      &kp BSLH  &kp EQUAL
                                     &trans      &trans          &trans  &trans      &trans  &trans      &trans      &kp N0>;
 
-            sensor-bindings = <&scroll_encoder &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&scroll_encoder &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
         
         lower_layer {
@@ -231,7 +231,7 @@
 &trans     &kp GRAVE  &kp BSLH    &kp SEMI    &kp COLON   &kp QMARK   &mkp MCLK                       &kp LT      &kp GT      &kp DQT     &kp SQT     &kp FSLH    &trans
                                   &trans      &trans      &trans      &trans              &trans      &trans      &trans      &kp PSCRN
             >;
-            sensor-bindings = <&scroll_encoder &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&scroll_encoder &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         adjust_layer {
@@ -265,7 +265,7 @@
 &kp LCTRL  &kp Z  &kp X  &kp C  &kp V  &kp B    &mkp MCLK             &kp N     &kp M  &kp COMMA &kp DOT &kp FSLH &kp EQUAL
                          &kp LALT &kp LGUI &mo GAME_LOWER   &kp SPACE &kp BSPC  &kp RET  &mo UPPER &kp DEL
             >;
-            sensor-bindings = <&scroll_encoder &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&scroll_encoder &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
     
 // set some useful stuff on the right side like arrow keys?
