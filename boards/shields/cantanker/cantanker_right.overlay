@@ -27,7 +27,6 @@
 
 &right_encoder {
     status = "okay";
-    resolution = <25>;
 };
 
 / {
