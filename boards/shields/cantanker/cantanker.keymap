@@ -181,16 +181,16 @@
         default_layer {
             display-name = "default";
 // ------------------------------------------------------------------------------------------------------------
-// |  ESC   |  1  |  2  |  3   |  4   |  5   |                   |  6    |  7    |  8    |  9   |   0   | PAUSE |
+// |  ESC   |  1  |  2  |  3   |  4   |  5   |                   |  6    |  7    |  8    |  9   |   0   |  NA   |
 // |  TAB   |  Q  |  W  |  E   |  R   |  T   |                   |  Y    |  U    |  I    |  O   |   P   |   -   |
 // |  SHIFT |  A  |  S  |  D   |  F   |  G   |                   |  H    |  J    |  K    |  L   |   ;   |   '   |
-// |  CTRL  |  Z  |  X  |  C   |  V   |  B   |  MCLK  |          |  N    |  M    |  ,    |  .   |   /   | EQUAL |
+// |  CTRL  |  Z  |  X  |  C   |  V   |  B   |   NA   |          |  N    |  M    |  ,    |  .   |   /   | EQUAL |
 //                      | ALT | GUI  | UPPER |  SPACE |  | SPACE | ENTER | LOWER |  DEL  |
             bindings = <
-&esc_shift_ctrl     &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                              &kp N6          &kp N7          &kp N8          &kp N9      &kp N0          &kp K_PP
+&esc_shift_ctrl     &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                              &kp N6          &kp N7          &kp N8          &kp N9      &kp N0          &none
 &kp TAB             &kp Q           &kp W           &kp E           &kp R           &kp T                               &kp Y           &kp U           &kp I           &kp O       &kp P           &kp MINUS
 &td_ss              &hm LCTRL A     &hm LALT S      &hm LSHIFT D    &hm LGUI F      &kp G                               &kp H           &hm RGUI J      &hm RSHIFT K    &hm RALT L  &hm RCTRL SEMI   &kp SQT
-&kp LCTRL           &kp Z           &kp X           &kp C           &kp V           &kp B       &mkp MCLK               &kp N           &kp M           &kp COMMA       &kp DOT     &kp FSLH        &kp EQUAL
+&kp LCTRL           &kp Z           &kp X           &kp C           &kp V           &kp B       &none                   &kp N           &kp M           &kp COMMA       &kp DOT     &kp FSLH        &kp EQUAL
                                                     &kp LALT        &kp LGUI        &mo UPPER   &kp SPACE   &kp BSPC    &kp RET         &mo LOWER       &kp DEL
                         >;
 
@@ -201,16 +201,16 @@
             display-name = "upper";
 // CAPS = caps lock but it auto detects the end via space, escape, enter
 // ------------------------------------------------------------------------------------------------------------
-// |  BTCLEAR   |  1     |  2      |  3        |  4    |  5    |                    |  DEL   |  /    |  *    |  (   |   )   | T     |
+// |  BTCLEAR   |  1     |  2      |  3        |  4    |  5    |                    |  DEL   |  /    |  *    |  (   |   )   |  NA   |
 // |  BOOT      |  PGUP  |  UP     |  PGDN     |  HOME |  NA   |                    |  NA    |  7    |  8    |  9   |   -   |   -   |
 // |  T         |  LEFT  |  DOWN   |  RIGHT    |  END  |  NA   |                    |  NA    |  4    |  5    |  6   |   +   |   '   |
-// |  T         |  6     |  7      |  8        |  9    |  0    |  MCLK  |           |  NA    |  1    |  2    |  3   |   /   | EQUAL |
+// |  T         |  6     |  7      |  8        |  9    |  0    |   NA   |           |  NA    |  1    |  2    |  3   |   /   | EQUAL |
 //                                 | T         | CAPS  | T     |  T     |   | T     |  T     |  T    |  0    |
             bindings = <
-&bt BT_CLR  &kp N1      &kp N2      &kp N3      &kp N4          &kp N5                      &kp DEL     &kp FSLH    &kp ASTRK   &kp LPAR    &kp RPAR  &trans
+&bt BT_CLR  &kp N1      &kp N2      &kp N3      &kp N4          &kp N5                      &kp DEL     &kp FSLH    &kp ASTRK   &kp LPAR    &kp RPAR  &none
 &trans      &kp PG_UP   &kp UP      &kp PG_DN   &kp HOME        &none                       &none       &kp N7      &kp N8      &kp N9      &kp N0    &kp MINUS
 &trans      &kp LEFT    &kp DOWN    &kp RIGHT   &hm LGUI END    &kp BSPC                    &none       &kp N4      &kp N5      &kp N6      &kp SEMI  &kp SQT
-&trans      &kp N6      &kp N7      &kp N8      &kp N9          &kp N0  &bootloader         &none       &kp N1      &kp N2      &kp N3      &kp BSLH  &kp EQUAL
+&trans      &kp N6      &kp N7      &kp N8      &kp N9          &kp N0  &none               &none       &kp N1      &kp N2      &kp N3      &kp BSLH  &kp EQUAL
                                     &trans      &trans          &trans  &trans      &trans  &trans      &trans      &kp N0>;
 
             sensor-bindings = <&scroll_encoder &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -219,16 +219,16 @@
         lower_layer {
             display-name = "lower";
 // ------------------------------------------------------------------------------------------------------------
-// |  F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7   |  F8   |  F9  |  F10  |  F11  |   T   |
+// |  F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7   |  F8   |  F9  |  F10  |  F11  |  NA   |
 // |  T   |  !  |  @  |  #   |  $   |  %   |                   |  ^    |  &    |  *    |  (   |   )   |  F12  |
 // | CAPS |  ~  |  _  |  -   |  =   |  +   |                   |  {    |  }    |  [    |  ]   |   |   |   T   |
-// |  T   |  `  |  \  |  ;   |  :   |  ?   |  MCLK  |  |       |  <    |  >    |  "    |  '   |   /   | BOOT  |
+// |  T   |  `  |  \  |  ;   |  :   |  ?   |   NA   |  |       |  <    |  >    |  "    |  '   |   /   | BOOT  |
 //                    |  T   |  T   | T    |  T     |  | T     |  T    |  T    | PSCRN |
             bindings = <
-&kp F1     &kp F2     &kp F3      &kp F4      &kp F5     &kp F6                                       &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &bootloader
+&kp F1     &kp F2     &kp F3      &kp F4      &kp F5     &kp F6                                       &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &none
 &trans     &kp EXCL   &kp AT      &kp HASH    &kp DLLR    &kp PRCNT                                   &kp CARET   &kp AMPS    &kp ASTRK   &kp LPAR    &kp RPAR    &kp F12
 &trans     &kp TILDE  &kp UNDER   &kp MINUS   &kp EQUAL   &kp PLUS                                    &kp LBRC    &kp RBRC    &kp LBKT    &kp RBKT    &kp PIPE    &trans
-&trans     &kp GRAVE  &kp BSLH    &kp SEMI    &kp COLON   &kp QMARK   &mkp MCLK                       &kp LT      &kp GT      &kp DQT     &kp SQT     &kp FSLH    &trans
+&trans     &kp GRAVE  &kp BSLH    &kp SEMI    &kp COLON   &kp QMARK   &none                           &kp LT      &kp GT      &kp DQT     &kp SQT     &kp FSLH    &trans
                                   &trans      &trans      &trans      &trans              &trans      &trans      &trans      &kp PSCRN
             >;
             sensor-bindings = <&scroll_encoder &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -248,10 +248,10 @@
         mouse_layer {
             display-name = "mouse";
             bindings = <
-&trans      &trans          &trans          &trans          &trans          &trans                              &trans &trans &trans &trans &trans &trans
+&trans      &trans          &trans          &trans          &trans          &trans                              &trans &trans &trans &trans &trans &none
 &trans      &kp PG_UP       &kp UP          &kp PG_DN       &trans          &trans                              &trans &trans &trans &trans &trans &trans
 &mkp MB4    &kp LEFT        &kp DOWN        &kp RIGHT       &mkp MB5        &trans                              &trans &trans &trans &trans &trans &trans
-&trans      &trans          &trans          &trans          &trans          &trans         &trans               &trans &trans &trans &trans &trans &trans
+&trans      &trans          &trans          &trans          &trans          &trans         &none                &trans &trans &trans &trans &trans &trans
                                             &trans          &mkp MCLK       &mkp RCLK      &mkp LCLK    &trans  &trans &trans &trans
             >;
         };
@@ -259,10 +259,10 @@
         gaming_layer {
             display-name = "gaming";
             bindings = <
-&kp ESC    &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                   &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp C_PAUSE
+&kp ESC    &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                   &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &none
 &kp TAB    &kp Q  &kp W  &kp E  &kp R  &kp T                                    &kp Y  &kp U  &kp I  &kp O  &kp P  &kp MINUS
 &kp LSHIFT &kp A  &kp S  &kp D  &kp F  &kp G                                    &kp H  &kp J  &kp K  &kp L  &kp SEMI &kp SQT
-&kp LCTRL  &kp Z  &kp X  &kp C  &kp V  &kp B    &mkp MCLK             &kp N     &kp M  &kp COMMA &kp DOT &kp FSLH &kp EQUAL
+&kp LCTRL  &kp Z  &kp X  &kp C  &kp V  &kp B    &none                 &kp N     &kp M  &kp COMMA &kp DOT &kp FSLH &kp EQUAL
                          &kp LALT &kp LGUI &mo GAME_LOWER   &kp SPACE &kp BSPC  &kp RET  &mo UPPER &kp DEL
             >;
             sensor-bindings = <&scroll_encoder &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -273,10 +273,10 @@
             display-name = "game_lower";
             bindings = <
 // Map specific game macros, F-keys, or inventory shortcuts here
-&tog GAMING     &kp F1      &kp F2      &kp F3      &kp F4  &kp F5                          &trans &trans &trans &trans &trans &trans
+&tog GAMING     &kp F1      &kp F2      &kp F3      &kp F4  &kp F5                          &trans &trans &trans &trans &trans &none
 &trans          &kp P       &trans      &kp I       &kp U   &kp Y                           &trans &trans &trans &trans &trans &trans
 &trans          &trans      &trans      &trans      &kp J   &kp H                           &trans &trans &trans &trans &trans &trans
-&trans          &kp FSLH    &kp DOT     &kp COMMA   &kp M   &kp N    &trans                 &trans &trans &trans &trans &trans &trans
+&trans          &kp FSLH    &kp DOT     &kp COMMA   &kp M   &kp N    &none                  &trans &trans &trans &trans &trans &trans
                                         &trans      &trans  &trans   &trans        &trans   &trans &trans &trans
             >;
         };
