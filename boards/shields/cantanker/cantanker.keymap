@@ -130,11 +130,11 @@
         };
 
         // Tap-Dance (Tap/Hold = Shift | Double-Tap/Hold = Super)
-        td_ss: tap_dance_shift_super {
+        td_se: tap_dance_shift_esc {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp LSHIFT>, <&kp LGUI>;
+            bindings = <&kp LSHIFT>, <&kp ESC>;
         };
 
         // Custom Home Row Mod (Tuned so you don't accidentally trigger modifiers when typing fast)
@@ -189,7 +189,7 @@
             bindings = <
 &esc_shift_ctrl     &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                              &kp N6          &kp N7          &kp N8          &kp N9      &kp N0          &none
 &kp TAB             &kp Q           &kp W           &kp E           &kp R           &kp T                               &kp Y           &kp U           &kp I           &kp O       &kp P           &kp MINUS
-&td_ss              &hm LCTRL A     &hm LALT S      &hm LSHIFT D    &hm LGUI F      &kp G                               &kp H           &hm RGUI J      &hm RSHIFT K    &hm RALT L  &hm RCTRL SEMI   &kp SQT
+&td_se              &hm LCTRL A     &hm LALT S      &hm LSHIFT D    &hm LGUI F      &kp G                               &kp H           &hm RGUI J      &hm RSHIFT K    &hm RALT L  &hm RCTRL SEMI   &kp SQT
 &kp LCTRL           &kp Z           &kp X           &kp C           &kp V           &kp B       &none                   &kp N           &kp M           &kp COMMA       &kp DOT     &kp FSLH        &kp EQUAL
                                                     &kp LALT        &kp LGUI        &mo UPPER   &kp SPACE   &kp BSPC    &kp RET         &mo LOWER       &kp DEL
                         >;
